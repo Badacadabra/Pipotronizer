@@ -2,7 +2,6 @@
   "phrase": {
     "accroche": {
       "manager": [
-        "En amont,",
         "Au jour d'aujourd'hui,",
         "Évidemment,",
         "Bien entendu,",
@@ -50,18 +49,18 @@
         "Je dois vous informer que"
       ],
       "consultant": [
-        "In fine",
+        "In fine,",
         "En termes business,",
         "Sur ce micro-segment,",
         "Pour contrebalancer la stagflation,",
         "Compte tenu du bilan,",
         "Comme indiqué dans les statuts,",
-        "Si l'on en croit les dernières analyses,",
+        "Si l'on en croit l'analyse PESTEL,",
         "Parallèlement aux objectifs,",
         "Quel que soit le use case,",
-        "Considérant les objectifs court-termistes,",
+        "Au vu des objectifs court-termistes,",
         "En accord avec le top management,",
-        "Parce que les indicateurs sont au vert,",
+        "Les indicateurs étant au vert,",
         "Étant donné que nous sommes dans le rouge,",
         "Quand le marché s'autorégule,",
         "Pour gagner en flexicurité,",
@@ -77,6 +76,7 @@
         "Pour être au point ASAP,",
         "Stratégiquement parlant,",
         "Pour atteindre l'optimum de Pareto,",
+        "Compte tenu de la chaîne de valeur,",
         "Pour résister aux 5 forces de Porter,",
         "Conjoncturellement ou structurellement,",
         "Horizontalement ou verticalement,",
@@ -85,7 +85,7 @@
         "C'est pour cette raison tangible que",
         "Le diagramme de Gantt montre que",
         "Mon expertise en consulting m'oblige à vous dire que",
-        "En ma qualité de consultant, je dois vous dire que",
+        "En ma qualité de consultant senior, je dois vous dire que",
         "La nature transversale de cette activité fait que",
         "Sur mes slides, vous pouvez noter que",
         "Vous le voyez sur le PowerPoint :",
@@ -100,26 +100,45 @@
           "masculin": {
             "singulier": [
               "le client",
+              "le consultant",
+              "le CE",
+              "le PDG",
+              "le grand patron",
               "le chef de projet",
+              "le manager",
+              "l'intervenant",
+              "l'expert technique",
               "le directeur marketing",
               "le directeur de la communication",
               "le directeur financier",
               "le directeur des systèmes d'information",
               "le directeur des ressources humaines",
-              "mon responsable",
+              "le freelance",
+              "le community manager",
               "mon tuteur de stage",
+              "mon responsable",
+              "mon boss",
               "mon voisin de bureau"
             ],
             "pluriel": [
               "les collègues",
+              "les experts techniques",
+              "les intervenants",
               "les clients",
               "les concurrents",
               "les responsables",
               "les partenaires",
+              "les partenariats",
+              "les prestataires",
               "les cadres",
+              "les managers",
+              "les techniciens",
+              "les ingénieurs",
               "les employés",
               "les salariés",
               "les membres de l'équipe",
+              "les freelances",
+              "les community managers",
               "mes voisins de bureau"
             ]
           },
@@ -128,8 +147,7 @@
               "la cliente",
               "la direction",
               "l'équipe",
-              "le manager",
-              "le consultant",
+              "la R&D",
               "la concurrence",
               "la comptabilité",
               "la secrétaire",
@@ -144,14 +162,15 @@
             "pluriel": [
               "les équipes",
               "les clientes",
-              "les managers",
-              "les consultants",
               "les secrétaires",
               "les entreprises concurrentes",
               "les parties prenantes",
               "les employées",
               "les salariées",
-              "mes voisines de bureau"
+              "mes voisines de bureau",
+              "les SSII",
+              "les ESN",
+              "les PME"
             ]
           }
         },
@@ -165,13 +184,14 @@
               "le comité exécutif",
               "le comité de pilotage",
               "le comité opérationnel",
-              "le capital-risque",
+              "le conseil d'administration",
               "le Key Account Manager",
               "notre actionnaire majoritaire",
               "notre fournisseur",
               "notre investisseur",
               "le DRH",
               "le DSI",
+              "le CM",
               "mon N+1",
               "mon N+2"
             ],
@@ -179,6 +199,7 @@
               "les cabinets de conseil",
               "les leaders",
               "les startuppeurs",
+              "nos sponsors",
               "nos prospects",
               "nos actionnaires",
               "nos fournisseurs",
@@ -334,6 +355,7 @@
           "débriefer",
           "dimensionner",
           "décloisonner",
+          "désenclaver",
           "piloter",
           "délocaliser",
           "restructurer",
@@ -348,7 +370,17 @@
           "valoriser",
           "planifier",
           "résilier",
-          "zapper"
+          "zapper",
+          "révolutionner",
+          "solutionner",
+          "démarcher",
+          "requalifier",
+          "déployer",
+          "transformer",
+          "réformer",
+          "rectifier",
+          "coordonner",
+          "orienter"
         ],
         "conjugué": {
           "singulier": [
@@ -360,6 +392,7 @@
             "débriefe",
             "dimensionne",
             "décloisonne",
+            "désenclave",
             "pilote",
             "délocalise",
             "restructure",
@@ -374,7 +407,17 @@
             "valorise",
             "planifie",
             "résilie",
-            "zappe"
+            "zappe",
+            "révolutionne",
+            "solutionne",
+            "démarche",
+            "requalifie",
+            "déploie",
+            "transforme",
+            "réforme",
+            "rectifie",
+            "coordonne",
+            "oriente"
           ],
           "pluriel": [
             "flexibilisent",
@@ -385,6 +428,7 @@
             "débriefent",
             "dimensionnent",
             "décloisonnent",
+            "désenclavent",
             "pilotent",
             "délocalisent",
             "restructurent",
@@ -399,7 +443,17 @@
             "valorisent",
             "planifient",
             "résilient",
-            "zappent"
+            "zappent",
+            "révolutionnent",
+            "solutionnent",
+            "démarchent",
+            "requalifient",
+            "déploient",
+            "transforment",
+            "réforment",
+            "rectifient",
+            "coordonnent",
+            "orientent"
           ]
         }
       },
@@ -432,6 +486,7 @@
           "resizer",
           "viraliser",
           "shortlister",
+          "rebondir sur",
           "leverager",
           "back-tester"
         ],
@@ -464,6 +519,7 @@
             "resize",
             "viralise",
             "shortliste",
+            "rebondit sur",
             "leverage",
             "back-teste"
           ],
@@ -495,6 +551,7 @@
             "resizent",
             "viralisent",
             "shortlistent",
+            "rebondissent sur",
             "leveragent",
             "back-testent"
           ]
@@ -514,11 +571,9 @@
               "le networking",
               "le bonus",
               "le contrat",
-              "l'arbitrage",
               "le risque",
               "l'incident",
               "le développement",
-              "le partenaire",
               "le projet",
               "le forfait",
               "le diagnostic",
@@ -527,27 +582,26 @@
               "le financement",
               "le prix",
               "le coût",
-              "le produit",
-              "le dossier",
-              "le test"
+              "un produit",
+              "un dossier",
+              "un test"
             ],
             "pluriel": [
               "les bonus",
               "les contrats",
-              "les arbitrages",
               "les risques",
               "les incidents",
               "les développements",
-              "les projets",
+              "les financements",
               "les diagnostics",
               "les devis",
               "les déficits",
-              "les financements",
               "les prix",
               "les coûts",
               "les produits",
-              "les dossiers",
-              "les tests"
+              "des dossiers",
+              "des tests",
+              "des projets"
             ]
           },
           "féminin": {
@@ -564,13 +618,11 @@
               "la conversion",
               "l'agilité",
               "la vision",
-              "la saisie",
+              "la crédibilité",
               "la responsabilité",
               "la croissance",
               "la globalisation",
               "la problématique",
-              "la gouvernance",
-              "la compétitivité",
               "la gestion",
               "la transaction",
               "la facture",
@@ -602,12 +654,15 @@
             "singulier": [
               "le cycle en V",
               "le draft",
+              "le potentiel",
               "l'organigramme",
               "le lean management",
               "le compte-rendu",
+              "l'arbitrage",
               "le turnover",
               "le circuit de distribution",
               "le cahier des charges",
+              "le capital-risque",
               "l'e-business",
               "l'intrapreneuriat",
               "le pilotage",
@@ -628,6 +683,7 @@
               "l'item",
               "le back-office",
               "le workshop",
+              "le wording",
               "notre process",
               "un appel d'offres",
               "un acompte",
@@ -635,6 +691,7 @@
               "le besoin en fonds de roulement",
               "l'actif",
               "le passif",
+              "le dispositif",
               "le multitâche",
               "le compte de résultat",
               "l'exercice comptable",
@@ -645,12 +702,13 @@
               "le CRM"
             ],
             "pluriel": [
+              "les arbitrages",
               "les comptes-rendus",
               "les livrables",
               "les litiges",
               "les metrics",
-              "les charges",
               "les intérêts",
+              "les bénéfices",
               "les dividendes",
               "les portefeuilles",
               "les benchmarks",
@@ -666,11 +724,12 @@
               "les appels d'offres",
               "les fonds spéculatifs",
               "les fonds propres",
+              "les atouts",
               "les actifs",
               "les passifs",
+              "les dispositifs",
               "les flux de trésorerie",
               "les jalons",
-              "les tableaux de bord",
               "les axes d'amélioration"
             ]
           },
@@ -682,27 +741,37 @@
               "la réu'",
               "la régie",
               "l'employabilité",
+              "la compétitivité",
               "la deadline",
               "la todo list",
               "la checklist",
+              "la méthodologie",
               "la fusion-acquisition",
               "la rétention",
+              "la cible",
+              "l'infrastructure",
+              "la gouvernance",
               "l'immobilisation",
               "l'indemnité",
               "une holding",
               "une stock option"
             ],
             "pluriel": [
+              "les cibles",
+              "les infrastructures",
+              "les perspectives",
               "les exigences",
               "les deadlines",
               "les synergies",
-              "nos parts de marché",
+              "les charges",
+              "les méthodologies",
               "les fusions-acquisitions",
               "les immobilisations",
               "les indemnités",
               "les subventions",
               "les holdings",
-              "les stock options"
+              "les stock options",
+              "nos parts de marché"
             ]
           }
         },
@@ -716,6 +785,7 @@
               "le conf call",
               "le gap",
               "le reengineering",
+              "le knowledge management",
               "l'opt-in",
               "l'opt-out",
               "le pitch",
@@ -732,6 +802,7 @@
               "le coworking",
               "le growth hacking",
               "le yield management",
+              "le mind mapping",
               "le marketing mix",
               "le cash flow",
               "le matching",
@@ -752,11 +823,16 @@
               "l'EBE",
               "l'EBITDA",
               "l'UX",
+              "le CTR",
+              "le CPC",
+              "le CPM",
+              "le CPA",
+              "le CPL",
               "le mindset",
               "un go/no go"
             ],
             "pluriel": [
-              "nos KPIs",
+              "les KPIs",
               "les assets",
               "les liabilities",
               "les hedge funds",
@@ -764,7 +840,9 @@
               "les inputs",
               "les outputs",
               "les insights",
-              "les plans d'action"
+              "les plans d'action",
+              "les retours d'expérience",
+              "les tableaux de bord"
             ]
           },
           "féminin": {
@@ -893,7 +971,8 @@
               "pérenne",
               "systémique",
               "co-construit",
-              "managérial"
+              "managérial",
+              "soutenable"
             ],
             "pluriel": [
               "institutionnels",
@@ -913,7 +992,8 @@
               "pérennes",
               "systémiques",
               "co-construits",
-              "managériaux"
+              "managériaux",
+              "soutenables"
             ]
           },
           "féminin": {
@@ -935,7 +1015,8 @@
               "pérenne",
               "systémique",
               "co-construite",
-              "managériale"
+              "managériale",
+              "soutenable"
             ],
             "pluriel": [
               "institutionnelles",
@@ -955,7 +1036,8 @@
               "pérennes",
               "systémiques",
               "co-construites",
-              "managériales"
+              "managériales",
+              "soutenables"
             ]
           }
         },
@@ -969,6 +1051,7 @@
               "transverse",
               "motivationnel",
               "situationnel",
+              "communicationnel",
               "scalable",
               "asymétrique",
               "click & mortar",
@@ -981,7 +1064,8 @@
               "data-driven",
               "win-win",
               "full-time",
-              "touchy"
+              "touchy",
+              "2.0"
             ],
             "pluriel": [
               "proactifs",
@@ -991,6 +1075,7 @@
               "transverses",
               "motivationnels",
               "situationnels",
+              "communicationnels",
               "scalables",
               "asymétriques",
               "click & mortar",
@@ -1003,7 +1088,8 @@
               "data-driven",
               "win-win",
               "full-time",
-              "touchy"
+              "touchy",
+              "2.0"
             ]
           },
           "féminin": {
@@ -1015,6 +1101,7 @@
               "transverse",
               "motivationnelle",
               "situationnelle",
+              "communicationnelle",
               "scalable",
               "asymétrique",
               "click & mortar",
@@ -1027,7 +1114,8 @@
               "data-driven",
               "win-win",
               "full-time",
-              "touchy"
+              "touchy",
+              "2.0"
             ],
             "pluriel": [
               "proactives",
@@ -1037,6 +1125,7 @@
               "transverses",
               "motivationnelles",
               "situationnelles",
+              "communicationnelles",
               "scalables",
               "asymétriques",
               "click & mortar",
@@ -1049,7 +1138,8 @@
               "data-driven",
               "win-win",
               "full-time",
-              "touchy"
+              "touchy",
+              "2.0"
             ]
           }
         }
@@ -1070,7 +1160,6 @@
           "en sous-traitant",
           "en externalisant",
           "en implémentant",
-          "en motivant",
           "en se positionnant sur",
           "en rentabilisant",
           "en analysant",
@@ -1089,6 +1178,7 @@
           "en débriefant",
           "en dimensionnant",
           "en décloisonnant",
+          "en désenclavant",
           "en pilotant",
           "en délocalisant",
           "en restructurant",
@@ -1104,6 +1194,16 @@
           "en planifiant",
           "en résiliant",
           "en zappant",
+          "en révolutionnant",
+          "en solutionnant",
+          "en démarchant",
+          "en requalifiant",
+          "en déployant",
+          "en transformant",
+          "en réformant",
+          "en rectifiant",
+          "en coordonnant",
+          "en orientant",
           "en auditant",
           "en ordonnançant",
           "en brainstormant sur",
@@ -1131,54 +1231,100 @@
           "en resizant",
           "en viralisant",
           "en shortlistant",
+          "en rebondissant sur",
           "en leverageant",
           "en back-testant"
         ]
       },
       "bouquetFinal": {
         "manager": [
+          "efficacement",
           "avec rigueur",
           "avec pragmatisme",
           "avec sérieux",
           "avec assurance",
           "avec confiance",
+          "avec professionnalisme",
           "sans concession",
           "sans difficulté",
           "sans faire chuter les ventes",
           "sans perte de profit",
+          "sans perdre de vue la finalité",
+          "sans compromettre la performance",
           "depuis le dernier projet",
           "depuis la visite du client dans nos locaux",
+          "depuis la conclusion de cette bonne affaire",
+          "depuis le plan social",
+          "depuis le lancement de la nouvelle gamme",
+          "selon les termes du présent contrat",
           "en tenant compte des enjeux",
+          "en s'adaptant aux tendances",
+          "en considérant tous les paramètres",
+          "tout en respectant nos engagements",
+          "tout en répondant aux attentes des clients",
           "tout en acceptant la réalité économique",
+          "comme le ferait certainement le CTO",
+          "grâce à des économies d'échelle",
           "grâce à notre action",
           "grâce à une veille constante",
+          "grâce aux délocalisations",
+          "grâce à une réduction des coûts",
+          "à cause du retard accumulé",
+          "à cause d'un manque d'anticipation",
+          "à cause d'un lancement raté",
           "malgré une situation délicate",
-          "en dépit d'une situation favorable",
-          "à cause du retard accumulé"
+          "malgré un début d'année difficile",
+          "malgré un buget serré",
+          "en dépit d'une situation défavorable",
+          "en dépit d'un premier trimestre en demi-teinte",
+          "parce que le client est roi",
+          "puisque nous n'avons pas de solution de secours"
         ],
         "consultant": [
           "en one-to-one",
+          "en amont",
           "from scratch",
           "out of the box",
           "made in France",
-          "avec une approche prospective",
-          "comme un chef de projet expérimenté",
-          "comme un consultant senior",
-          "comme le ferait le CTO",
+          "à la sauce US",
+          "à forte valeur ajoutée",
+          "à la conquête de nouvelles opportunités",
           "lors de chaque daily scrum",
           "dans une optique de fidélisation",
-          "jusqu'à la prochaine réunion",
+          "avant la levée de fonds",
+          "jusqu'au prochain meeting",
+          "jusqu'à la prochaine mission",
+          "avec une approche prospective",
+          "avec une vraie expertise métier",
           "avec une dimension corporate",
+          "avec un sens aigu de l'organisation",
+          "avec une bonne compréhension des mécanismes internes",
           "sans proposition de valeur",
+          "sans perdre de vue notre cœur de cible",
+          "sans transiger avec les do's & don'ts de l'entreprise",
           "et en pushant tout dans le pipe",
           "et en surévaluant les performances réelles",
           "et en faisant preuve de réalisme",
           "et en jonglant avec les data",
+          "et en se basant sur les enseignements de la matrice McKinsey",
+          "tout en étant en phase avec les prévisions",
+          "tout en étant en synergie avec les collaborateurs",
+          "tout en comprenant le macro-environnement de l'entreprise",
+          "tout en considérant la pyramide de Maslow",
+          "grâce à une vigilance de tous les instants",
+          "grâce à une ambition internationale",
           "à cause de contours mal définis",
-          "par le biais d'une OPA",
-          "malgré un manque d'expérience sur ces questions",
+          "à cause d'un déplacement de la courbe d'offre",
+          "à cause d'une instabilité de la demande",
+          "selon les concepts du framework AARRR",
+          "par le biais d'une fusion conglomérale",
+          "malgré un manque d'expérience sur ces questions majeures",
+          "malgré un taux de pénétration moyen",
+          "via une OPA",
+          "parce que business is business",
           "(bien que nous soyons charrette)",
-          "(cf. mon rapport de mission)"
+          "(cf. mon rapport de mission)",
+          "(voir mon CSV)"
         ]
       }
     }
