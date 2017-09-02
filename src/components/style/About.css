@@ -1,0 +1,9 @@
+.about {
+  padding: 30px 0;
+  background: url('../../images/clouds.jpg') fixed no-repeat 0 0;
+}
+
+.about h2 {
+  text-align: center;
+  margin-bottom: 50px;
+}

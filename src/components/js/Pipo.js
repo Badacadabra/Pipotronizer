@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import lexique from './lexique.json';
+import {Grid, Row, Col} from 'react-bootstrap';
+import lexique from '../../lexique.json';
+import '../style/Pipo.css';
+import windmill1 from '../../images/windmill-min-1.png';
+import windmill2 from '../../images/windmill-min-2.png';
+import windmill3 from '../../images/windmill-min-3.png';
+import pinwheel from '../../images/pinwheel.png';
+import donate from '../../images/donate.png';
 
 class Pipo extends Component {
   constructor(props) {
@@ -9,7 +16,8 @@ class Pipo extends Component {
       genre: 'masculin',
       nombre: 'singulier'
     };
-    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.getSentence = this.getSentence.bind(this);
+    this.changeLevel = this.changeLevel.bind(this);
   }
 
   randomize(arr) {
@@ -36,33 +44,7 @@ class Pipo extends Component {
     return newStr;
   }
 
-  handleButtonClick(e) {
-    switch (e.target.textContent) {
-      case 'Stagiaire':
-        this.setState(prevState => ({
-          niveau: 'stagiaire'
-        }));
-        break;
-      case 'Manager':
-        this.setState(prevState => ({
-          niveau: 'manager'
-        }));
-        break;
-      case 'Consultant':
-        this.setState(prevState => ({
-          niveau: 'consultant'
-        }));
-        break;
-      default:
-        throw new Error('Incorrect level!');
-    }
-  }
-
-  capitalize(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
-  render() {
+  getSentence() {
     let accroches = lexique.phrase.accroche[this.state.niveau],
         sujets = lexique.phrase.sujet.groupeNominal[this.state.niveau][this.state.genre][this.state.nombre],
         verbes = lexique.phrase.verbe[this.state.niveau].conjugué[this.state.nombre],
@@ -105,12 +87,53 @@ class Pipo extends Component {
       throw new Error('Incorrect level!');
     }
 
+    return phrase;
+  }
+
+  changeLevel(e) {
+    let level = e.target.value,
+        levels = ['stagiaire', 'manager', 'consultant'];
+
+    if (levels.includes(level)) {
+      this.setState(prevState => ({
+        niveau: level
+      }));
+    } else {
+      throw new Error('Incorrect level!');
+    }
+  }
+
+  capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  render() {
+    let sentence = this.getSentence();
+
     return (
       <div className="pipo">
-        <p>{phrase}</p>
-        <button onClick={this.handleButtonClick}>Stagiaire</button>
-        <button onClick={this.handleButtonClick}>Manager</button>
-        <button onClick={this.handleButtonClick}>Consultant</button>
+        <Grid>
+          <Row>
+            <Col xs={12}>
+              <p>{sentence}</p>
+            </Col>
+          </Row>
+        </Grid>
+        <Grid>
+          <Row>
+            <Col className="options" md={4}>
+              <input type="image" src={windmill1} alt="Stagiaire" value="stagiaire" onClick={this.changeLevel} />
+              <input type="image" src={windmill2} alt="Manager" value="manager" onClick={this.changeLevel} />
+              <input type="image" src={windmill3} alt="Consultant" value="consultant" onClick={this.changeLevel} />
+            </Col>
+            <Col md={4}>
+              <input type="image" src={pinwheel} alt="Rafraîchir" onClick={this.getSentence} />
+            </Col>
+            <Col md={4}>
+              <input type="image" src={donate} alt="Faire un don" />
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }
