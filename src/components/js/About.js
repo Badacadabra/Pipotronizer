@@ -10,9 +10,9 @@ class About extends Component {
         <Grid>
           <Row>
             <Col xs={12}>
-              <p><span className="highlight">Pipotronizer</span> est un générateur de phrases corporate qui ne veulent rien dire, mais dont l'utilisation s'avère bien souvent indispensable en réunion.</p>
-              <p>Digne héritier des légendaires <span className="highlight">Pipotron</span> et <span className="highlight">Pipotronic</span> qui ont inspiré vos collaborateurs et alimenté des milliers de PowerPoint, <span className="highlight">Pipotronizer</span> vous propose de brasser du vent de manière durable avec un lexique fumeux d'une richesse inégalée.</p>
-              <p>Grâce à <span className="highlight">Pipotronizer</span>, vous pouvez enfin concilier votre conscience écologique avec vos impératifs professionnels. En effet, chaque fois que vous générez une nouvelle phrase, vous constituez une cagnotte virtuelle que vous pouvez ensuite transformer en don. L'argent ainsi récolté sera utilisé pour financer la construction d'éoliennes.</p>
+              <p><strong>Pipotronizer</strong> est un générateur pseudo-aléatoire de phrases corporate qui ne veulent rien dire, mais dont l'utilisation s'avère bien souvent indispensable en réunion.</p>
+              <p>Digne héritier des légendaires <strong><a href="http://bluepsi.free.fr/cybertechno/pipotron/pipotron.html" target="_blank">Pipotron</a></strong> et <strong><a href="http://pipotronic.com/" target="_blank">Pipotronic</a></strong> qui ont inspiré vos collaborateurs et alimenté des milliers de PowerPoint, ce générateur dernier cri vous propose de brasser du vent de manière durable avec un lexique fumeux d'une richesse inégalée.</p>
+              <p>Grâce à <strong>Pipotronizer</strong>, vous allez enfin pouvoir concilier votre conscience écologique avec vos impératifs professionnels. En effet, à chaque fois que vous générez une nouvelle phrase, et en fonction de la force du vent, vous constituez une cagnotte virtuelle que vous pouvez ensuite transformer en don. L'argent ainsi récolté sera utilisé pour financer la construction d'éoliennes.</p>
             </Col>
           </Row>
         </Grid>

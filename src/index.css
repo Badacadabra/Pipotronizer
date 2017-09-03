@@ -1,7 +1,15 @@
 @font-face {
   font-family: 'hammerhead';
-  src: url('fonts/hammerheadblack-webfont.woff2') format('woff2'),
-       url('fonts/hammerheadblack-webfont.woff') format('woff');
+  src: url('fonts/hammerhead/hammerheadblack-webfont.woff2') format('woff2'),
+       url('fonts/hammerhead/hammerheadblack-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'tradewinds';
+  src: url('fonts/tradewinds/tradewinds-regular-webfont.woff2') format('woff2'),
+       url('fonts/tradewinds/tradewinds-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -10,7 +18,7 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: hammerhead;
+  font-family: hammerhead, sans-serif;
   font-size: 25px;
   line-height: 30px;
 }
@@ -18,4 +26,8 @@ body {
 h1, h2, h3 {
   font-size: 42px;
   margin: 0;
+}
+
+a:hover {
+  text-decoration: none;
 }

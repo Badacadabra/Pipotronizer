@@ -1,6 +1,8 @@
 h1.headline {
   text-align: center;
   color: white;
+  font-family: tradewinds, sans-serif;
+  padding: 25px 0;
   background-color: #4D3B2D;
-  padding: 30px 0;
+  background-image: url('../../images/rigid-granite.png');
 }

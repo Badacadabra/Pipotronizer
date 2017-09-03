@@ -1,18 +1,35 @@
 .pipo {
-  min-height: 300px;
+  min-height: 335px;
   font-size: 34px;
-  text-align: center;
-  padding-top: 30px;
+  padding: 30px 0;
+  color: gray;
+  background-color: #181818;
+}
+
+.pipo p {
+  min-height: 120px;
+  line-height: 40px;
 }
 
 .pipo p:before {
+  margin-right: 10px;
   content: url('../../images/quote1.png');
 }
 
-.pipo p:after {
-  content: url('../../images/quote2.png');
+.pipo .options {
+  text-align: center;
 }
 
 .pipo .options input[type="image"] {
-  margin-right: 20px;
+  margin: 30px 20px 0 0;
+  transition: transform .5s ease;
+}
+
+.pipo .options input[type="image"]:hover {
+  opacity: 0.8;
+}
+
+.pipo .options input[type="image"]:focus {
+  outline: none;
+  filter: grayscale(100%);
 }

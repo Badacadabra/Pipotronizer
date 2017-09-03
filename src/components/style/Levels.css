@@ -1,31 +1,66 @@
 .levels {
   text-align: center;
-  padding: 50px 0;
+  padding: 100px 0;
 }
 
 .levels h2 {
   margin-bottom: 50px;
+  font-family: tradewinds, sans-serif;
 }
 
-.levels figure figcaption {
+@keyframes pinwheel-rotation {
+  from { transform: rotate(0); }
+  to { transform: rotate(360deg); }
+}
+
+/* Pinwheels */
+
+.levels .pinwheels figure .stick {
+  position: relative;
+  top: 22px;
+  left: -45px;
+  z-index: 1;
+}
+
+.levels .pinwheels figure .wheel {
+  position: relative;
+  z-index: 2;
+}
+
+.levels .pinwheels figure.intern .wheel {
+  animation: pinwheel-rotation 3s linear infinite;
+}
+
+.levels .pinwheels figure.manager .wheel {
+  animation: pinwheel-rotation 0.9s linear infinite;
+}
+
+.levels .pinwheels figure.consultant .wheel {
+  animation: pinwheel-rotation 0.5s linear infinite;
+}
+
+/* Windmills */
+
+.levels .windmills figure figcaption {
   width: 300px;
   min-height: 60px;
   margin: auto;
   margin-top: 20px;
   padding: 15px;
+  border-radius: 10px;
 }
 
-.levels figure#intern figcaption {
+.levels .windmills figure.intern figcaption {
   color: black;
   background-color: #F4BF31;
 }
 
-.levels figure#manager figcaption {
+.levels .windmills figure.manager figcaption {
   color: #206874;
   background-color: #44DBBD;
 }
 
-.levels figure#consultant figcaption {
+.levels .windmills figure.consultant figcaption {
   color: #5F5F5F;
   background-color: #9FD7FC;
 }

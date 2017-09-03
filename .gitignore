@@ -21,3 +21,4 @@ yarn-debug.log*
 yarn-error.log*
 
 tags
+/src/images/rigid-granit.png

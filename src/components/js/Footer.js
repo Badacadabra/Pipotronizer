@@ -12,14 +12,18 @@ class Footer extends Component {
           <Row>
             <Col md={4}>
               <h3>Pipotronizer 2.0</h3>
-              <figure>
-                <img src={facebook} alt="@Pipotronizer sur Facebook" />
-                <figcaption className="facebook">@Pipotronizer</figcaption>
-              </figure>
-              <figure>
-                <img src={twitter} alt="@Pipotronizer sur Twitter" />
-                <figcaption className="twitter">@Pipotronizer</figcaption>
-              </figure>
+              <a href="https://www.facebook.com/badacadabra.net/" target="_blank">
+                <figure>
+                  <img src={facebook} alt="@Pipotronizer sur Facebook" />
+                  <figcaption className="facebook">@Pipotronizer</figcaption>
+                </figure>
+              </a>
+              <a href="https://twitter.com/badacadabra" target="_blank">
+                <figure>
+                  <img src={twitter} alt="@Pipotronizer sur Twitter" />
+                  <figcaption className="twitter">@Pipotronizer</figcaption>
+                </figure>
+              </a>
               <h3>Partagez !</h3>
               <div>Share This</div>
             </Col>

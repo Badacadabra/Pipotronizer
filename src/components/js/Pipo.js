@@ -5,14 +5,12 @@ import '../style/Pipo.css';
 import windmill1 from '../../images/windmill-min-1.png';
 import windmill2 from '../../images/windmill-min-2.png';
 import windmill3 from '../../images/windmill-min-3.png';
-import pinwheel from '../../images/pinwheel.png';
 import donate from '../../images/donate.png';
 
 class Pipo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      niveau: 'stagiaire',
       genre: 'masculin',
       nombre: 'singulier'
     };
@@ -45,13 +43,13 @@ class Pipo extends Component {
   }
 
   getSentence() {
-    let accroches = lexique.phrase.accroche[this.state.niveau],
-        sujets = lexique.phrase.sujet.groupeNominal[this.state.niveau][this.state.genre][this.state.nombre],
-        verbes = lexique.phrase.verbe[this.state.niveau].conjugué[this.state.nombre],
-        compléments = lexique.phrase.complément.groupeNominal[this.state.niveau][this.state.genre][this.state.nombre],
-        adjectifs = lexique.phrase.complément.adjectif[this.state.niveau][this.state.genre][this.state.nombre],
-        liaisons = lexique.phrase.complément.liaison[this.state.niveau],
-        bouquetsFinaux = lexique.phrase.complément.bouquetFinal[this.state.niveau];
+    let accroches = lexique.phrase.accroche[this.props.level],
+        sujets = lexique.phrase.sujet.groupeNominal[this.props.level][this.state.genre][this.state.nombre],
+        verbes = lexique.phrase.verbe[this.props.level].conjugué[this.state.nombre],
+        compléments = lexique.phrase.complément.groupeNominal[this.props.level][this.state.genre][this.state.nombre],
+        adjectifs = lexique.phrase.complément.adjectif[this.props.level][this.state.genre][this.state.nombre],
+        liaisons = lexique.phrase.complément.liaison[this.props.level],
+        bouquetsFinaux = lexique.phrase.complément.bouquetFinal[this.props.level];
 
     let phrase = "",
         s1 = "",
@@ -65,23 +63,23 @@ class Pipo extends Component {
         s9 = "";
 
     // Manager ou Consultant
-    if (this.state.niveau !== 'stagiaire') {
+    if (this.props.level !== 'stagiaire') {
       s1 = this.getSubstring(accroches);
       s9 = this.getSubstring(bouquetsFinaux);
 
       // Consultant uniquement
-      if (this.state.niveau === 'consultant') {
+      if (this.props.level === 'consultant') {
         s6 = this.getSubstring(liaisons);
         s7 = this.getSubstring(compléments, s4);
         s8 = this.getSubstring(adjectifs, s5);
       }
     }
 
-    if (this.state.niveau === 'stagiaire') {
+    if (this.props.level === 'stagiaire') {
       phrase = `${this.capitalize(s2)} ${s3} ${s4} ${s5}.`;
-    } else if (this.state.niveau === 'manager') {
+    } else if (this.props.level === 'manager') {
       phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s9}.`;
-    } else if (this.state.niveau === 'consultant') {
+    } else if (this.props.level === 'consultant') {
       phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s6} ${s7} ${s8} ${s9}.`;
     } else {
       throw new Error('Incorrect level!');
@@ -95,9 +93,7 @@ class Pipo extends Component {
         levels = ['stagiaire', 'manager', 'consultant'];
 
     if (levels.includes(level)) {
-      this.setState(prevState => ({
-        niveau: level
-      }));
+      this.props.changeLevel(level);
     } else {
       throw new Error('Incorrect level!');
     }
@@ -119,21 +115,11 @@ class Pipo extends Component {
             </Col>
           </Row>
         </Grid>
-        <Grid>
-          <Row>
-            <Col className="options" md={4}>
-              <input type="image" src={windmill1} alt="Stagiaire" value="stagiaire" onClick={this.changeLevel} />
-              <input type="image" src={windmill2} alt="Manager" value="manager" onClick={this.changeLevel} />
-              <input type="image" src={windmill3} alt="Consultant" value="consultant" onClick={this.changeLevel} />
-            </Col>
-            <Col md={4}>
-              <input type="image" src={pinwheel} alt="Rafraîchir" onClick={this.getSentence} />
-            </Col>
-            <Col md={4}>
-              <input type="image" src={donate} alt="Faire un don" />
-            </Col>
-          </Row>
-        </Grid>
+        <div className="options">
+          <input type="image" src={windmill1} alt="Stagiaire" value="stagiaire" onClick={this.changeLevel} />
+          <input type="image" src={windmill2} alt="Manager" value="manager" onClick={this.changeLevel} />
+          <input type="image" src={windmill3} alt="Consultant" value="consultant" onClick={this.changeLevel} />
+        </div>
       </div>
     );
   }

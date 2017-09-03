@@ -8,12 +8,25 @@ import Levels from './Levels';
 import Footer from './Footer';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      niveau: 'stagiaire'
+    };
+  }
+
+  changeLevel(level) {
+    this.setState(prevState => ({
+      niveau: level
+    }));
+  }
+
   render() {
     return (
       <div className="App">
-        <Header situation="Coup de vent" strength="Force 8" speed="65 km/h" />
+        <Header level={this.state.niveau} />
         <Headline />
-        <Pipo />
+        <Pipo level={this.state.niveau} changeLevel={this.changeLevel.bind(this)} />
         <About />
         <Levels />
         <Footer />
