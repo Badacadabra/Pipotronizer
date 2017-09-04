@@ -113,14 +113,14 @@ class Pipo extends Component {
         </Grid>
         <Grid>
           <Row>
-            <Col md={6} className="options">
+            <Col sm={6} className="options">
               <input type="image" src={windmill1} alt="Stagiaire" value="stagiaire" onClick={this.changeLevel} />
               <input type="image" src={windmill2} alt="Manager" value="manager" onClick={this.changeLevel} />
               <input type="image" src={windmill3} alt="Consultant" value="consultant" onClick={this.changeLevel} />
-              <p className="how-to"><a href="#levels">Comment ça marche ?</a></p>
+              <p className="how-to"><a href="#levels">Au secours&#8239;! C'est quoi, tout ça&#8239;?</a></p>
             </Col>
-            <Col md={6} className="money">
-              <span>Cagnotte : {(this.props.money / 100).toFixed(2).replace('.', ',')} €</span>
+            <Col sm={6} className="money">
+              <span>Cagnotte&nbsp;: {(this.props.money / 100).toFixed(2).replace('.', ',')} €</span>
             </Col>
           </Row>
         </Grid>

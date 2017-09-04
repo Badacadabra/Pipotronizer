@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import '../style/Header.css';
-import turbine from '../../images/wind-turbine.png';
-import cloud from '../../images/cloud.png';
-import sign from '../../images/sign.png';
-import post from '../../images/post.png';
-import blades from '../../images/blades.png';
 import blueLandscape from '../../images/blue-landscape.png';
 import grayLandscape from '../../images/gray-landscape.png';
+import post from '../../images/post.png';
+import blades from '../../images/blades.png';
+import cloud from '../../images/cloud.png';
+import sign from '../../images/sign.png';
 
 class Header extends Component {
   displayInfo() {

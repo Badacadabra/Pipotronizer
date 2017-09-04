@@ -8,3 +8,13 @@
   margin-bottom: 50px;
   font-family: tradewinds, sans-serif;
 }
+
+@media screen and (max-width: 768px) {
+  .about h2 {
+    font-size: 25px;
+  }
+
+  .about p {
+    font-size: 22px;
+  }
+}

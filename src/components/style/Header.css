@@ -80,9 +80,7 @@ header .clouds img:nth-of-type(3) {
 }
 
 header .clouds img:last-of-type {
-  top: 87px;
-  left: 1196px;
-  animation: translation 7s linear infinite;
+  display: none;
 }
 
 /* Sign */
@@ -104,4 +102,81 @@ header .sign .info {
   left: 800px;
   line-height: 50px;
   z-index: 5;
+}
+
+/* Media queries */
+
+@media screen and (min-width: 1366px) {
+  header .clouds img:last-of-type {
+    display: initial;
+    top: 87px;
+    left: 1196px;
+    animation: translation 7s linear infinite;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  header .clouds img:nth-of-type(2) {
+    left: 532px;
+  }
+
+  header .clouds img:nth-of-type(3) {
+    left: 392px;
+  }
+
+  header .clouds img:last-of-type {
+    display: none;
+  }
+
+  header .sign img,
+  header .sign .info {
+    left: 640px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  header .turbines figure:last-of-type {
+    display: none;
+  }
+
+  header .clouds img:nth-of-type(2) {
+    left: 332px;
+  }
+
+  header .clouds img:nth-of-type(3) {
+    display: none;
+  }
+
+  header .sign img,
+  header .sign .info {
+    left: 430px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header .turbines figure:nth-of-type(2) {
+    display: none;
+  }
+
+  header .clouds img:nth-of-type(2) {
+    display: none;
+  }
+
+  header .sign img,
+  header .sign .info {
+    left: 230px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  header .sign img {
+    display: none;
+  }
+
+  header .sign .info {
+    font-size: 25px;
+    top: 210px;
+    left: 80px;
+    line-height: 30px;
+  }
 }

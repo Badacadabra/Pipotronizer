@@ -24,16 +24,16 @@ class Footer extends Component {
                   <figcaption className="twitter">@Pipotronizer</figcaption>
                 </figure>
               </a>
-              <h3>Partagez !</h3>
+              <h3>Partagez&#8239;!</h3>
               <div>Share This</div>
             </Col>
             <Col md={4}>
-              <h3>Le geste écolo !</h3>
-              <p>Si vous souhaitez faire un geste pour l'environnement, vous pouvez vous engager à faire un don. L'argent récolté servira à financer des projets de parcs éoliens.</p>
+              <h3>Le geste écolo&#8239;!</h3>
+              <p>Si vous souhaitez faire un geste spontané pour l'environnement, vous pouvez faire un don sans même tenir compte de votre cagnotte dûment constituée. L'argent récolté servira à financer des projets de parcs éoliens.</p>
             </Col>
             <Col md={4}>
               <h3>Contact</h3>
-              <p>Pour toute proposition de termes corporate, ou si <span className="highlight">Pipotronizer</span> vous a été utile dans la préparation de vos réunions, vous pouvez envoyer vos commentaires par mail à cette adresse :</p>
+              <p>Pour toute proposition de termes corporate, un éventuel partenariat, ou si <span className="highlight">Pipotronizer</span> vous a été utile dans la préparation de vos réunions, vous pouvez envoyer vos commentaires par mail à cette adresse&nbsp;:</p>
               <p><a href="mailto:contact@pipotronizer.com" className="highlight">contact@pipotronizer.com</a></p>
             </Col>
           </Row>

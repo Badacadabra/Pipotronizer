@@ -1,7 +1,7 @@
 footer {
   color: white;
-  text-align: center;
-  padding: 50px 0;
+  font-size: 22px;
+  padding: 50px;
   background-color: #181818;
 }
 
@@ -9,6 +9,7 @@ footer h3 {
   font-size: 35px;
   margin-bottom: 30px;
   font-family: tradewinds, sans-serif;
+  text-align: center;
 }
 
 footer figcaption {
@@ -24,4 +25,24 @@ footer .facebook {
 footer .twitter {
   color: #5EC8ED;
   margin-bottom: 30px;
+}
+
+@media screen and (max-width: 992px) {
+  footer {
+    padding: 0 10px;
+  }
+
+  footer h3 {
+    margin-top: 50px;
+  }
+
+  footer .twitter {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  footer h3 {
+    font-size: 25px;
+  }
 }

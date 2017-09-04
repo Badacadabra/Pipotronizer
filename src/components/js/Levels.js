@@ -10,8 +10,8 @@ import stick from '../../images/stick.png';
 class Levels extends Component {
   render() {
     return (
-      <div className="levels">
-        <h2>Contrôlez la force du vent !</h2>
+      <div id="levels" className="levels">
+        <h2>Contrôlez la force du vent&#8239;!</h2>
         <Grid>
           <Row className="pinwheels">
             <Col md={4}>
@@ -39,19 +39,19 @@ class Levels extends Component {
             <Col md={4}>
               <figure className="intern">
                 <img src={windmill1} alt="Bonne brise" />
-                <figcaption>Le stagiaire n'a pas dit son dernier mot !</figcaption>
+                <figcaption>Le stagiaire n'a pas dit son dernier mot&#8239;!</figcaption>
               </figure>
             </Col>
             <Col md={4}>
               <figure className="manager">
                 <img src={windmill2} alt="Coup de vent" />
-                <figcaption>Réveillez le manager qui est en vous !</figcaption>
+                <figcaption>Réveillez le manager qui est en vous&#8239;!</figcaption>
               </figure>
             </Col>
             <Col md={4}>
               <figure className="consultant">
                 <img src={windmill3} alt="Tempête" />
-                <figcaption>Parlez comme un vrai consultant !</figcaption>
+                <figcaption>Parlez comme un vrai consultant&#8239;!</figcaption>
               </figure>
             </Col>
           </Row>

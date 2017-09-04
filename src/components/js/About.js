@@ -6,7 +6,7 @@ class About extends Component {
   render() {
     return (
       <div className="about">
-        <h2>Qu'est-ce que c'est ?</h2>
+        <h2>Qu'est-ce que c'est&#8239;?</h2>
         <Grid>
           <Row>
             <Col xs={12}>
