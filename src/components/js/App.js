@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import '../style/App.css';
+import north from '../../images/north.png';
 import Header from './Header';
 import Headline from './Headline';
 import Pipo from './Pipo';
 import About from './About';
 import Levels from './Levels';
 import Footer from './Footer';
+import ScrollToTop from 'react-scroll-up';
 
 class App extends Component {
   constructor(props) {
@@ -49,6 +51,9 @@ class App extends Component {
         <About />
         <Levels />
         <Footer />
+        <ScrollToTop showUnder={360}>
+          <img src={north} alt="Remonter" />
+        </ScrollToTop>
       </div>
     );
   }
