@@ -5,15 +5,10 @@ import '../style/Pipo.css';
 import windmill1 from '../../images/windmill-min-1.png';
 import windmill2 from '../../images/windmill-min-2.png';
 import windmill3 from '../../images/windmill-min-3.png';
-import donate from '../../images/donate.png';
 
 class Pipo extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      genre: 'masculin',
-      nombre: 'singulier'
-    };
     this.getSentence = this.getSentence.bind(this);
     this.changeLevel = this.changeLevel.bind(this);
   }
@@ -23,12 +18,6 @@ class Pipo extends Component {
   }
 
   getSubstring(arr, currentStr) {
-    // Pour plus de diversité, le genre et le nombre sont générés aléatoirement (utile pour les groupes nominaux)
-    // this.setState(prevState => ({
-      // genre: this.randomize(['masculin', 'féminin']),
-      // nombre: this.randomize(['singulier', 'pluriel'])
-    // }));
-
     // Chaîne qui sera forcément retournée si la fonction est appelée avec un seul argument
     let newStr = this.randomize(arr);
 
@@ -43,11 +32,18 @@ class Pipo extends Component {
   }
 
   getSentence() {
+    let genres = ['masculin', 'féminin'],
+        nombres = ['singulier', 'pluriel'],
+        genreDuSujet = this.randomize(genres),
+        genreDuComplément = this.randomize(genres),
+        nombreDuSujet = this.randomize(nombres),
+        nombreDuComplément = this.randomize(nombres);
+
     let accroches = lexique.phrase.accroche[this.props.level],
-        sujets = lexique.phrase.sujet.groupeNominal[this.props.level][this.state.genre][this.state.nombre],
-        verbes = lexique.phrase.verbe[this.props.level].conjugué[this.state.nombre],
-        compléments = lexique.phrase.complément.groupeNominal[this.props.level][this.state.genre][this.state.nombre],
-        adjectifs = lexique.phrase.complément.adjectif[this.props.level][this.state.genre][this.state.nombre],
+        sujets = lexique.phrase.sujet.groupeNominal[this.props.level][genreDuSujet][nombreDuSujet],
+        verbes = lexique.phrase.verbe[this.props.level].conjugué[nombreDuSujet],
+        compléments = lexique.phrase.complément.groupeNominal[this.props.level][genreDuComplément][nombreDuComplément],
+        adjectifs = lexique.phrase.complément.adjectif[this.props.level][genreDuComplément][nombreDuComplément],
         liaisons = lexique.phrase.complément.liaison[this.props.level],
         bouquetsFinaux = lexique.phrase.complément.bouquetFinal[this.props.level];
 
@@ -111,15 +107,23 @@ class Pipo extends Component {
         <Grid>
           <Row>
             <Col xs={12}>
-              <p>{sentence}</p>
+              <p id="sentence">{sentence}</p>
             </Col>
           </Row>
         </Grid>
-        <div className="options">
-          <input type="image" src={windmill1} alt="Stagiaire" value="stagiaire" onClick={this.changeLevel} />
-          <input type="image" src={windmill2} alt="Manager" value="manager" onClick={this.changeLevel} />
-          <input type="image" src={windmill3} alt="Consultant" value="consultant" onClick={this.changeLevel} />
-        </div>
+        <Grid>
+          <Row>
+            <Col md={6} className="options">
+              <input type="image" src={windmill1} alt="Stagiaire" value="stagiaire" onClick={this.changeLevel} />
+              <input type="image" src={windmill2} alt="Manager" value="manager" onClick={this.changeLevel} />
+              <input type="image" src={windmill3} alt="Consultant" value="consultant" onClick={this.changeLevel} />
+              <p className="how-to"><a href="#levels">Comment ça marche ?</a></p>
+            </Col>
+            <Col md={6} className="money">
+              <span>Cagnotte : {(this.props.money / 100).toFixed(2).replace('.', ',')} €</span>
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }
