@@ -44,6 +44,10 @@
   text-align: right;
 }
 
+.pipo .money .row {
+  margin: 0;
+}
+
 .pipo .money .amount {
   color: #F4BF31;
 }
@@ -82,10 +86,20 @@
   background-color: #F4BF31;
 }
 
+@media screen and (max-width: 992px) {
+  .pipo .money .donate .light-bulb {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .pipo {
-    font-size: 22px;
-    padding: 30px 10px;
+    font-size: 20px;
+    padding: 30px 0;
+  }
+
+  .pipo p#sentence {
+    line-height: 22px;
   }
 
   .pipo .options,
@@ -94,11 +108,21 @@
     padding: 0;
   }
 
+  .pipo .options p.how-to {
+    font-size: 0.9em;
+  }
+
   .pipo .money .donate {
     justify-content: center;
   }
 
   .pipo .options input[type="image"] {
     margin-right: 10px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .pipo .money .donate input[type="submit"] {
+    font-size: 18px;
   }
 }

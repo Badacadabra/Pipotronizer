@@ -174,9 +174,16 @@ header .sign .info {
   }
 
   header .sign .info {
+    width: initial;
+    color: white;
+    text-shadow: 0 0;
     font-size: 25px;
-    top: 210px;
-    left: 80px;
-    line-height: 30px;
+    top: 230px;
+    left: 150px;
+    line-height: 25px;
+  }
+
+  header .sign .info p:last-child {
+    color: #E20613;
   }
 }
