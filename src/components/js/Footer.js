@@ -28,8 +28,14 @@ class Footer extends Component {
               <div>Share This</div>
             </Col>
             <Col md={4}>
-              <h3>Le geste écolo&#8239;!</h3>
-              <p>Si vous souhaitez faire un geste spontané pour l'environnement, vous pouvez faire un don sans même tenir compte de votre cagnotte dûment constituée. L'argent récolté servira à financer des projets de parcs éoliens.</p>
+              <h3>Faire un don</h3>
+              <p>Si vous souhaitez faire un geste spontané pour les plus démunis sur le plan énergétique, vous pouvez faire un don sans même tenir compte de votre cagnotte dûment constituée. L'argent récolté sera intégralement reversé à <a className="highlight" href="https://www.electriciens-sans-frontieres.org/" target="_blank" rel="noopener noreferrer">Électriciens sans frontières</a>.</p>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick" />
+                <input type="hidden" name="hosted_button_id" value="H7KQTUZR3ZXBJ" />
+                <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal, le réflexe sécurité pour payer en ligne" />
+                <img alt="" border="0" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1" />
+              </form>
             </Col>
             <Col md={4}>
               <h3>Contact</h3>

@@ -38,9 +38,48 @@
 }
 
 .pipo .money {
-  margin-top: 48px;
+  color: white;
+  margin-top: 30px;
   font-family: tradewinds, sans-serif;
   text-align: right;
+}
+
+.pipo .money .amount {
+  color: #F4BF31;
+}
+
+.pipo .money .donate {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pipo .money .donate .light-bulb {
+  display: inline-block;
+  width: 31px;
+  height: 50px;
+  background: url('../../images/light-bulbs.png') 0 0;
+}
+
+.pipo .money .donate:hover .light-bulb {
+  background-position: 31px 0;
+}
+
+.pipo .money .donate input[type="submit"] {
+  color: #F4BF31;
+  border: solid 3px #F4BF31;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 20px;
+  font-size: 22px;
+  background-color: initial;
+  transition: background-color .5s ease;
+}
+
+.pipo .money .donate input[type="submit"]:hover {
+  color: black;
+  background-color: #F4BF31;
 }
 
 @media screen and (max-width: 768px) {
@@ -53,6 +92,10 @@
   .pipo .money {
     text-align: center;
     padding: 0;
+  }
+
+  .pipo .money .donate {
+    justify-content: center;
   }
 
   .pipo .options input[type="image"] {

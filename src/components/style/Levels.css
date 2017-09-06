@@ -50,6 +50,10 @@
   border-radius: 10px;
 }
 
+.levels .windmills figure figcaption .price {
+  font-size: 15px;
+}
+
 .levels .windmills figure.intern figcaption {
   color: black;
   background-color: #F4BF31;

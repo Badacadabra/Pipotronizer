@@ -120,7 +120,25 @@ class Pipo extends Component {
               <p className="how-to"><a href="#levels">Au secours&#8239;! C'est quoi, tout ça&#8239;?</a></p>
             </Col>
             <Col sm={6} className="money">
-              <span>Cagnotte&nbsp;: {(this.props.money / 100).toFixed(2).replace('.', ',')} €</span>
+              <Row>
+                <Col sm={12}>
+                  Cagnotte&nbsp;: <span className="amount">{(this.props.money / 100).toFixed(2).replace('.', ',')} €</span>
+                </Col>
+                <Col sm={12}>
+                  <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                    <input type="hidden" name="cmd" value="_donations" />
+                    <input type="hidden" name="charset" value="utf-8" />
+                    <input type="hidden" name="business" value="contact@badacadabra.net" />
+                    <input type="hidden" name="item_name" value="Collecte de fonds pour «&nbsp;Électriciens sans frontières&nbsp;» via Pipotronizer" />
+                    <input type="hidden" name="amount" value={(this.props.money / 100).toFixed(2)} />
+                    <input type="hidden" name="currency_code" value="EUR" />
+                    <div className="donate">
+                      <input type="submit" name="submit" value="Changer en électricité" />
+                      <div className="light-bulb"></div>
+                    </div>
+                  </form>
+                </Col>
+              </Row>
             </Col>
           </Row>
         </Grid>

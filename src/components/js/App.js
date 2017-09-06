@@ -24,13 +24,13 @@ class App extends Component {
 
     switch(level) {
       case 'stagiaire':
-        bonus = 5;
-        break;
-      case 'manager':
         bonus = 10;
         break;
+      case 'manager':
+        bonus = 50;
+        break;
       case 'consultant':
-        bonus = 20;
+        bonus = 100;
         break;
       default:
         throw new Error('Incorrect level!');
