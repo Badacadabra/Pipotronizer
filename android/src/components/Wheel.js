@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Image, Animated, Easing } from 'react-native';
+import { Dimensions, StyleSheet, View, Image, ImageBackground, Animated, Easing } from 'react-native';
 import wheel from '../../assets/images/wheel.png';
 
 export default class Wheel extends Component {
@@ -33,13 +33,19 @@ export default class Wheel extends Component {
     }
 
     return (
-      <Animated.Image source={wheel} style={[styles.wheel, animatedStyle]} />
+      <ImageBackground source={this.props.weather} style={styles.container}>
+        <Animated.Image source={wheel} style={[styles.wheel, animatedStyle]} />
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  wheel: {
-    marginTop: 20
+  container: {
+    width: Dimensions.get('window').width,
+    height: 150,
+    marginTop: 66,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
