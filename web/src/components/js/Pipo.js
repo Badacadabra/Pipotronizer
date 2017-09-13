@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import lexique from '../../lexique.json';
@@ -6,20 +7,29 @@ import windmill1 from '../../images/windmill-min-1.png';
 import windmill2 from '../../images/windmill-min-2.png';
 import windmill3 from '../../images/windmill-min-3.png';
 
-class Pipo extends Component {
-  constructor(props) {
+type Props = {
+  level: string,
+  changeLevel: Function,
+  money: number
+};
+
+class Pipo extends Component<Props, null> {
+  getSentence: Function;
+  changeLevel: Function;
+
+  constructor(props: Props) {
     super(props);
     this.getSentence = this.getSentence.bind(this);
     this.changeLevel = this.changeLevel.bind(this);
   }
 
-  randomize(arr) {
+  randomize(arr: string[]): string {
     return arr[Math.floor(Math.random() * arr.length)];
   }
 
-  getSubstring(arr, currentStr) {
+  getSubstring(arr: string[], currentStr?: string): string {
     // Chaîne qui sera forcément retournée si la fonction est appelée avec un seul argument
-    let newStr = this.randomize(arr);
+    let newStr: string = this.randomize(arr);
 
     // Le deuxième argument est utile pour éviter d'avoir 2 fois la même sous-chaîne dans une phrase
     if (currentStr) {
@@ -31,32 +41,32 @@ class Pipo extends Component {
     return newStr;
   }
 
-  getSentence() {
-    let genres = ['masculin', 'féminin'],
-        nombres = ['singulier', 'pluriel'],
-        genreDuSujet = this.randomize(genres),
-        genreDuComplément = this.randomize(genres),
-        nombreDuSujet = this.randomize(nombres),
-        nombreDuComplément = this.randomize(nombres);
+  getSentence(): string {
+    let genres: string[] = ['masculin', 'féminin'],
+        nombres: string[] = ['singulier', 'pluriel'],
+        genreDuSujet: string = this.randomize(genres),
+        genreDuComplément: string = this.randomize(genres),
+        nombreDuSujet: string = this.randomize(nombres),
+        nombreDuComplément: string = this.randomize(nombres);
 
-    let accroches = lexique.phrase.accroche[this.props.level],
-        sujets = lexique.phrase.sujet.groupeNominal[this.props.level][genreDuSujet][nombreDuSujet],
-        verbes = lexique.phrase.verbe[this.props.level].conjugué[nombreDuSujet],
-        compléments = lexique.phrase.complément.groupeNominal[this.props.level][genreDuComplément][nombreDuComplément],
-        adjectifs = lexique.phrase.complément.adjectif[this.props.level][genreDuComplément][nombreDuComplément],
-        liaisons = lexique.phrase.complément.liaison[this.props.level],
-        bouquetsFinaux = lexique.phrase.complément.bouquetFinal[this.props.level];
+    let accroches: string[] = lexique.phrase.accroche[this.props.level],
+        sujets: string[] = lexique.phrase.sujet.groupeNominal[this.props.level][genreDuSujet][nombreDuSujet],
+        verbes: string[] = lexique.phrase.verbe[this.props.level].conjugué[nombreDuSujet],
+        compléments: string[] = lexique.phrase.complément.groupeNominal[this.props.level][genreDuComplément][nombreDuComplément],
+        adjectifs: string[] = lexique.phrase.complément.adjectif[this.props.level][genreDuComplément][nombreDuComplément],
+        liaisons: string[] = lexique.phrase.complément.liaison[this.props.level],
+        bouquetsFinaux: string[] = lexique.phrase.complément.bouquetFinal[this.props.level];
 
-    let phrase = "",
-        s1 = "",
-        s2 = this.getSubstring(sujets),
-        s3 = this.getSubstring(verbes),
-        s4 = this.getSubstring(compléments),
-        s5 = this.getSubstring(adjectifs),
-        s6 = "",
-        s7 = "",
-        s8 = "",
-        s9 = "";
+    let phrase: string = "",
+        s1: string = "",
+        s2: string = this.getSubstring(sujets),
+        s3: string = this.getSubstring(verbes),
+        s4: string = this.getSubstring(compléments),
+        s5: string = this.getSubstring(adjectifs),
+        s6: string = "",
+        s7: string = "",
+        s8: string = "",
+        s9: string = "";
 
     // Manager ou Consultant
     if (this.props.level !== 'stagiaire') {
@@ -84,9 +94,9 @@ class Pipo extends Component {
     return phrase;
   }
 
-  changeLevel(e) {
-    let level = e.target.value,
-        levels = ['stagiaire', 'manager', 'consultant'];
+  changeLevel(e: Object): void {
+    let level: string = e.target.value,
+        levels: string[] = ['stagiaire', 'manager', 'consultant'];
 
     if (levels.includes(level)) {
       this.props.changeLevel(level);
@@ -95,12 +105,12 @@ class Pipo extends Component {
     }
   }
 
-  capitalize(str) {
+  capitalize(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
   render() {
-    let sentence = this.getSentence();
+    let sentence: string = this.getSentence();
 
     return (
       <div className="pipo">

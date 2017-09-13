@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import '../style/App.css';
 import north from '../../images/north.png';
@@ -9,18 +10,23 @@ import Levels from './Levels';
 import Footer from './Footer';
 import ScrollToTop from 'react-scroll-up';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+type State = {
+  level: string,
+  money: number
+};
+
+class App extends Component<null, State> {
+  constructor() {
+    super();
     this.state = {
       level: 'manager',
       money: 0
     };
   }
 
-  changeLevel(level) {
+  changeLevel(level: string):void {
     // La cagnotte augmente d'autant plus que le niveau est élevé !
-    let bonus = 0;
+    let bonus: number = 0;
 
     switch(level) {
       case 'stagiaire':

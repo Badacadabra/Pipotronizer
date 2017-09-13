@@ -1,3 +1,4 @@
+// @flow
 import React, { Component } from 'react';
 import '../style/Header.css';
 import blueLandscape from '../../images/blue-landscape.png';
@@ -7,9 +8,19 @@ import blades from '../../images/blades.png';
 import cloud from '../../images/cloud.png';
 import sign from '../../images/sign.png';
 
-class Header extends Component {
-  displayInfo() {
-    let info = {};
+type Props = {
+  level: string
+};
+
+class Header extends Component<Props, null> {
+  displayInfo(): {
+      background: string,
+      description: string,
+      strength: string,
+      speed: string,
+      rotationTime: string
+    } {
+    let info: Object = {};
     switch (this.props.level) {
       case 'stagiaire':
         info.background = blueLandscape;
@@ -39,14 +50,27 @@ class Header extends Component {
   }
 
   render() {
-    let info = this.displayInfo(),
-        animate = {
-          animation: `rotation ${info.rotationTime} linear infinite`
-        },
-        sky = {
-          backgroundImage: `url('${info.background}')`
-        },
-        clouds = null;
+    let info: {
+      background: string,
+      description: string,
+      strength: string,
+      speed: string,
+      rotationTime: string
+    } = this.displayInfo();
+
+    let animate: {
+      animation: string
+    } = {
+      animation: `rotation ${info.rotationTime} linear infinite`
+    };
+
+    let sky: {
+      backgroundImage: string
+    } = {
+      backgroundImage: `url('${info.background}')`
+    };
+
+    let clouds: Object;
 
     if (this.props.level !== 'stagiaire') {
       clouds = (
