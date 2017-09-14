@@ -54,7 +54,7 @@ class App extends Component<null, State> {
         <Header level={this.state.level} />
         <Headline />
         <Pipo level={this.state.level} money={this.state.money} changeLevel={this.changeLevel.bind(this)} />
-        <About />
+        <About level={this.state.level} />
         <Levels />
         <Footer />
         <ScrollToTop showUnder={360}>
