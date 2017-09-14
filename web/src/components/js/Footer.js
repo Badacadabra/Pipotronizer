@@ -3,6 +3,7 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import '../style/Footer.css';
 import facebook from '../../images/facebook.png';
 import twitter from '../../images/twitter.png';
+import github from '../../images/github.png';
 
 class Footer extends Component {
   render() {
@@ -12,20 +13,18 @@ class Footer extends Component {
           <Row>
             <Col md={4}>
               <h3>Pipotronizer 2.0</h3>
-              <a href="https://www.facebook.com/badacadabra.net/" target="_blank" rel="noopener noreferrer">
-                <figure>
+              <div className="social">
+                <a href="https://www.facebook.com/badacadabra.net/" target="_blank" rel="noopener noreferrer">
                   <img src={facebook} alt="@Pipotronizer sur Facebook" />
-                  <figcaption className="facebook">@Pipotronizer</figcaption>
-                </figure>
-              </a>
-              <a href="https://twitter.com/badacadabra" target="_blank" rel="noopener noreferrer">
-                <figure>
+                </a>
+                <a href="https://twitter.com/badacadabra" target="_blank" rel="noopener noreferrer">
                   <img src={twitter} alt="@Pipotronizer sur Twitter" />
-                  <figcaption className="twitter">@Pipotronizer</figcaption>
-                </figure>
-              </a>
-              <h3>Partagez&#8239;!</h3>
-              <div>Share This</div>
+                </a>
+                <a href="https://github.com/Badacadabra/Pipotronizer" target="_blank" rel="noopener noreferrer">
+                  <img src={github} alt="@Pipotronizer sur GitHub" />
+                </a>
+              </div>
+              <div>Share</div>
             </Col>
             <Col md={4}>
               <h3>Faire un don</h3>
@@ -41,6 +40,13 @@ class Footer extends Component {
               <h3>Contact</h3>
               <p>Pour toute proposition de termes corporate, un éventuel partenariat, ou si <span className="highlight">Pipotronizer</span> vous a été utile dans la préparation de vos réunions, vous pouvez envoyer vos commentaires par mail à cette adresse&nbsp;:</p>
               <p><a href="mailto:contact@pipotronizer.com" className="highlight">contact@pipotronizer.com</a></p>
+            </Col>
+          </Row>
+        </Grid>
+        <Grid fluid className="credits">
+          <Row>
+            <Col md={12}>
+              Brassé avec <span className="red">&hearts;</span> <a href="https://twitter.com/Badacadabra" target="_blank" rel="noopener noreferrer">@Badacadabra</a>
             </Col>
           </Row>
         </Grid>

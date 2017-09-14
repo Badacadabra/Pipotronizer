@@ -1,31 +1,39 @@
 footer {
   color: white;
   font-size: 22px;
-  padding: 50px;
+  padding-top: 50px;
   background-color: #181818;
   line-height: 22px;
 }
 
 footer h3 {
   font-size: 35px;
-  margin-bottom: 30px;
-  font-family: tradewinds, sans-serif;
+  font-family: tradewinds, cursive;
   text-align: center;
-}
-
-footer figcaption {
-  display: inline-block;
-  margin-left: 10px;
-}
-
-footer .facebook {
-  color: #385896;
-  margin-bottom: 10px;
-}
-
-footer .twitter {
-  color: #5EC8ED;
   margin-bottom: 30px;
+}
+
+footer .social {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+footer .credits {
+  color: silver;
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #121212;
+  font-family: tradewinds, cursive;
+}
+
+footer .credits .red {
+  color: #E20613;
+}
+
+footer .credits a {
+  color: gray;
 }
 
 @media screen and (max-width: 992px) {
