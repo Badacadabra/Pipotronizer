@@ -49,13 +49,25 @@ class Pipo extends Component<Props, null> {
         nombreDuSujet: string = this.randomize(nombres),
         nombreDuComplément: string = this.randomize(nombres);
 
-    let accroches: string[] = lexique.phrase.accroche[this.props.level],
-        sujets: string[] = lexique.phrase.sujet.groupeNominal[this.props.level][genreDuSujet][nombreDuSujet],
-        verbes: string[] = lexique.phrase.verbe[this.props.level].conjugué[nombreDuSujet],
-        compléments: string[] = lexique.phrase.complément.groupeNominal[this.props.level][genreDuComplément][nombreDuComplément],
-        adjectifs: string[] = lexique.phrase.complément.adjectif[this.props.level][genreDuComplément][nombreDuComplément],
-        liaisons: string[] = lexique.phrase.complément.liaison[this.props.level],
-        bouquetsFinaux: string[] = lexique.phrase.complément.bouquetFinal[this.props.level];
+    let accroches: string[],
+        sujets: string[],
+        verbes: string[],
+        compléments: string[],
+        adjectifs: string[],
+        liaisons: string[],
+        bouquetsFinaux: string[];
+
+    if (this.isCorrect(this.props.level)) {
+      accroches = lexique.phrase.accroche[this.props.level];
+      sujets = lexique.phrase.sujet.groupeNominal[this.props.level][genreDuSujet][nombreDuSujet];
+      verbes = lexique.phrase.verbe[this.props.level].conjugué[nombreDuSujet];
+      compléments = lexique.phrase.complément.groupeNominal[this.props.level][genreDuComplément][nombreDuComplément];
+      adjectifs = lexique.phrase.complément.adjectif[this.props.level][genreDuComplément][nombreDuComplément];
+      liaisons = lexique.phrase.complément.liaison[this.props.level];
+      bouquetsFinaux = lexique.phrase.complément.bouquetFinal[this.props.level];
+    } else {
+      throw new Error('Incorrect level!');
+    }
 
     let phrase: string = "",
         s1: string = "",
@@ -87,18 +99,20 @@ class Pipo extends Component<Props, null> {
       phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s9}.`;
     } else if (this.props.level === 'consultant') {
       phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s6} ${s7} ${s8} ${s9}.`;
-    } else {
-      throw new Error('Incorrect level!');
     }
 
     return phrase;
   }
 
-  changeLevel(e: Object): void {
-    let level: string = e.target.value,
-        levels: string[] = ['stagiaire', 'manager', 'consultant'];
+  isCorrect(level: string): boolean {
+    let levels: string[] = ['stagiaire', 'manager', 'consultant'];
+    return levels.includes(level);
+  }
 
-    if (levels.includes(level)) {
+  changeLevel(e: Object): void {
+    let level: string = e.target.value;
+
+    if (this.isCorrect(level)) {
       this.props.changeLevel(level);
     } else {
       throw new Error('Incorrect level!');
