@@ -35,6 +35,7 @@ class Header extends Component<Props, null> {
         info.strength = 'Force 8';
         info.speed = '65 km/h';
         info.rotationTime = '1.5s';
+        info.cloudBrightness = 1;
         break;
       case 'consultant':
         info.background = grayLandscape;
@@ -42,6 +43,7 @@ class Header extends Component<Props, null> {
         info.strength = 'Force 10';
         info.speed = '90 km/h';
         info.rotationTime = '1s';
+        info.cloudBrightness = 0.3;
         break;
       default:
         throw new Error('Unknown level!');
@@ -64,6 +66,12 @@ class Header extends Component<Props, null> {
       animation: `rotation ${info.rotationTime} linear infinite`
     };
 
+    let brightness: {
+      filter: string
+    } = {
+      filter: `brightness(${info.cloudBrightness})`
+    }
+
     let sky: {
       backgroundImage: string
     } = {
@@ -75,10 +83,10 @@ class Header extends Component<Props, null> {
     if (this.props.level !== 'stagiaire') {
       clouds = (
         <div className="clouds">
-          <img src={cloud} alt="Nuage" />
-          <img src={cloud} alt="Nuage" />
-          <img src={cloud} alt="Nuage" />
-          <img src={cloud} alt="Nuage" />
+          <img src={cloud} alt="Nuage" style={brightness} />
+          <img src={cloud} alt="Nuage" style={brightness} />
+          <img src={cloud} alt="Nuage" style={brightness} />
+          <img src={cloud} alt="Nuage" style={brightness} />
         </div>
       );
     }
