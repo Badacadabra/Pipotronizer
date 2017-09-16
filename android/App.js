@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View, Alert, Share, Vibration } from 'react-native';
 import { Header } from 'react-native-elements';
-import { Constants, Font } from 'expo';
+import { Font } from 'expo';
 import Wheel from './src/components/Wheel';
 import Pipo from './src/components/Pipo';
 import ButtonGroup from './src/components/ButtonGroup';
 import Level from './src/components/Level';
-import tradewinds from './assets/fonts/TradeWinds-Regular.ttf';
-import blue from './assets/images/sky.jpg';
-import clouds from './assets/images/clouds.jpg';
-import thunder from './assets/images/thunder.jpg';
+import tradewinds from './assets/fonts/trade_winds/TradeWinds-Regular.ttf';
+import blue from './assets/images/background-1.jpg';
+import cloudy from './assets/images/background-2.jpg';
+import gray from './assets/images/background-3.jpg';
 
 export default class App extends Component {
   constructor(props) {
@@ -18,10 +18,10 @@ export default class App extends Component {
       level: 'manager',
       levelColor: '#44DBBD',
       wheelSpeed: 1000,
-      sky: clouds,
-      fontLoaded: false,
-      burgerActive: false
+      sky: cloudy,
+      fontLoaded: false
     };
+    this.share = this.share.bind(this);
   }
 
   async componentDidMount() {
@@ -45,12 +45,12 @@ export default class App extends Component {
       case 'manager':
         levelColor = '#44DBBD';
         wheelSpeed = 1000;
-        sky = clouds;
+        sky = cloudy;
         break;
       case 'consultant':
         levelColor = '#9FD7FC';
         wheelSpeed = 500;
-        sky = thunder;
+        sky = gray;
         break;
       default:
         throw new Error('Incorrect level!');
@@ -64,6 +64,31 @@ export default class App extends Component {
     }));
   }
 
+  help() {
+    Alert.alert(
+      'Vous aussi, brassez du vent !',
+      `Pipotronizer est un générateur de phrases corporate qui vous aide à impressionner vos collaborateurs.
+
+3 niveaux de brassage éolien sont à votre disposition, du simple stagiaire au consultant senior...
+
+Avec Pipotronizer, la force du vent est entre vos mains !`
+    );
+  }
+
+  vibrate() {
+    Vibration.vibrate();
+  }
+
+  share() {
+    Share.share({
+      message: 'Lorem ipsum dolor sit amet',
+      url: 'http://pipotronizer.com',
+      title: `Ma phrase de ${this.state.level} générée par Pipotronizer`
+    }, {
+      dialogTitle: 'Soufflez le message !'
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -71,9 +96,9 @@ export default class App extends Component {
           this.state.fontLoaded ? (
             <Header
               statusBarProps={{ barStyle: 'light-content' }}
-              leftComponent={{ icon: 'menu', color: '#fff' }}
-              centerComponent={{ text: 'Pipotronizer', style: styles.toolbarTitle }}
-              rightComponent={{ icon: 'help', color: '#fff' }}
+              leftComponent={{ icon: 'help', color: '#FFF', underlayColor: '#121212', onPress: this.help }}
+              centerComponent={{ text: 'Pipotronizer', style: styles.toolbarTitle, onPress: this.vibrate }}
+              rightComponent={{ icon: 'share', color: '#FFF', underlayColor: '#121212', onPress: this.share }}
               outerContainerStyles={{ backgroundColor: '#181818' }}
             />
           ) : null
@@ -81,7 +106,7 @@ export default class App extends Component {
         <Wheel weather={this.state.sky} duration={this.state.wheelSpeed} />
         <Pipo level={this.state.level} style={styles.pipo} />
         <ButtonGroup changeLevel={this.changeLevel.bind(this)} />
-        <Level level={this.state.level} color={this.state.levelColor} />
+        <Level level={this.state.level} color={this.state.levelColor} fontLoaded={this.state.fontLoaded} />
       </View>
     );
   }
