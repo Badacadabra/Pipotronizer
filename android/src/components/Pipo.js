@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { Dimensions, StyleSheet, View, Text, ImageBackground } from 'react-native';
 import { Font } from 'expo';
 import lexique from '../../assets/lexique.json';
-import tradewinds from '../../assets/fonts/TradeWinds-Regular.ttf';
+import permanentmarker from '../../assets/fonts/permanent_marker/PermanentMarker.ttf';
+import blackboard from '../../assets/images/dark-blackboard.png';
 
 export default class Pipo extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ export default class Pipo extends Component {
 
   async componentDidMount() {
     await Font.loadAsync({
-      'tradewinds': tradewinds
+      'permanentmarker': permanentmarker
     });
     this.setState({ fontLoaded: true });
   }
@@ -46,13 +47,23 @@ export default class Pipo extends Component {
         nombreDuSujet = this.randomize(nombres),
         nombreDuComplément = this.randomize(nombres);
 
-    let accroches = lexique.phrase.accroche[this.props.level],
-        sujets = lexique.phrase.sujet.groupeNominal[this.props.level][genreDuSujet][nombreDuSujet],
-        verbes = lexique.phrase.verbe[this.props.level].conjugué[nombreDuSujet],
-        compléments = lexique.phrase.complément.groupeNominal[this.props.level][genreDuComplément][nombreDuComplément],
-        adjectifs = lexique.phrase.complément.adjectif[this.props.level][genreDuComplément][nombreDuComplément],
-        liaisons = lexique.phrase.complément.liaison[this.props.level],
-        bouquetsFinaux = lexique.phrase.complément.bouquetFinal[this.props.level];
+    let accroches,
+        sujets,
+        verbes,
+        compléments,
+        adjectifs,
+        liaisons,
+        bouquetsFinaux;
+
+    if (['stagiaire', 'manager', 'consultant'].includes(this.props.level)) {
+      accroches = lexique.phrase.accroche[this.props.level];
+      sujets = lexique.phrase.sujet.groupeNominal[this.props.level][genreDuSujet][nombreDuSujet];
+      verbes = lexique.phrase.verbe[this.props.level].conjugué[nombreDuSujet];
+      compléments = lexique.phrase.complément.groupeNominal[this.props.level][genreDuComplément][nombreDuComplément];
+      adjectifs = lexique.phrase.complément.adjectif[this.props.level][genreDuComplément][nombreDuComplément];
+      liaisons = lexique.phrase.complément.liaison[this.props.level];
+      bouquetsFinaux = lexique.phrase.complément.bouquetFinal[this.props.level];
+    }
 
     let phrase = "",
         s1 = "",
@@ -103,23 +114,30 @@ export default class Pipo extends Component {
     let sentence = this.getSentence();
 
     return (
-      <View style={styles.container}>
+      <ImageBackground source={blackboard} style={styles.container}>
         {
           this.state.fontLoaded ? (
-            <Text style={styles.sentence}>{sentence}</Text>
+            <Text style={styles.sentence}>«&nbsp;{sentence}&nbsp;»</Text>
           ) : null
         }
-      </View>
+      </ImageBackground>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    justifyContent: 'center',
+    width: Dimensions.get('window').width,
+    backgroundColor: '#FFF'
   },
   sentence: {
-    padding: 20,
-    fontSize: 20
+    padding: 10,
+    fontSize: 18,
+    lineHeight: 20,
+    fontFamily: 'permanentmarker',
+    color: '#FFF',
+    textAlign: 'center'
   }
 });

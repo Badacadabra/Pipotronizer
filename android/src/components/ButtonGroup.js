@@ -43,7 +43,8 @@ export default class Pipo extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    paddingTop: 15,
+    paddingBottom: 15,
     width: Dimensions.get('window').width,
     flexDirection: 'row',
     justifyContent: 'space-around',

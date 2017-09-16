@@ -9,7 +9,11 @@ export default class Pipo extends Component {
   render() {
     return (
       <View style={[styles.container, {backgroundColor: this.props.color}]}>
-        <Text style={styles.level}>Niveau : {this.props.level}</Text>
+        {
+          this.props.fontLoaded ? (
+            <Text style={styles.level}>Niveau : {this.props.level}</Text>
+          ) : null
+        }
       </View>
     );
   }
@@ -23,6 +27,7 @@ const styles = StyleSheet.create({
   level: {
     color: '#181818',
     fontSize: 20,
+    fontFamily: 'tradewinds',
     textAlign: 'center'
   }
 });
