@@ -15,6 +15,7 @@
 .*/Libraries/react-native/ReactNative.js
 
 ; Additional create-react-native-app ignores
+.*/node_modules/react-native-side-menu/*
 
 ; Ignore duplicate module providers
 .*/node_modules/fbemitter/lib/*

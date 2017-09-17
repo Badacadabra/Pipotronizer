@@ -1,17 +1,25 @@
+// @flow
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, View, Image, ImageBackground, Animated, Easing } from 'react-native';
+import { Dimensions, StyleSheet, Image, ImageBackground, Animated, Easing } from 'react-native';
 import wheel from '../../assets/images/wheel.png';
 
-export default class Wheel extends Component {
-  componentDidMount() {
+type Props = {
+  duration: number,
+  weather: string
+};
+
+export default class Wheel extends Component<void, Props, void> {
+  animatedValue: Object;
+
+  componentDidMount(): void {
     this.rotateWheel();
   }
 
-  componentWillMount() {
+  componentWillMount(): void {
     this.animatedValue = new Animated.Value(0);
   }
 
-  rotateWheel() {
+  rotateWheel(): void {
     this.animatedValue.setValue(0);
     Animated.timing(this.animatedValue, {
       toValue: 1,
