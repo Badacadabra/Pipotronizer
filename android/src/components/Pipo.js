@@ -109,8 +109,6 @@ export default class Pipo extends Component<void, Props, State> {
       phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s9}.`;
     } else if (this.props.level === 'consultant') {
       phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s6} ${s7} ${s8} ${s9}.`;
-    } else {
-      throw new Error('Incorrect level!');
     }
 
     return phrase;
