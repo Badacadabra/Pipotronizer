@@ -20,7 +20,7 @@ class About extends Component<Props, null> {
       case 'senior':
         return gray;
       default:
-        throw new Error('Unknown level!');
+        throw new Error('Incorrect level!');
     }
   }
 

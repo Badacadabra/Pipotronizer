@@ -80,12 +80,10 @@ class Pipo extends Component<Props, null> {
         s8: string = "",
         s9: string = "";
 
-    // Manager ou Consultant
     if (this.props.level !== 'junior') {
       s1 = this.getSubstring(accroches);
       s9 = this.getSubstring(bouquetsFinaux);
 
-      // Consultant uniquement
       if (this.props.level === 'senior') {
         s6 = this.getSubstring(liaisons);
         s7 = this.getSubstring(compléments, s4);

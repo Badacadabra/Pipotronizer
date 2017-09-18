@@ -94,18 +94,19 @@
 
 @media screen and (max-width: 768px) {
   .pipo {
-    font-size: 20px;
+    font-size: 25px;
     padding: 30px 0;
   }
 
   .pipo p#sentence {
     line-height: 22px;
+    text-align: center;
   }
 
   .pipo .options,
   .pipo .money {
-    text-align: center;
     padding: 0;
+    text-align: center;
   }
 
   .pipo .options p.how-to {
@@ -123,6 +124,6 @@
 
 @media screen and (max-width: 576px) {
   .pipo .money .donate input[type="submit"] {
-    font-size: 18px;
+    font-size: 22px;
   }
 }

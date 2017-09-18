@@ -18,7 +18,8 @@ class Header extends Component<Props, null> {
       description: string,
       strength: string,
       speed: string,
-      rotationTime: string
+      rotationTime: string,
+      cloudBrightness: number
     } {
     let info: Object = {};
     switch (this.props.level) {
@@ -28,6 +29,7 @@ class Header extends Component<Props, null> {
         info.strength = 'Force 5';
         info.speed = '35 km/h';
         info.rotationTime = '3s';
+        info.cloudBrightness = -1; // only useful to avoid a bug with flow
         break;
       case 'confirmé':
         info.background = blueLandscape;
@@ -57,7 +59,8 @@ class Header extends Component<Props, null> {
       description: string,
       strength: string,
       speed: string,
-      rotationTime: string
+      rotationTime: string,
+      cloudBrightness: number
     } = this.displayInfo();
 
     let animate: {
@@ -66,21 +69,21 @@ class Header extends Component<Props, null> {
       animation: `rotation ${info.rotationTime} linear infinite`
     };
 
-    let brightness: {
-      filter: string
-    } = {
-      filter: `brightness(${info.cloudBrightness})`
-    }
-
     let sky: {
       backgroundImage: string
     } = {
       backgroundImage: `url('${info.background}')`
     };
 
+    let brightness: {
+      filter: string
+    } = {
+      filter: `brightness(${info.cloudBrightness})`
+    };
+
     let clouds: Object;
 
-    if (this.props.level !== 'stagiaire') {
+    if (this.props.level !== 'junior') {
       clouds = (
         <div className="clouds">
           <img src={cloud} alt="Nuage" style={brightness} />
