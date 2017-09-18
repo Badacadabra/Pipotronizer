@@ -10,7 +10,7 @@ it('renders without crashing', () => {
 });
 
 it('has correct initial state', () => {
-  expect(app.state.level).toEqual('manager');
+  expect(app.state.level).toEqual('confirmé');
   expect(app.state.levelColor).toEqual('#44DBBD');
   expect(app.state.wheelSpeed).toEqual(1000);
   expect(typeof app.state.sky).not.toBe(undefined);
@@ -19,15 +19,15 @@ it('has correct initial state', () => {
 
 it('changes level properly', () => {
   expect(() => {
-    app.changeLevel('stagiaire');
+    app.changeLevel('junior');
   }).not.toThrow();
 
   expect(() => {
-    app.changeLevel('manager');
+    app.changeLevel('confirmé');
   }).not.toThrow();
 
   expect(() => {
-    app.changeLevel('consultant');
+    app.changeLevel('senior');
   }).not.toThrow();
 
   expect(() => {

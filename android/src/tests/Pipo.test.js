@@ -11,7 +11,7 @@ function isSentence() {
 }
 
 it('renders without crashing', () => {
-  const rendered = renderer.create(<Pipo level="manager" />).toJSON();
+  const rendered = renderer.create(<Pipo level="confirmé" />).toJSON();
   expect(rendered).toBeTruthy();
 });
 
@@ -31,13 +31,13 @@ it('generates substring properly', () => {
 });
 
 it('generates a sentence', () => {
-  pipo.props = { level: 'stagiaire' };
+  pipo.props = { level: 'junior' };
   isSentence();
 
-  pipo.props = { level: 'manager' };
+  pipo.props = { level: 'confirmé' };
   isSentence();
 
-  pipo.props = { level: 'consultant' };
+  pipo.props = { level: 'senior' };
   isSentence();
 
   pipo.props = { level: 'boss' };

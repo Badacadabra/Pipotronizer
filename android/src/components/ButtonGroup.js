@@ -11,39 +11,39 @@ type Props = {
 };
 
 export default class Pipo extends Component<void, Props, void> {
-  setIntern: Function;
-  setManager: Function;
-  setConsultant: Function;
+  setJunior: Function;
+  setExperienced: Function;
+  setSenior: Function;
 
   constructor(props: Props) {
     super(props);
-    this.setIntern = this.setIntern.bind(this);
-    this.setManager = this.setManager.bind(this);
-    this.setConsultant = this.setConsultant.bind(this);
+    this.setJunior = this.setJunior.bind(this);
+    this.setExperienced = this.setExperienced.bind(this);
+    this.setSenior = this.setSenior.bind(this);
   }
 
-  setIntern(): void {
-    this.props.changeLevel('stagiaire');
+  setJunior(): void {
+    this.props.changeLevel('junior');
   }
 
-  setManager(): void {
-    this.props.changeLevel('manager');
+  setExperienced(): void {
+    this.props.changeLevel('confirmé');
   }
 
-  setConsultant(): void {
-    this.props.changeLevel('consultant');
+  setSenior(): void {
+    this.props.changeLevel('senior');
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={this.setIntern}>
+        <TouchableOpacity onPress={this.setJunior}>
           <Image source={windmill1} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.setManager}>
+        <TouchableOpacity onPress={this.setExperienced}>
           <Image source={windmill2} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={this.setConsultant}>
+        <TouchableOpacity onPress={this.setSenior}>
           <Image source={windmill3} />
         </TouchableOpacity>
       </View>

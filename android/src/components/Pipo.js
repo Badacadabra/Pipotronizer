@@ -67,7 +67,7 @@ export default class Pipo extends Component<void, Props, State> {
         liaisons: string[],
         bouquetsFinaux: string[];
 
-    if (['stagiaire', 'manager', 'consultant'].includes(this.props.level)) {
+    if (['junior', 'confirmé', 'senior'].includes(this.props.level)) {
       accroches = lexique.phrase.accroche[this.props.level];
       sujets = lexique.phrase.sujet.groupeNominal[this.props.level][genreDuSujet][nombreDuSujet];
       verbes = lexique.phrase.verbe[this.props.level].conjugué[nombreDuSujet];
@@ -90,24 +90,22 @@ export default class Pipo extends Component<void, Props, State> {
         s8: string = "",
         s9: string = "";
 
-    // Manager ou Consultant
-    if (this.props.level !== 'stagiaire') {
+    if (this.props.level !== 'junior') {
       s1 = this.getSubstring(accroches);
       s9 = this.getSubstring(bouquetsFinaux);
 
-      // Consultant uniquement
-      if (this.props.level === 'consultant') {
+      if (this.props.level === 'senior') {
         s6 = this.getSubstring(liaisons);
         s7 = this.getSubstring(compléments, s4);
         s8 = this.getSubstring(adjectifs, s5);
       }
     }
 
-    if (this.props.level === 'stagiaire') {
+    if (this.props.level === 'junior') {
       phrase = `${this.capitalize(s2)} ${s3} ${s4} ${s5}.`;
-    } else if (this.props.level === 'manager') {
+    } else if (this.props.level === 'confirmé') {
       phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s9}.`;
-    } else if (this.props.level === 'consultant') {
+    } else if (this.props.level === 'senior') {
       phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s6} ${s7} ${s8} ${s9}.`;
     }
 

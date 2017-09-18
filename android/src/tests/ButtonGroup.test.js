@@ -13,14 +13,14 @@ it('renders without crashing', () => {
   };
 
   expect(() => {
-    btnGroup.setIntern();
+    btnGroup.setJunior();
   }).not.toThrow();
 
   expect(() => {
-    btnGroup.setManager();
+    btnGroup.setExperienced();
   }).not.toThrow();
 
   expect(() => {
-    btnGroup.setConsultant();
+    btnGroup.setSenior();
   }).not.toThrow();
 });

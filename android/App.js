@@ -24,7 +24,7 @@ export default class App extends Component<void, void, State> {
   share: Function;
 
   state: State = {
-    level: 'manager',
+    level: 'confirmé',
     levelColor: '#44DBBD',
     wheelSpeed: 1000,
     sky: cloudy,
@@ -49,17 +49,17 @@ export default class App extends Component<void, void, State> {
         sky: any = null;
 
     switch(level) {
-      case 'stagiaire':
+      case 'junior':
         levelColor = '#F4BF31';
         wheelSpeed = 2000;
         sky = blue;
         break;
-      case 'manager':
+      case 'confirmé':
         levelColor = '#44DBBD';
         wheelSpeed = 1000;
         sky = cloudy;
         break;
-      case 'consultant':
+      case 'senior':
         levelColor = '#9FD7FC';
         wheelSpeed = 500;
         sky = gray;
@@ -79,9 +79,9 @@ export default class App extends Component<void, void, State> {
   help(): void {
     Alert.alert(
       'Vous aussi, brassez du vent !',
-      `Pipotronizer est un générateur de phrases corporate qui vous aide à préparer vos réunions.
+      `Pipotronizer est un générateur de phrases corporate aussi inutiles qu'indispensables.
 
-3 niveaux de brassage éolien sont à votre disposition, du simple stagiaire au consultant senior...
+3 niveaux de brassage éolien sont à votre disposition pour faire face à toutes les situations.
 
 Avec Pipotronizer, la force du vent est entre vos mains !`
     );
