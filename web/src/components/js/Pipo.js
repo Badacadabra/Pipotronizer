@@ -81,23 +81,23 @@ class Pipo extends Component<Props, null> {
         s9: string = "";
 
     // Manager ou Consultant
-    if (this.props.level !== 'stagiaire') {
+    if (this.props.level !== 'junior') {
       s1 = this.getSubstring(accroches);
       s9 = this.getSubstring(bouquetsFinaux);
 
       // Consultant uniquement
-      if (this.props.level === 'consultant') {
+      if (this.props.level === 'senior') {
         s6 = this.getSubstring(liaisons);
         s7 = this.getSubstring(compléments, s4);
         s8 = this.getSubstring(adjectifs, s5);
       }
     }
 
-    if (this.props.level === 'stagiaire') {
+    if (this.props.level === 'junior') {
       phrase = `${this.capitalize(s2)} ${s3} ${s4} ${s5}.`;
-    } else if (this.props.level === 'manager') {
+    } else if (this.props.level === 'confirmé') {
       phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s9}.`;
-    } else if (this.props.level === 'consultant') {
+    } else if (this.props.level === 'senior') {
       phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s6} ${s7} ${s8} ${s9}.`;
     }
 
@@ -105,7 +105,7 @@ class Pipo extends Component<Props, null> {
   }
 
   isCorrect(level: string): boolean {
-    let levels: string[] = ['stagiaire', 'manager', 'consultant'];
+    let levels: string[] = ['junior', 'confirmé', 'senior'];
     return levels.includes(level);
   }
 
@@ -138,9 +138,9 @@ class Pipo extends Component<Props, null> {
         <Grid>
           <Row>
             <Col sm={6} className="options">
-              <input type="image" src={windmill1} alt="Stagiaire" value="stagiaire" onClick={this.changeLevel} />
-              <input type="image" src={windmill2} alt="Manager" value="manager" onClick={this.changeLevel} />
-              <input type="image" src={windmill3} alt="Consultant" value="consultant" onClick={this.changeLevel} />
+              <input type="image" src={windmill1} alt="Junior" value="junior" onClick={this.changeLevel} />
+              <input type="image" src={windmill2} alt="Confirmé" value="confirmé" onClick={this.changeLevel} />
+              <input type="image" src={windmill3} alt="Senior" value="senior" onClick={this.changeLevel} />
               <p className="how-to"><a href="#levels">Au secours&#8239;! C'est quoi, tout ça&#8239;?</a></p>
             </Col>
             <Col sm={6} className="money">

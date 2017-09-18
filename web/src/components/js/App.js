@@ -19,7 +19,7 @@ class App extends Component<null, State> {
   constructor() {
     super();
     this.state = {
-      level: 'manager',
+      level: 'confirmé',
       money: 0
     };
   }
@@ -29,13 +29,13 @@ class App extends Component<null, State> {
     let bonus: number = 0;
 
     switch(level) {
-      case 'stagiaire':
+      case 'junior':
         bonus = 10;
         break;
-      case 'manager':
+      case 'confirmé':
         bonus = 50;
         break;
-      case 'consultant':
+      case 'senior':
         bonus = 100;
         break;
       default:

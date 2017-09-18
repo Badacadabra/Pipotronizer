@@ -13,11 +13,11 @@ type Props = {
 class About extends Component<Props, null> {
   getBackground():string {
     switch (this.props.level) {
-      case 'stagiaire':
+      case 'junior':
         return blue;
-      case 'manager':
+      case 'confirmé':
         return cloudy;
-      case 'consultant':
+      case 'senior':
         return gray;
       default:
         throw new Error('Unknown level!');

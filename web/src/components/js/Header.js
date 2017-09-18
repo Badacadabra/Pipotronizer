@@ -22,14 +22,14 @@ class Header extends Component<Props, null> {
     } {
     let info: Object = {};
     switch (this.props.level) {
-      case 'stagiaire':
+      case 'junior':
         info.background = blueLandscape;
         info.description = 'Bonne brise';
         info.strength = 'Force 5';
         info.speed = '35 km/h';
         info.rotationTime = '3s';
         break;
-      case 'manager':
+      case 'confirmé':
         info.background = blueLandscape;
         info.description = 'Coup de vent';
         info.strength = 'Force 8';
@@ -37,7 +37,7 @@ class Header extends Component<Props, null> {
         info.rotationTime = '1.5s';
         info.cloudBrightness = 1;
         break;
-      case 'consultant':
+      case 'senior':
         info.background = grayLandscape;
         info.description = 'Tempête';
         info.strength = 'Force 10';

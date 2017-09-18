@@ -4,9 +4,9 @@ import Header from '../js/Header';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Header level="stagiaire" />, div);
-  ReactDOM.render(<Header level="manager" />, div);
-  ReactDOM.render(<Header level="consultant" />, div);
+  ReactDOM.render(<Header level="junior" />, div);
+  ReactDOM.render(<Header level="confirmé" />, div);
+  ReactDOM.render(<Header level="senior" />, div);
 });
 
 it('throws a custom error if level is wrong', () => {

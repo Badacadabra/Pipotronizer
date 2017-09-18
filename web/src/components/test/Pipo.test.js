@@ -5,13 +5,13 @@ import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Pipo level="stagiaire" money={10} changeLevel={null} />, div);
-  ReactDOM.render(<Pipo level="manager" money={50} changeLevel={null} />, div);
-  ReactDOM.render(<Pipo level="consultant" money={100} changeLevel={null} />, div);
+  ReactDOM.render(<Pipo level="junior" money={10} changeLevel={null} />, div);
+  ReactDOM.render(<Pipo level="confirmé" money={50} changeLevel={null} />, div);
+  ReactDOM.render(<Pipo level="senior" money={100} changeLevel={null} />, div);
 });
 
 it('handles level change properly', () => {
-  const app = shallow(<Pipo level="manager" money={50} changeLevel={() => null} />);
+  const app = shallow(<Pipo level="confirmé" money={50} changeLevel={() => null} />);
 
   expect(app.instance().getSubstring(['foo', 'bar'], 'bar')).toEqual('foo');
 
@@ -20,15 +20,15 @@ it('handles level change properly', () => {
   }).toThrow('Incorrect level!');
 
   expect(() => {
-    app.instance().changeLevel({target: { value: 'stagiaire' }});
+    app.instance().changeLevel({target: { value: 'junior' }});
   }).not.toThrow();
 
   expect(() => {
-    app.instance().changeLevel({target: { value: 'manager' }});
+    app.instance().changeLevel({target: { value: 'confirmé' }});
   }).not.toThrow();
 
   expect(() => {
-    app.instance().changeLevel({target: { value: 'consultant' }});
+    app.instance().changeLevel({target: { value: 'senior' }});
   }).not.toThrow();
 
   expect(() => {

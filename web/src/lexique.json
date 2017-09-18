@@ -1,7 +1,7 @@
 {
   "phrase": {
     "accroche": {
-      "manager": [
+      "confirmé": [
         "Au jour d'aujourd'hui,",
         "Évidemment,",
         "Bien entendu,",
@@ -48,7 +48,7 @@
         "Je tiens à dire que",
         "Je dois vous informer que"
       ],
-      "consultant": [
+      "senior": [
         "In fine,",
         "En termes business,",
         "Sur ce micro-segment,",
@@ -96,7 +96,7 @@
     },
     "sujet": {
       "groupeNominal": {
-        "stagiaire": {
+        "junior": {
           "masculin": {
             "singulier": [
               "le client",
@@ -174,7 +174,7 @@
             ]
           }
         },
-        "manager": {
+        "confirmé": {
           "masculin": {
             "singulier": [
               "le prospect",
@@ -222,7 +222,7 @@
             ]
           }
         },
-        "consultant": {
+        "senior": {
           "masculin": {
             "singulier": [
               "le dirmark",
@@ -263,7 +263,7 @@
       }
     },
     "verbe": {
-      "stagiaire": {
+      "junior": {
         "infinitif": [
           "travailler sur",
           "intégrer",
@@ -345,7 +345,7 @@
           ]
         }
       },
-      "manager": {
+      "confirmé": {
         "infinitif": [
           "flexibiliser",
           "impacter",
@@ -457,7 +457,7 @@
           ]
         }
       },
-      "consultant": {
+      "senior": {
         "infinitif": [
           "auditer",
           "ordonnancer",
@@ -560,7 +560,7 @@
     },
     "complément": {
       "groupeNominal": {
-        "stagiaire": {
+        "junior": {
           "masculin": {
             "singulier": [
               "l'open space",
@@ -649,7 +649,7 @@
             ]
           }
         },
-        "manager": {
+        "confirmé": {
           "masculin": {
             "singulier": [
               "le cycle en V",
@@ -775,7 +775,7 @@
             ]
           }
         },
-        "consultant": {
+        "senior": {
           "masculin": {
             "singulier": [
               "le data warehouse",
@@ -877,7 +877,7 @@
         }
       },
       "adjectif": {
-        "stagiaire": {
+        "junior": {
           "masculin": {
             "singulier": [
               "digital",
@@ -951,7 +951,7 @@
             ]
           }
         },
-        "manager": {
+        "confirmé": {
           "masculin": {
             "singulier": [
               "institutionnel",
@@ -1041,7 +1041,7 @@
             ]
           }
         },
-        "consultant": {
+        "senior": {
           "masculin": {
             "singulier": [
               "proactif",
@@ -1145,7 +1145,7 @@
         }
       },
       "liaison": {
-        "consultant": [
+        "senior": [
           "en travaillant sur",
           "en intégrant",
           "en dynamisant",
@@ -1237,7 +1237,7 @@
         ]
       },
       "bouquetFinal": {
-        "manager": [
+        "confirmé": [
           "efficacement",
           "avec rigueur",
           "avec pragmatisme",
@@ -1280,7 +1280,7 @@
           "parce que le client est roi",
           "puisque nous n'avons pas de solution de secours"
         ],
-        "consultant": [
+        "senior": [
           "en one-to-one",
           "en amont",
           "from scratch",

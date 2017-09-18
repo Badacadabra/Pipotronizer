@@ -40,7 +40,7 @@ class Levels extends Component {
               <figure className="intern">
                 <img src={windmill1} alt="Bonne brise" />
                 <figcaption>
-                  Le stagiaire n'a pas dit son dernier mot&#8239;!
+                  Bonne brise pour vous réveiller en douceur&#8239;!
                   <div className="price">(0,10 € par phrase)</div>
                 </figcaption>
               </figure>
@@ -49,7 +49,7 @@ class Levels extends Component {
               <figure className="manager">
                 <img src={windmill2} alt="Coup de vent" />
                 <figcaption>
-                  Réveillez le manager qui est en vous&#8239;!
+                  Attention au coup de vent. Ça décoiffe&#8239;!
                   <div className="price">(0,50 € par phrase)</div>
                 </figcaption>
               </figure>
@@ -58,7 +58,7 @@ class Levels extends Component {
               <figure className="consultant">
                 <img src={windmill3} alt="Tempête" />
                 <figcaption>
-                  Parlez comme un vrai consultant&#8239;!
+                  Avis de tempête. Planquez-vous&#8239;!
                   <div className="price">(1 € par phrase)</div>
                 </figcaption>
               </figure>
