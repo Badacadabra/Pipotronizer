@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, View, Text, ImageBackground } from 'react-native';
+import { Dimensions, StyleSheet, ScrollView, Text, ImageBackground } from 'react-native';
 import { Font } from 'expo';
 import lexique from '../../assets/lexique.json';
 import permanentmarker from '../../assets/fonts/permanent_marker/PermanentMarker.ttf';
@@ -121,11 +121,13 @@ export default class Pipo extends Component<void, Props, State> {
 
     return (
       <ImageBackground source={blackboard} style={styles.container}>
-        {
-          this.state.fontLoaded ? (
-            <Text style={styles.sentence}>«&nbsp;{sentence}&nbsp;»</Text>
-          ) : null
-        }
+        <ScrollView contentContainerStyle={styles.scroll}>
+          {
+            this.state.fontLoaded ? (
+              <Text style={styles.sentence}>«&nbsp;{sentence}&nbsp;»</Text>
+            ) : null
+          }
+      </ScrollView>
       </ImageBackground>
     );
   }
@@ -134,9 +136,11 @@ export default class Pipo extends Component<void, Props, State> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    width: Dimensions.get('window').width,
-    backgroundColor: '#FFF'
+    width: Dimensions.get('window').width
+  },
+  scroll: {
+    flexGrow: 1,
+    justifyContent: 'center'
   },
   sentence: {
     padding: 10,
