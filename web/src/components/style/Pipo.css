@@ -1,18 +1,30 @@
 .pipo {
-  font-size: 30px;
+  font-size: 25px;
   padding: 30px;
-  color: gray;
-  background-color: #181818;
+  color: white;
+  background: #181818 url('../../images/dark-blackboard.png') repeat 0 0;
 }
 
 .pipo p#sentence {
   min-height: 120px;
-  line-height: 40px;
+  line-height: 30px;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .pipo p#sentence:before {
   margin-right: 10px;
+}
+
+.pipo .junior:before {
   content: url('../../images/quote1.png');
+}
+
+.pipo .confirmé:before {
+  content: url('../../images/quote2.png');
+}
+
+.pipo .senior:before {
+  content: url('../../images/quote3.png');
 }
 
 .pipo .options {
@@ -25,22 +37,29 @@
 }
 
 .pipo .options input[type="image"]:hover {
-  opacity: 0.8;
+  transform: rotate(360deg);
 }
 
 .pipo .options input[type="image"]:focus {
   outline: none;
-  filter: grayscale(100%);
 }
 
 .pipo .options p.how-to {
-  font-size: 0.7em;
+  font-size: 22px;
+}
+
+.pipo .options p.how-to a {
+  color: gray;
+}
+
+.pipo .options p.how-to a:hover {
+  color: silver;
 }
 
 .pipo .money {
-  color: white;
+  color: silver;
   margin-top: 30px;
-  font-family: tradewinds, sans-serif;
+  font-family: tradewinds, cursive;
   text-align: right;
 }
 
@@ -94,7 +113,6 @@
 
 @media screen and (max-width: 768px) {
   .pipo {
-    font-size: 25px;
     padding: 30px 0;
   }
 

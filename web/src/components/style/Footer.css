@@ -1,16 +1,20 @@
 footer {
   color: white;
-  font-size: 22px;
+  font-size: 18px;
+  font-family: 'Permanent Marker', cursive;
   padding-top: 50px;
-  background-color: #181818;
   line-height: 22px;
+  background: #181818 url('../../images/dark-blackboard.png') repeat 0 0;
 }
 
 footer h3 {
-  font-size: 35px;
-  font-family: tradewinds, cursive;
+  font-size: 28px;
   text-align: center;
   margin-bottom: 30px;
+}
+
+footer a:hover {
+  color: gray;
 }
 
 footer .social {
@@ -25,7 +29,6 @@ footer .credits {
   margin-top: 30px;
   padding: 20px;
   background-color: #121212;
-  font-family: tradewinds, cursive;
 }
 
 footer .credits .red {
@@ -38,7 +41,7 @@ footer .credits a {
 
 @media screen and (max-width: 992px) {
   footer {
-    padding: 0 10px;
+    padding-top: 0;
   }
 
   footer h3 {

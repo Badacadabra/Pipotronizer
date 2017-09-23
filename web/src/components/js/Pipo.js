@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
+import scrollToComponent from 'react-scroll-to-component';
 import lexique from '../../lexique.json';
 import '../style/Pipo.css';
 import windmill1 from '../../images/windmill-min-1.png';
@@ -16,11 +17,13 @@ type Props = {
 class Pipo extends Component<Props, null> {
   getSentence: Function;
   changeLevel: Function;
+  goToLevels: Function;
 
   constructor(props: Props) {
     super(props);
     this.getSentence = this.getSentence.bind(this);
     this.changeLevel = this.changeLevel.bind(this);
+    this.goToLevels = this.goToLevels.bind(this);
   }
 
   randomize(arr: string[]): string {
@@ -121,6 +124,12 @@ class Pipo extends Component<Props, null> {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
+  goToLevels(e): void {
+    e.preventDefault();
+    const levels = document.getElementById('levels');
+    scrollToComponent(levels);
+  }
+
   render() {
     let sentence: string = this.getSentence();
 
@@ -129,7 +138,7 @@ class Pipo extends Component<Props, null> {
         <Grid>
           <Row>
             <Col xs={12}>
-              <p id="sentence">{sentence}</p>
+              <p id="sentence" className={this.props.level}>{sentence}</p>
             </Col>
           </Row>
         </Grid>
@@ -139,7 +148,7 @@ class Pipo extends Component<Props, null> {
               <input type="image" src={windmill1} alt="Junior" value="junior" onClick={this.changeLevel} />
               <input type="image" src={windmill2} alt="Confirmé" value="confirmé" onClick={this.changeLevel} />
               <input type="image" src={windmill3} alt="Senior" value="senior" onClick={this.changeLevel} />
-              <p className="how-to"><a href="#levels">Au secours&#8239;! C'est quoi, tout ça&#8239;?</a></p>
+              <p className="how-to"><a href="#" onClick={this.goToLevels}>Au secours&#8239;! C'est quoi, tout ça&#8239;?</a></p>
             </Col>
             <Col sm={6} className="money">
               <Row>
