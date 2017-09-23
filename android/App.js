@@ -20,9 +20,9 @@ type State = {
   fontLoaded: boolean
 };
 
-export default class App extends Component<void, void, State> {
-  share: Function;
+let sentence: string = '';
 
+export default class App extends Component<void, void, State> {
   state: State = {
     level: 'confirmé',
     levelColor: '#44DBBD',
@@ -30,11 +30,6 @@ export default class App extends Component<void, void, State> {
     sky: cloudy,
     fontLoaded: false
   };
-
-  constructor() {
-    super();
-    this.share = this.share.bind(this);
-  }
 
   async componentDidMount(): any {
     await Font.loadAsync({
@@ -76,9 +71,13 @@ export default class App extends Component<void, void, State> {
     }));
   }
 
+  update(bullshit: string): void {
+    sentence = bullshit;
+  }
+
   help(): void {
     Alert.alert(
-      'Vous aussi, brassez du vent !',
+      'Brassez du vent !',
       `Pipotronizer est un générateur de phrases corporate aussi inutiles qu'indispensables.
 
 3 niveaux de brassage éolien sont à votre disposition pour faire face à toutes les situations.
@@ -93,9 +92,9 @@ Avec Pipotronizer, la force du vent est entre vos mains !`
 
   share(): void {
     Share.share({
-      message: 'Lorem ipsum dolor sit amet',
+      message: sentence,
       url: 'http://pipotronizer.com',
-      title: `Ma phrase de ${this.state.level} générée par Pipotronizer`
+      title: `Phrase corporate générée par Pipotronizer`
     }, {
       dialogTitle: 'Cette phrase vous plaît ? Partagez-la !'
     });
@@ -116,7 +115,7 @@ Avec Pipotronizer, la force du vent est entre vos mains !`
           ) : null
         }
         <Wheel weather={this.state.sky} duration={this.state.wheelSpeed} />
-        <Pipo level={this.state.level} />
+        <Pipo level={this.state.level} update={this.update.bind(this)} />
         <ButtonGroup changeLevel={this.changeLevel.bind(this)} />
         <Level level={this.state.level} color={this.state.levelColor} fontLoaded={this.state.fontLoaded} />
       </View>

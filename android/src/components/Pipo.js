@@ -7,7 +7,8 @@ import permanentmarker from '../../assets/fonts/permanent_marker/PermanentMarker
 import blackboard from '../../assets/images/dark-blackboard.png';
 
 type Props = {
-  level: string
+  level: string,
+  update: Function
 };
 
 type State = {
@@ -118,6 +119,7 @@ export default class Pipo extends Component<void, Props, State> {
 
   render() {
     let sentence: string = this.getSentence();
+    this.props.update(sentence);
 
     return (
       <ImageBackground source={blackboard} style={styles.container}>
@@ -127,7 +129,7 @@ export default class Pipo extends Component<void, Props, State> {
               <Text style={styles.sentence}>«&nbsp;{sentence}&nbsp;»</Text>
             ) : null
           }
-      </ScrollView>
+        </ScrollView>
       </ImageBackground>
     );
   }
