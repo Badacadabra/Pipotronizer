@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from 'react';
-import { Platform, StyleSheet, View, Alert, Share, Vibration } from 'react-native';
+import { StyleSheet, View, Alert, Share, Vibration, Linking } from 'react-native';
 import { Header } from 'react-native-elements';
-import { Font, WebBrowser, FacebookAds } from 'expo';
+import { Font, FacebookAds } from 'expo';
 import Wheel from './src/components/Wheel';
 import Pipo from './src/components/Pipo';
 import ButtonGroup from './src/components/ButtonGroup';
@@ -117,7 +117,7 @@ Avec Pipotronizer, brasser du vent n'a jamais été aussi utile !`
 
   browse(): void {
     Vibration.vibrate();
-    WebBrowser.openBrowserAsync('http://pipo.badacadabra.net');
+    Linking.openURL('http://pipo.badacadabra.net');
   }
 
   share(): void {
