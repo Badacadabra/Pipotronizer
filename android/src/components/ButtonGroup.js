@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Dimensions, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import windmill1 from '../../assets/images/windmill-min-1.png';
 import windmill2 from '../../assets/images/windmill-min-2.png';
-
 import windmill3 from '../../assets/images/windmill-min-3.png';
 
 type Props = {

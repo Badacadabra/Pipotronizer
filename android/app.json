@@ -1,6 +1,22 @@
 {
   "expo": {
+    "name": "Pipotronizer",
+    "description": "Générateur de phrases corporate",
+    "slug": "pipotronizer",
+    "privacy": "public",
     "sdkVersion": "20.0.0",
-    "orientation": "portrait"
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#0C0C0C",
+    "icon": "assets/images/icon.png",
+    "loading": {
+      "icon": "assets/images/splash-fg.png",
+      "backgroundColor": "#559DCC",
+      "backgroundImage": "assets/images/splash-bg.png",
+      "hideExponentText": true
+    },
+    "android": {
+      "package": "net.badacadabra.pipo"
+    }
   }
 }

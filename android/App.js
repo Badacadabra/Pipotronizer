@@ -2,21 +2,19 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Alert, Share, Vibration, Linking } from 'react-native';
 import { Header } from 'react-native-elements';
-import { Font, FacebookAds } from 'expo';
-import Wheel from './src/components/Wheel';
+import { Asset, AppLoading, Font, FacebookAds } from 'expo';
+import Weather from './src/components/Weather';
 import Pipo from './src/components/Pipo';
 import ButtonGroup from './src/components/ButtonGroup';
 import Level from './src/components/Level';
 import tradewinds from './assets/fonts/trade_winds/TradeWinds-Regular.ttf';
-import blue from './assets/images/background-1.jpg';
-import cloudy from './assets/images/background-2.jpg';
-import gray from './assets/images/background-3.jpg';
 
 type State = {
+  isReady: boolean,
   level: string,
   levelColor: string,
   wheelSpeed: number,
-  sky: any,
+  sky: string,
   fontLoaded: boolean
 };
 
@@ -29,10 +27,11 @@ FacebookAds.AdSettings.addTestDevice(FacebookAds.AdSettings.currentDeviceHash);
 
 export default class App extends Component<void, void, State> {
   state: State = {
+    isReady: false,
     level: 'confirmé',
     levelColor: '#44DBBD',
     wheelSpeed: 1000,
-    sky: cloudy,
+    sky: 'cloudy',
     fontLoaded: false
   };
 
@@ -43,28 +42,46 @@ export default class App extends Component<void, void, State> {
     this.setState({ fontLoaded: true });
   }
 
+  componentWillMount() {
+    this._cacheResourcesAsync();
+  }
+
+   async _cacheResourcesAsync() {
+    const images = [
+      require('./assets/images/background-1.jpg'),
+      require('./assets/images/background-2.jpg'),
+      require('./assets/images/background-3.jpg')
+    ];
+
+    for (let image of images) {
+      await Asset.fromModule(image).downloadAsync();
+    }
+
+    this.setState({ isReady: true });
+  }
+
   changeLevel(level: string): void {
     let levelColor: string = '',
         wheelSpeed: number = 0,
-        sky: any = null;
+        sky: string = '';
 
     switch(level) {
       case 'junior':
         levelColor = '#F4BF31';
         wheelSpeed = 2000;
-        sky = blue;
+        sky = 'blue';
         counterJunior++;
         break;
       case 'confirmé':
         levelColor = '#44DBBD';
         wheelSpeed = 1000;
-        sky = cloudy;
+        sky = 'cloudy';
         counterExperienced++;
         break;
       case 'senior':
         levelColor = '#9FD7FC';
         wheelSpeed = 500;
-        sky = gray;
+        sky = 'gray';
         counterSenior++;
         break;
       default:
@@ -107,11 +124,11 @@ export default class App extends Component<void, void, State> {
   help(): void {
     Alert.alert(
       'Brassez du vent !',
-      `3 niveaux de brassage éolien sont à votre disposition pour faire face à toutes les situtations.
+      `3 niveaux de brassage éolien sont à votre disposition pour faire face à toutes les situations.
 
 Mais attention : la force du vent détermine la fréquence des pubs, dont les revenus serviront à lutter contre la précarité énergétique.
 
-Avec Pipotronizer, brasser du vent n'a jamais été aussi utile !`
+Pour une expérience optimale, il est conseillé d'avoir au minimum Facebook et Twitter sur votre mobile afin d'épater le monde entier avec vos billevesées.`
     );
   }
 
@@ -131,6 +148,10 @@ Avec Pipotronizer, brasser du vent n'a jamais été aussi utile !`
   }
 
   render() {
+    if (!this.state.isReady) {
+      return <AppLoading />;
+    }
+
     return (
       <View style={styles.container}>
         {
@@ -140,11 +161,11 @@ Avec Pipotronizer, brasser du vent n'a jamais été aussi utile !`
               leftComponent={{ icon: 'help-outline', color: '#FFF', underlayColor: '#121212', onPress: this.help }}
               centerComponent={{ text: 'Pipotronizer', style: styles.toolbarTitle, onPress: this.browse}}
               rightComponent={{ icon: 'share', color: '#FFF', underlayColor: '#121212', onPress: this.share }}
-              outerContainerStyles={{ backgroundColor: '#181818' }}
+              outerContainerStyles={{ backgroundColor: '#0C0C0C', paddingTop: 4 }}
             />
           ) : null
         }
-        <Wheel weather={this.state.sky} duration={this.state.wheelSpeed} />
+        <Weather sky={this.state.sky} wind={this.state.wheelSpeed} />
         <Pipo level={this.state.level} update={this.update.bind(this)} />
         <ButtonGroup changeLevel={this.changeLevel.bind(this)} />
         <Level level={this.state.level} color={this.state.levelColor} fontLoaded={this.state.fontLoaded} />
@@ -155,13 +176,11 @@ Avec Pipotronizer, brasser du vent n'a jamais été aussi utile !`
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    flex: 1
   },
   toolbarTitle: {
     color: '#FFF',
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: 'tradewinds'
   }
 });
