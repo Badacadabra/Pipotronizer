@@ -3,6 +3,7 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import '../style/Footer.css';
 import facebook from '../../images/facebook.png';
 import twitter from '../../images/twitter.png';
+import googlePlay from '../../images/google_play.png';
 import github from '../../images/github.png';
 
 class Footer extends Component {
@@ -15,13 +16,16 @@ class Footer extends Component {
               <h3>Pipotronizer 2.0</h3>
               <div className="social">
                 <a href="https://www.facebook.com/badacadabra.net/" target="_blank" rel="noopener noreferrer">
-                  <img src={facebook} alt="@Pipotronizer sur Facebook" />
+                  <img src={facebook} alt="Pipotronizer sur Facebook" />
                 </a>
                 <a href="https://twitter.com/badacadabra" target="_blank" rel="noopener noreferrer">
-                  <img src={twitter} alt="@Pipotronizer sur Twitter" />
+                  <img src={twitter} alt="Pipotronizer sur Twitter" />
+                </a>
+                <a href="#" target="_blank" rel="noopener noreferrer">
+                  <img src={googlePlay} alt="Pipotronizer sur Android" />
                 </a>
                 <a href="https://github.com/Badacadabra/Pipotronizer" target="_blank" rel="noopener noreferrer">
-                  <img src={github} alt="@Pipotronizer sur GitHub" />
+                  <img src={github} alt="Pipotronizer sur GitHub" />
                 </a>
               </div>
               <div>Share</div>
