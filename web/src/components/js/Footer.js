@@ -28,7 +28,7 @@ class Footer extends Component {
                   <img src={github} alt="Pipotronizer sur GitHub" />
                 </a>
               </div>
-              <div>Share</div>
+              <div className="sharethis-inline-reaction-buttons"></div>
             </Col>
             <Col md={4}>
               <h3>Faire un don</h3>

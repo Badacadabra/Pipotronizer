@@ -23,6 +23,10 @@ footer .social {
   align-items: center;
 }
 
+footer .sharethis-inline-reaction-buttons {
+  margin-top: 20px;
+}
+
 footer .credits {
   color: silver;
   text-align: center;
