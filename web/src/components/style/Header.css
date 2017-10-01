@@ -49,6 +49,17 @@ header .turbines figure:last-of-type img:last-child {
   left: 450px;
 }
 
+header .sound {
+  color: white;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+header .sound:hover {
+  cursor: pointer;
+}
+
 /* Clouds */
 
 @keyframes translation {

@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import { Glyphicon } from 'react-bootstrap';
 import '../style/Header.css';
 import blueLandscape from '../../images/blue-landscape.png';
 import grayLandscape from '../../images/gray-landscape.png';
@@ -7,19 +8,48 @@ import post from '../../images/post.png';
 import blades from '../../images/blades.png';
 import cloud from '../../images/cloud.png';
 import sign from '../../images/sign.png';
+import birdsOGG from '../../audios/birds.ogg';
+import birdsMP3 from '../../audios/birds.mp3';
+import windOGG from '../../audios/wind.ogg';
+import windMP3 from '../../audios/wind.mp3';
+import stormOGG from '../../audios/storm.ogg';
+import stormMP3 from '../../audios/storm.mp3';
 
 type Props = {
   level: string
 };
 
-class Header extends Component<Props, null> {
+type State = {
+  soundIcon: string,
+  soundVol: string
+};
+
+class Header extends Component<Props, State> {
+  toggleSound: Function;
+
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      soundIcon: 'volume-up',
+      soundVol: ''
+    };
+    this.toggleSound = this.toggleSound.bind(this);
+  }
+
+  componentWillReceiveProps() {
+    this.refs.audio.pause();
+    this.refs.audio.load();
+    this.refs.audio.play();
+  }
+
   displayInfo(): {
       background: string,
       description: string,
       strength: string,
       speed: string,
       rotationTime: string,
-      cloudBrightness: number
+      cloudBrightness: number,
+      sound: Object
     } {
     let info: Object = {};
     switch (this.props.level) {
@@ -30,6 +60,7 @@ class Header extends Component<Props, null> {
         info.speed = '35 km/h';
         info.rotationTime = '3s';
         info.cloudBrightness = -1; // only useful to avoid a bug with flow
+        info.sound = {ogg: birdsOGG, mp3: birdsMP3};
         break;
       case 'confirmé':
         info.background = blueLandscape;
@@ -38,6 +69,7 @@ class Header extends Component<Props, null> {
         info.speed = '65 km/h';
         info.rotationTime = '1.5s';
         info.cloudBrightness = 1;
+        info.sound = {ogg: windOGG, mp3: windMP3};
         break;
       case 'senior':
         info.background = grayLandscape;
@@ -46,11 +78,19 @@ class Header extends Component<Props, null> {
         info.speed = '90 km/h';
         info.rotationTime = '1s';
         info.cloudBrightness = 0.3;
+        info.sound = {ogg: stormOGG, mp3: stormMP3};
         break;
       default:
         throw new Error('Unknown level!');
     }
     return info;
+  }
+
+  toggleSound(): void {
+    this.setState({
+      soundIcon: this.state.soundIcon === 'volume-up' ? 'volume-off' : 'volume-up',
+      soundVol: this.state.soundVol === '' ? 'muted' : ''
+    });
   }
 
   render() {
@@ -60,7 +100,8 @@ class Header extends Component<Props, null> {
       strength: string,
       speed: string,
       rotationTime: string,
-      cloudBrightness: number
+      cloudBrightness: number,
+      sound: Object
     } = this.displayInfo();
 
     let animate: {
@@ -119,6 +160,12 @@ class Header extends Component<Props, null> {
             <p>{info.speed}</p>
           </div>
         </div>
+        <Glyphicon className="sound" glyph={this.state.soundIcon} onClick={this.toggleSound} />
+        <audio autoPlay loop muted={this.state.soundVol} ref="audio">
+          <source src={info.sound.ogg} type="audio/ogg" />
+          <source src={info.sound.mp3} type="audio/mpeg" />
+          Votre navigateur ne gère pas l'élément audio.
+        </audio>
       </header>
     );
   }
