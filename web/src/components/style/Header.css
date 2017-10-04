@@ -49,11 +49,20 @@ header .turbines figure:last-of-type img:last-child {
   left: 450px;
 }
 
+@keyframes colorize {
+  0% { color: white; }
+  25% { color: #F4BF31; }
+  50% { color: #44DBBD; }
+  75% { color: #9FD7FC; }
+  100% { color: white; }
+}
+
 header .sound {
   color: white;
   position: absolute;
   top: 20px;
   right: 20px;
+  animation: colorize 3s linear infinite;
 }
 
 header .sound:hover {
@@ -180,21 +189,27 @@ header .sign .info {
 }
 
 @media screen and (max-width: 576px) {
+  header .turbines figure:first-of-type img:first-child {
+    left: 85px;
+  }
+
+  header .turbines figure:first-of-type img:last-child {
+    left: 20px;
+  }
+
   header .sign img {
-    display: none;
+    top: 205px;
+    left: initial;
+    right: 20px;
+    width: 160px;
   }
 
   header .sign .info {
-    width: initial;
-    color: white;
-    text-shadow: 0 0;
-    font-size: 25px;
-    top: 230px;
-    left: 150px;
-    line-height: 25px;
-  }
-
-  header .sign .info p:last-child {
-    color: #E20613;
+    width: 160px;
+    font-size: 22px;
+    top: 215px;
+    left: initial;
+    right: 20px;
+    line-height: 22px;
   }
 }
