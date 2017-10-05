@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "flow-bin": "^0.54.1",
+    "http-server": "^0.10.0",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.2",
     "react-dom": "^15.6.1",
@@ -13,7 +14,8 @@
   "devDependencies": {
     "enzyme": "^2.9.1",
     "react-scripts": "1.0.11",
-    "react-test-renderer": "^15.6.1"
+    "react-test-renderer": "^15.6.1",
+    "testcafe": "^0.17.2"
   },
   "scripts": {
     "start": "react-scripts start",
