@@ -16,7 +16,8 @@
       "hideExponentText": true
     },
     "android": {
-      "package": "net.badacadabra.pipo"
+      "package": "net.badacadabra.pipo",
+      "permissions": ["VIBRATE"]
     }
   }
 }
