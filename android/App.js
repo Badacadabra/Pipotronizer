@@ -134,13 +134,13 @@ Pour une expérience optimale, il est conseillé d'avoir au minimum Facebook et 
 
   browse(): void {
     Vibration.vibrate();
-    Linking.openURL('http://pipo.badacadabra.net');
+    Linking.openURL('https://www.pipotronizer.com');
   }
 
   share(): void {
     Share.share({
       message: sentence,
-      url: 'http://pipotronizer.com',
+      url: 'https://www.pipotronizer.com',
       title: `Phrase corporate générée par Pipotronizer`
     }, {
       dialogTitle: 'Cette phrase vous plaît ? Partagez-la !'
