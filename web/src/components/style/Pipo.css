@@ -27,6 +27,22 @@
   content: url('../../images/quote3.png');
 }
 
+.pipo .fragment:hover {
+  cursor: pointer;
+}
+
+.pipo .junior .fragment:hover {
+  color: #F4BF31;
+}
+
+.pipo .confirmé .fragment:hover {
+  color: #44DBBD;
+}
+
+.pipo .senior .fragment:hover {
+  color: #9FD7FC;
+}
+
 .pipo .options {
   text-align: left;
 }

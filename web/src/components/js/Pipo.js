@@ -14,13 +14,41 @@ type Props = {
 };
 
 class Pipo extends Component<Props, null> {
+  genres: string[];
+  nombres: string[];
+  genreDuSujet: string;
+  genreDuComplément: string;
+  nombreDuSujet: string;
+  nombreDuComplément: string;
+  accroches: string[];
+  sujets: string[];
+  verbes: string[];
+  compléments: string[];
+  adjectifs: string[];
+  liaisons: string[];
+  bouquetsFinaux: string[];
   getSentence: Function;
+  changeFragment: Function;
   changeLevel: Function;
   goToLevels: Function;
 
   constructor(props: Props) {
     super(props);
+    this.genres = ['masculin', 'féminin'];
+    this.nombres = ['singulier', 'pluriel'];
+    this.genreDuSujet;
+    this.genreDuComplément;
+    this.nombreDuSujet;
+    this.nombreDuComplément;
+    this.accroches;
+    this.sujets;
+    this.verbes;
+    this.compléments;
+    this.adjectifs;
+    this.liaisons;
+    this.bouquetsFinaux;
     this.getSentence = this.getSentence.bind(this);
+    this.changeFragment = this.changeFragment.bind(this);
     this.changeLevel = this.changeLevel.bind(this);
     this.goToLevels = this.goToLevels.bind(this);
   }
@@ -43,65 +71,113 @@ class Pipo extends Component<Props, null> {
     return newStr;
   }
 
-  getSentence(): string {
-    let genres: string[] = ['masculin', 'féminin'],
-        nombres: string[] = ['singulier', 'pluriel'],
-        genreDuSujet: string = this.randomize(genres),
-        genreDuComplément: string = this.randomize(genres),
-        nombreDuSujet: string = this.randomize(nombres),
-        nombreDuComplément: string = this.randomize(nombres);
-
-    let accroches: string[],
-        sujets: string[],
-        verbes: string[],
-        compléments: string[],
-        adjectifs: string[],
-        liaisons: string[],
-        bouquetsFinaux: string[];
+  getSentence(): Object {
+    this.genreDuSujet = this.randomize(this.genres);
+    this.genreDuComplément = this.randomize(this.genres);
+    this.nombreDuSujet = this.randomize(this.nombres);
+    this.nombreDuComplément = this.randomize(this.nombres);
 
     if (this.isCorrect(this.props.level)) {
-      accroches = lexique.phrase.accroche[this.props.level];
-      sujets = lexique.phrase.sujet.groupeNominal[this.props.level][genreDuSujet][nombreDuSujet];
-      verbes = lexique.phrase.verbe[this.props.level].conjugué[nombreDuSujet];
-      compléments = lexique.phrase.complément.groupeNominal[this.props.level][genreDuComplément][nombreDuComplément];
-      adjectifs = lexique.phrase.complément.adjectif[this.props.level][genreDuComplément][nombreDuComplément];
-      liaisons = lexique.phrase.complément.liaison[this.props.level];
-      bouquetsFinaux = lexique.phrase.complément.bouquetFinal[this.props.level];
+      this.accroches = lexique.phrase.accroche[this.props.level];
+      this.sujets = lexique.phrase.sujet.groupeNominal[this.props.level][this.genreDuSujet][this.nombreDuSujet];
+      this.verbes = lexique.phrase.verbe[this.props.level].conjugué[this.nombreDuSujet];
+      this.compléments = lexique.phrase.complément.groupeNominal[this.props.level][this.genreDuComplément][this.nombreDuComplément];
+      this.adjectifs = lexique.phrase.complément.adjectif[this.props.level][this.genreDuComplément][this.nombreDuComplément];
+      this.liaisons = lexique.phrase.complément.liaison[this.props.level];
+      this.bouquetsFinaux = lexique.phrase.complément.bouquetFinal[this.props.level];
     } else {
       throw new Error('Incorrect level!');
     }
 
-    let phrase: string = "",
+    let phrase: Object = {},
         s1: string = "",
-        s2: string = this.getSubstring(sujets),
-        s3: string = this.getSubstring(verbes),
-        s4: string = this.getSubstring(compléments),
-        s5: string = this.getSubstring(adjectifs),
+        s2: string = this.getSubstring(this.sujets),
+        s3: string = this.getSubstring(this.verbes),
+        s4: string = this.getSubstring(this.compléments),
+        s5: string = this.getSubstring(this.adjectifs),
         s6: string = "",
         s7: string = "",
         s8: string = "",
         s9: string = "";
 
     if (this.props.level !== 'junior') {
-      s1 = this.getSubstring(accroches);
-      s9 = this.getSubstring(bouquetsFinaux);
+      s1 = this.getSubstring(this.accroches);
+      s9 = this.getSubstring(this.bouquetsFinaux);
 
       if (this.props.level === 'senior') {
-        s6 = this.getSubstring(liaisons);
-        s7 = this.getSubstring(compléments, s4);
-        s8 = this.getSubstring(adjectifs, s5);
+        s6 = this.getSubstring(this.liaisons);
+        s7 = this.getSubstring(this.compléments, s4);
+        s8 = this.getSubstring(this.adjectifs, s5);
       }
     }
 
     if (this.props.level === 'junior') {
-      phrase = `${this.capitalize(s2)} ${s3} ${s4} ${s5}.`;
+      phrase = (
+        <p id="sentence" className={this.props.level}>
+          <span className="fragment sujets" onClick={this.changeFragment}>{this.capitalize(s2)}</span>
+          <span> </span>
+          <span className="fragment verbes" onClick={this.changeFragment}>{s3}</span>
+          <span> </span>
+          <span className="fragment compléments" onClick={this.changeFragment}>{s4}</span>
+          <span> </span>
+          <span className="fragment adjectifs" onClick={this.changeFragment}>{s5}</span>
+          <span>.</span>
+        </p>
+      );
     } else if (this.props.level === 'confirmé') {
-      phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s9}.`;
+      phrase = (
+        <p id="sentence" className={this.props.level}>
+          <span className="fragment accroches" onClick={this.changeFragment}>{s1}</span>
+          <span> </span>
+          <span className="fragment sujets" onClick={this.changeFragment}>{s2}</span>
+          <span> </span>
+          <span className="fragment verbes" onClick={this.changeFragment}>{s3}</span>
+          <span> </span>
+          <span className="fragment compléments" onClick={this.changeFragment}>{s4}</span>
+          <span> </span>
+          <span className="fragment adjectifs" onClick={this.changeFragment}>{s5}</span>
+          <span> </span>
+          <span className="fragment bouquetsFinaux" onClick={this.changeFragment}>{s9}</span>
+          <span>.</span>
+        </p>
+      );
     } else if (this.props.level === 'senior') {
-      phrase = `${s1} ${s2} ${s3} ${s4} ${s5} ${s6} ${s7} ${s8} ${s9}.`;
+      phrase = (
+        <p id="sentence" className={this.props.level}>
+          <span className="fragment accroches" onClick={this.changeFragment}>{s1}</span>
+          <span> </span>
+          <span className="fragment sujets" onClick={this.changeFragment}>{s2}</span>
+          <span> </span>
+          <span className="fragment verbes" onClick={this.changeFragment}>{s3}</span>
+          <span> </span>
+          <span className="fragment compléments" onClick={this.changeFragment}>{s4}</span>
+          <span> </span>
+          <span className="fragment adjectifs" onClick={this.changeFragment}>{s5}</span>
+          <span> </span>
+          <span className="fragment liaisons" onClick={this.changeFragment}>{s6}</span>
+          <span> </span>
+          <span className="fragment compléments" onClick={this.changeFragment}>{s7}</span>
+          <span> </span>
+          <span className="fragment adjectifs" onClick={this.changeFragment}>{s8}</span>
+          <span> </span>
+          <span className="fragment bouquetsFinaux" onClick={this.changeFragment}>{s9}</span>
+          <span>.</span>
+        </p>
+      );
     }
 
     return phrase;
+  }
+
+  changeFragment(e: Object): void {
+    const types: string[] = ['accroches', 'sujets', 'verbes', 'compléments', 'adjectifs', 'liaisons', 'bouquetsFinaux'],
+          currentType: string = e.target.className.split(' ')[1];
+
+    if (types.includes(currentType)) { // [0] correspond à la classe 'fragment'
+      e.target.innerText = this.getSubstring(this[currentType], e.target.textContent);
+    } else {
+      throw new Error('Invalid string type!');
+    }
   }
 
   isCorrect(level: string): boolean {
@@ -130,14 +206,14 @@ class Pipo extends Component<Props, null> {
   }
 
   render() {
-    let sentence: string = this.getSentence();
+    let sentence: Object = this.getSentence();
 
     return (
       <div className="pipo">
         <Grid>
           <Row>
             <Col xs={12}>
-              <p id="sentence" className={this.props.level}>{sentence}</p>
+              {sentence}
             </Col>
           </Row>
         </Grid>
