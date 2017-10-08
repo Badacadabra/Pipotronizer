@@ -9,11 +9,15 @@ import windmill3 from '../../images/windmill-min-3.png';
 
 type Props = {
   level: string,
-  changeLevel: Function,
+  changeLevel: Function
+};
+
+type State = {
   money: number
 };
 
-class Pipo extends Component<Props, null> {
+class Pipo extends Component<Props, State> {
+  sentence: Object;
   genres: string[];
   nombres: string[];
   genreDuSujet: string;
@@ -34,6 +38,10 @@ class Pipo extends Component<Props, null> {
 
   constructor(props: Props) {
     super(props);
+    this.state = {
+      money: 0
+    };
+    this.sentence;
     this.genres = ['masculin', 'féminin'];
     this.nombres = ['singulier', 'pluriel'];
     this.genreDuSujet;
@@ -51,6 +59,10 @@ class Pipo extends Component<Props, null> {
     this.changeFragment = this.changeFragment.bind(this);
     this.changeLevel = this.changeLevel.bind(this);
     this.goToLevels = this.goToLevels.bind(this);
+  }
+
+  componentWillMount(): void {
+    this.sentence = this.getSentence();
   }
 
   randomize(arr: string[]): string {
@@ -71,22 +83,20 @@ class Pipo extends Component<Props, null> {
     return newStr;
   }
 
-  getSentence(): Object {
+  getSentence(level?: string = this.props.level): Object {
     this.genreDuSujet = this.randomize(this.genres);
     this.genreDuComplément = this.randomize(this.genres);
     this.nombreDuSujet = this.randomize(this.nombres);
     this.nombreDuComplément = this.randomize(this.nombres);
 
-    if (this.isCorrect(this.props.level)) {
-      this.accroches = lexique.phrase.accroche[this.props.level];
-      this.sujets = lexique.phrase.sujet.groupeNominal[this.props.level][this.genreDuSujet][this.nombreDuSujet];
-      this.verbes = lexique.phrase.verbe[this.props.level].conjugué[this.nombreDuSujet];
-      this.compléments = lexique.phrase.complément.groupeNominal[this.props.level][this.genreDuComplément][this.nombreDuComplément];
-      this.adjectifs = lexique.phrase.complément.adjectif[this.props.level][this.genreDuComplément][this.nombreDuComplément];
-      this.liaisons = lexique.phrase.complément.liaison[this.props.level];
-      this.bouquetsFinaux = lexique.phrase.complément.bouquetFinal[this.props.level];
-    } else {
-      throw new Error('Incorrect level!');
+    if (this.isCorrect(level)) {
+      this.accroches = lexique.phrase.accroche[level];
+      this.sujets = lexique.phrase.sujet.groupeNominal[level][this.genreDuSujet][this.nombreDuSujet];
+      this.verbes = lexique.phrase.verbe[level].conjugué[this.nombreDuSujet];
+      this.compléments = lexique.phrase.complément.groupeNominal[level][this.genreDuComplément][this.nombreDuComplément];
+      this.adjectifs = lexique.phrase.complément.adjectif[level][this.genreDuComplément][this.nombreDuComplément];
+      this.liaisons = lexique.phrase.complément.liaison[level];
+      this.bouquetsFinaux = lexique.phrase.complément.bouquetFinal[level];
     }
 
     let phrase: Object = {},
@@ -100,20 +110,20 @@ class Pipo extends Component<Props, null> {
         s8: string = "",
         s9: string = "";
 
-    if (this.props.level !== 'junior') {
+    if (level !== 'junior') {
       s1 = this.getSubstring(this.accroches);
       s9 = this.getSubstring(this.bouquetsFinaux);
 
-      if (this.props.level === 'senior') {
+      if (level === 'senior') {
         s6 = this.getSubstring(this.liaisons);
         s7 = this.getSubstring(this.compléments, s4);
         s8 = this.getSubstring(this.adjectifs, s5);
       }
     }
 
-    if (this.props.level === 'junior') {
+    if (level === 'junior') {
       phrase = (
-        <p id="sentence" className={this.props.level}>
+        <p id="sentence" className={level}>
           <span className="fragment sujets" onClick={this.changeFragment}>{this.capitalize(s2)}</span>
           <span> </span>
           <span className="fragment verbes" onClick={this.changeFragment}>{s3}</span>
@@ -124,9 +134,9 @@ class Pipo extends Component<Props, null> {
           <span>.</span>
         </p>
       );
-    } else if (this.props.level === 'confirmé') {
+    } else if (level === 'confirmé') {
       phrase = (
-        <p id="sentence" className={this.props.level}>
+        <p id="sentence" className={level}>
           <span className="fragment accroches" onClick={this.changeFragment}>{s1}</span>
           <span> </span>
           <span className="fragment sujets" onClick={this.changeFragment}>{s2}</span>
@@ -141,9 +151,9 @@ class Pipo extends Component<Props, null> {
           <span>.</span>
         </p>
       );
-    } else if (this.props.level === 'senior') {
+    } else if (level === 'senior') {
       phrase = (
-        <p id="sentence" className={this.props.level}>
+        <p id="sentence" className={level}>
           <span className="fragment accroches" onClick={this.changeFragment}>{s1}</span>
           <span> </span>
           <span className="fragment sujets" onClick={this.changeFragment}>{s2}</span>
@@ -175,6 +185,11 @@ class Pipo extends Component<Props, null> {
 
     if (types.includes(currentType)) { // [0] correspond à la classe 'fragment'
       e.target.innerText = this.getSubstring(this[currentType], e.target.textContent);
+      let bonus: number | void = this.getMoneyBonus(this.props.level, 'newFragment');
+
+      this.setState(prevState => ({
+        money: prevState.money + bonus
+      }));
     } else {
       throw new Error('Invalid string type!');
     }
@@ -182,16 +197,37 @@ class Pipo extends Component<Props, null> {
 
   isCorrect(level: string): boolean {
     let levels: string[] = ['junior', 'confirmé', 'senior'];
-    return levels.includes(level);
+
+    if (!levels.includes(level)) {
+      throw new Error('Incorrect level!');
+    }
+
+    return true;
   }
 
   changeLevel(e: Object): void {
-    let level: string = e.target.value;
+    let level: string = e.target.value,
+        bonus: number | void = this.getMoneyBonus(level, 'newSentence');
 
+    this.sentence = this.getSentence(level);
+
+    this.setState(prevState => ({
+      money: prevState.money + bonus
+    }));
+
+    this.props.changeLevel(level);
+  }
+
+  getMoneyBonus(level: string, action: string): number | void {
     if (this.isCorrect(level)) {
-      this.props.changeLevel(level);
-    } else {
-      throw new Error('Incorrect level!');
+      switch(level) {
+        case 'junior':
+          return action === 'newSentence' ? 10 : 2;
+        case 'confirmé':
+          return action === 'newSentence' ? 50 : 10;
+        case 'senior':
+          return action === 'newSentence' ? 100 : 20;
+      }
     }
   }
 
@@ -206,14 +242,12 @@ class Pipo extends Component<Props, null> {
   }
 
   render() {
-    let sentence: Object = this.getSentence();
-
     return (
       <div className="pipo">
         <Grid>
           <Row>
             <Col xs={12}>
-              {sentence}
+              {this.sentence}
             </Col>
           </Row>
         </Grid>
@@ -228,7 +262,7 @@ class Pipo extends Component<Props, null> {
             <Col sm={6} className="money">
               <Row>
                 <Col sm={12}>
-                  Cagnotte&nbsp;: <span className="amount">{(this.props.money / 100).toFixed(2).replace('.', ',')}&nbsp;€</span>
+                  Cagnotte&nbsp;: <span className="amount">{(this.state.money / 100).toFixed(2).replace('.', ',')}&nbsp;€</span>
                 </Col>
                 <Col sm={12}>
                   <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -236,7 +270,7 @@ class Pipo extends Component<Props, null> {
                     <input type="hidden" name="charset" value="utf-8" />
                     <input type="hidden" name="business" value="contact@badacadabra.net" />
                     <input type="hidden" name="item_name" value="Collecte de fonds pour «&nbsp;Électriciens sans frontières&nbsp;» via Pipotronizer" />
-                    <input type="hidden" name="amount" value={(this.props.money / 100).toFixed(2)} />
+                    <input type="hidden" name="amount" value={(this.state.money / 100).toFixed(2)} />
                     <input type="hidden" name="currency_code" value="EUR" />
                     <div className="donate">
                       <input type="submit" name="submit" value="Changer en électricité" />

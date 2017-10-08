@@ -41,7 +41,7 @@ class Levels extends Component {
                 <img src={windmill1} alt="Bonne brise" />
                 <figcaption>
                   Bonne brise pour vous réveiller en douceur&#8239;!
-                  <div className="price">(0,10 € par phrase)</div>
+                  <div className="price">(0,10 € par phrase / 0,02 € par fragment)</div>
                 </figcaption>
               </figure>
             </Col>
@@ -50,7 +50,7 @@ class Levels extends Component {
                 <img src={windmill2} alt="Coup de vent" />
                 <figcaption>
                   Attention au coup de vent. Ça décoiffe&#8239;!
-                  <div className="price">(0,50 € par phrase)</div>
+                  <div className="price">(0,50 € par phrase / 0,10 € par fragment)</div>
                 </figcaption>
               </figure>
             </Col>
@@ -59,7 +59,7 @@ class Levels extends Component {
                 <img src={windmill3} alt="Tempête" />
                 <figcaption>
                   Avis de tempête. Planquez-vous&#8239;!
-                  <div className="price">(1 € par phrase)</div>
+                  <div className="price">(1 € par phrase / 0,20 € par fragment)</div>
                 </figcaption>
               </figure>
             </Col>
