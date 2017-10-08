@@ -30,8 +30,8 @@ class Header extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      soundIcon: 'volume-up',
-      soundVol: ''
+      soundIcon: 'volume-off',
+      soundVol: 'muted'
     };
     this.toggleSound = this.toggleSound.bind(this);
   }
@@ -88,8 +88,8 @@ class Header extends Component<Props, State> {
 
   toggleSound(): void {
     this.setState({
-      soundIcon: this.state.soundIcon === 'volume-up' ? 'volume-off' : 'volume-up',
-      soundVol: this.state.soundVol === '' ? 'muted' : ''
+      soundIcon: this.state.soundIcon === 'volume-off' ? 'volume-up' : 'volume-off',
+      soundVol: this.state.soundVol === 'muted' ? '' : 'muted'
     });
   }
 

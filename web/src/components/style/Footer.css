@@ -13,7 +13,8 @@ footer h3 {
   margin-bottom: 30px;
 }
 
-footer a:hover {
+footer a:hover,
+footer a:focus {
   color: gray;
 }
 

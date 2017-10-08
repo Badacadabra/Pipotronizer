@@ -15,10 +15,10 @@ class Footer extends Component {
             <Col md={4}>
               <h3>Pipotronizer 2.0</h3>
               <div className="social">
-                <a href="https://www.facebook.com/badacadabra.net/" target="_blank" rel="noopener noreferrer">
+                <a href="https://fr-fr.facebook.com/pipotronizer" target="_blank" rel="noopener noreferrer">
                   <img src={facebook} alt="Pipotronizer sur Facebook" />
                 </a>
-                <a href="https://twitter.com/badacadabra" target="_blank" rel="noopener noreferrer">
+                <a href="https://twitter.com/pipotronizer" target="_blank" rel="noopener noreferrer">
                   <img src={twitter} alt="Pipotronizer sur Twitter" />
                 </a>
                 <a href="#" target="_blank" rel="noopener noreferrer">
@@ -42,8 +42,8 @@ class Footer extends Component {
             </Col>
             <Col md={4}>
               <h3>Contact</h3>
-              <p>Pour toute proposition de termes corporate, un éventuel partenariat, ou si <span className="highlight">Pipotronizer</span> vous a été utile dans la préparation de vos réunions, vous pouvez envoyer vos commentaires par mail à cette adresse&nbsp;:</p>
-              <p><a href="mailto:contact@pipotronizer.com" className="highlight">contact@pipotronizer.com</a></p>
+              <p>Pour toute proposition de termes corporate, un éventuel partenariat, un signalement de bug, ou tout simplement si <span className="highlight">Pipotronizer</span> vous a été utile dans la préparation de vos réunions, vous pouvez envoyer un mail à cette adresse&nbsp;:</p>
+              <p><a href="mailto:pipotronizer@badacadabra.net" className="highlight">pipotronizer@badacadabra.net</a></p>
             </Col>
           </Row>
         </Grid>

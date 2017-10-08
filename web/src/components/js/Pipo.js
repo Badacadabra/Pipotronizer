@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
-import scrollToComponent from 'react-scroll-to-component';
 import lexique from '../../lexique.json';
 import '../style/Pipo.css';
 import windmill1 from '../../images/windmill-min-1.png';
@@ -124,10 +123,10 @@ class Pipo extends Component<Props, null> {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
-  goToLevels(e): void {
-    e.preventDefault();
+  goToLevels(): void {
     const levels = document.getElementById('levels');
-    scrollToComponent(levels);
+    require('react-scroll-to-component')(levels);
+    // A regular 'import' at the top of the file generates an error in tests with Jest... Keep the 'require' here.
   }
 
   render() {
@@ -148,12 +147,12 @@ class Pipo extends Component<Props, null> {
               <input type="image" src={windmill1} alt="Junior" value="junior" onClick={this.changeLevel} />
               <input type="image" src={windmill2} alt="Confirmé" value="confirmé" onClick={this.changeLevel} />
               <input type="image" src={windmill3} alt="Senior" value="senior" onClick={this.changeLevel} />
-              <p className="how-to"><a href="#" onClick={this.goToLevels}>Au secours&#8239;! C'est quoi, tout ça&#8239;?</a></p>
+              <p className="how-to"><span onClick={this.goToLevels}>Au secours&#8239;! C'est quoi, tout ça&#8239;?</span></p>
             </Col>
             <Col sm={6} className="money">
               <Row>
                 <Col sm={12}>
-                  Cagnotte&nbsp;: <span className="amount">{(this.props.money / 100).toFixed(2).replace('.', ',')} €</span>
+                  Cagnotte&nbsp;: <span className="amount">{(this.props.money / 100).toFixed(2).replace('.', ',')}&nbsp;€</span>
                 </Col>
                 <Col sm={12}>
                   <form action="https://www.paypal.com/cgi-bin/webscr" method="post">

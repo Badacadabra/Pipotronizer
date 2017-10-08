@@ -42,17 +42,19 @@
 
 .pipo .options input[type="image"]:focus {
   outline: none;
+  filter: grayscale(100%);
 }
 
 .pipo .options p.how-to {
   font-size: 22px;
 }
 
-.pipo .options p.how-to a {
+.pipo .options p.how-to span {
   color: gray;
 }
 
-.pipo .options p.how-to a:hover {
+.pipo .options p.how-to span:hover {
+  cursor: pointer;
   color: silver;
 }
 
@@ -117,7 +119,7 @@
   }
 
   .pipo p#sentence {
-    line-height: 22px;
+    line-height: 28px;
     text-align: center;
   }
 
