@@ -87,6 +87,7 @@ class Header extends Component<Props, State> {
   }
 
   toggleSound(): void {
+    this.refs.audio.play(); // necessary for mobile devices where autoplay is disabled
     this.setState({
       soundIcon: this.state.soundIcon === 'volume-off' ? 'volume-up' : 'volume-off',
       soundVol: this.state.soundVol === 'muted' ? '' : 'muted'
@@ -161,7 +162,7 @@ class Header extends Component<Props, State> {
           </div>
         </div>
         <Glyphicon className="sound" glyph={this.state.soundIcon} onClick={this.toggleSound} />
-        <audio autoPlay loop muted={this.state.soundVol} ref="audio">
+        <audio loop muted={this.state.soundVol} ref="audio">
           <source src={info.sound.ogg} type="audio/ogg" />
           <source src={info.sound.mp3} type="audio/mpeg" />
           Votre navigateur ne gère pas l'élément audio.
