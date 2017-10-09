@@ -5,42 +5,66 @@
   background: #181818 url('../../images/dark-blackboard.png') repeat 0 0;
 }
 
-.pipo p#sentence {
-  min-height: 120px;
-  line-height: 30px;
-  font-family: 'Permanent Marker', cursive;
+.pipo .junior,
+.pipo .confirmé,
+.pipo .senior {
+  min-height: 125px;
 }
 
-.pipo p#sentence:hover {
+.pipo #sentence {
+  line-height: 30px;
+  font-family: 'Permanent Marker', cursive;
+  user-select: none;
+}
+
+.pipo #sentence:hover {
   cursor: url('../../images/marker.png'), auto;
 }
 
-.pipo p#sentence:before {
+.pipo #sentence:before {
   margin-right: 10px;
 }
 
-.pipo .junior:before {
+.pipo .junior #sentence:before {
   content: url('../../images/quote1.png');
 }
 
-.pipo .confirmé:before {
+.pipo .confirmé #sentence:before {
   content: url('../../images/quote2.png');
 }
 
-.pipo .senior:before {
+.pipo .senior #sentence:before {
   content: url('../../images/quote3.png');
 }
 
-.pipo .junior .fragment:hover {
+.pipo .junior #sentence .fragment:hover,
+.pipo .junior #copyToClipboard {
   color: #F4BF31;
 }
 
-.pipo .confirmé .fragment:hover {
+.pipo .confirmé #sentence .fragment:hover,
+.pipo .confirmé #copyToClipboard {
   color: #44DBBD;
 }
 
-.pipo .senior .fragment:hover {
+.pipo .senior #sentence .fragment:hover,
+.pipo .senior #copyToClipboard {
   color: #9FD7FC;
+}
+
+.pipo button {
+  background: none;
+  border: 0;
+}
+
+.pipo button:focus,
+.pipo button:active {
+  opacity: 0.5;
+  outline: none;
+}
+
+.pipo #copyToClipboard {
+  cursor: pointer;
 }
 
 .pipo .options {
@@ -134,7 +158,7 @@
     padding: 30px 0;
   }
 
-  .pipo p#sentence {
+  .pipo #sentence {
     line-height: 28px;
     text-align: center;
   }

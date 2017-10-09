@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
+import { Grid, Row, Col, Tooltip, OverlayTrigger, Glyphicon } from 'react-bootstrap';
+import ClipboardButton from 'react-clipboard.js';
 import lexique from '../../lexique.json';
 import '../style/Pipo.css';
 import windmill1 from '../../images/windmill-min-1.png';
@@ -111,7 +112,7 @@ class Pipo extends Component<Props, State> {
 
     if (level === 'junior') {
       phrase = (
-        <p id="sentence" className={level}>
+        <span id="sentence">
           <span className="fragment sujets" onClick={this.changeFragment}>{this.capitalize(s2)}</span>
           <span> </span>
           <span className="fragment verbes" onClick={this.changeFragment}>{s3}</span>
@@ -120,11 +121,11 @@ class Pipo extends Component<Props, State> {
           <span> </span>
           <span className="fragment adjectifs" onClick={this.changeFragment}>{s5}</span>
           <span>.</span>
-        </p>
+        </span>
       );
     } else if (level === 'confirmé') {
       phrase = (
-        <p id="sentence" className={level}>
+        <span id="sentence">
           <span className="fragment accroches" onClick={this.changeFragment}>{s1}</span>
           <span> </span>
           <span className="fragment sujets" onClick={this.changeFragment}>{s2}</span>
@@ -137,11 +138,11 @@ class Pipo extends Component<Props, State> {
           <span> </span>
           <span className="fragment bouquetsFinaux" onClick={this.changeFragment}>{s9}</span>
           <span>.</span>
-        </p>
+        </span>
       );
     } else if (level === 'senior') {
       phrase = (
-        <p id="sentence" className={level}>
+        <span id="sentence">
           <span className="fragment accroches" onClick={this.changeFragment}>{s1}</span>
           <span> </span>
           <span className="fragment sujets" onClick={this.changeFragment}>{s2}</span>
@@ -160,7 +161,7 @@ class Pipo extends Component<Props, State> {
           <span> </span>
           <span className="fragment bouquetsFinaux" onClick={this.changeFragment}>{s9}</span>
           <span>.</span>
-        </p>
+        </span>
       );
     }
 
@@ -231,13 +232,36 @@ class Pipo extends Component<Props, State> {
     // A regular 'import' at the top of the file generates an error in tests with Jest... Keep the 'require' here.
   }
 
+  getText() {
+    return document.querySelector('#sentence').textContent;
+  }
+
+  onCopy() {
+    let tooltipInner = document.querySelector('#tooltip .tooltip-inner');
+
+    if (tooltipInner) {
+      tooltipInner.textContent = 'Copiée !';
+    }
+  }
+
   render() {
+    const tooltip = (
+      <Tooltip id="tooltip">Copier&#8239;?</Tooltip>
+    );
+
     return (
       <div className="pipo">
         <Grid>
           <Row>
             <Col xs={12}>
-              {this.sentence}
+              <div className={this.props.level}>
+                {this.sentence}
+                <ClipboardButton option-text={this.getText} onSuccess={this.onCopy}>
+                  <OverlayTrigger placement="bottom" overlay={tooltip}>
+                    <Glyphicon id="copyToClipboard" glyph="copy" />
+                  </OverlayTrigger>
+                </ClipboardButton>
+              </div>
             </Col>
           </Row>
         </Grid>
