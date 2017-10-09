@@ -1,8 +1,10 @@
 // @flow
 import React, { Component } from 'react';
-import { Grid, Row, Col, Tooltip, OverlayTrigger, Glyphicon } from 'react-bootstrap';
+import { Grid, Row, Col, Glyphicon } from 'react-bootstrap';
 import ClipboardButton from 'react-clipboard.js';
+import { ToastContainer, toast } from 'react-toastify';
 import lexique from '../../lexique.json';
+import 'react-toastify/dist/ReactToastify.min.css';
 import '../style/Pipo.css';
 import windmill1 from '../../images/windmill-min-1.png';
 import windmill2 from '../../images/windmill-min-2.png';
@@ -233,33 +235,31 @@ class Pipo extends Component<Props, State> {
   }
 
   getText() {
-    return document.querySelector('#sentence').textContent;
-  }
+    const sentence = document.getElementById('sentence');
 
-  onCopy() {
-    let tooltipInner = document.querySelector('#tooltip .tooltip-inner');
-
-    if (tooltipInner) {
-      tooltipInner.textContent = 'Copiée !';
+    if (sentence) {
+      return sentence.textContent;
     }
   }
 
-  render() {
-    const tooltip = (
-      <Tooltip id="tooltip">Copier&#8239;?</Tooltip>
-    );
+  onCopy() {
+    toast("La phrase a été copiée dans le presse-papier");
+  }
 
+  render() {
     return (
       <div className="pipo">
+        <ToastContainer
+          className="copyNotifContainer"
+          bodyClassName="copyNotifBody"
+        />
         <Grid>
           <Row>
             <Col xs={12}>
               <div className={this.props.level}>
                 {this.sentence}
                 <ClipboardButton option-text={this.getText} onSuccess={this.onCopy}>
-                  <OverlayTrigger placement="bottom" overlay={tooltip}>
-                    <Glyphicon id="copyToClipboard" glyph="copy" />
-                  </OverlayTrigger>
+                  <Glyphicon id="copyToClipboard" glyph="copy" />
                 </ClipboardButton>
               </div>
             </Col>

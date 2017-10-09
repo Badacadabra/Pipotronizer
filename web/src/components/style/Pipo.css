@@ -14,7 +14,7 @@
 .pipo #sentence {
   line-height: 30px;
   font-family: 'Permanent Marker', cursive;
-  user-select: none;
+  /*user-select: none;*/
 }
 
 .pipo #sentence:hover {
@@ -50,6 +50,14 @@
 .pipo .senior #sentence .fragment:hover,
 .pipo .senior #copyToClipboard {
   color: #9FD7FC;
+}
+
+.pipo .copyNotifContainer {
+  z-index: 999;
+}
+
+.pipo .copyNotifBody {
+  font-family: tradewinds, cursive;
 }
 
 .pipo button {
