@@ -11,6 +11,10 @@
   font-family: 'Permanent Marker', cursive;
 }
 
+.pipo p#sentence:hover {
+  cursor: url('../../images/marker.png'), auto;
+}
+
 .pipo p#sentence:before {
   margin-right: 10px;
 }
@@ -25,10 +29,6 @@
 
 .pipo .senior:before {
   content: url('../../images/quote3.png');
-}
-
-.pipo .fragment:hover {
-  cursor: pointer;
 }
 
 .pipo .junior .fragment:hover {

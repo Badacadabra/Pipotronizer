@@ -41,20 +41,8 @@ class Pipo extends Component<Props, State> {
     this.state = {
       money: 0
     };
-    this.sentence;
     this.genres = ['masculin', 'féminin'];
     this.nombres = ['singulier', 'pluriel'];
-    this.genreDuSujet;
-    this.genreDuComplément;
-    this.nombreDuSujet;
-    this.nombreDuComplément;
-    this.accroches;
-    this.sujets;
-    this.verbes;
-    this.compléments;
-    this.adjectifs;
-    this.liaisons;
-    this.bouquetsFinaux;
     this.getSentence = this.getSentence.bind(this);
     this.changeFragment = this.changeFragment.bind(this);
     this.changeLevel = this.changeLevel.bind(this);
@@ -227,6 +215,8 @@ class Pipo extends Component<Props, State> {
           return action === 'newSentence' ? 50 : 10;
         case 'senior':
           return action === 'newSentence' ? 100 : 20;
+        default:
+          return 0;
       }
     }
   }
