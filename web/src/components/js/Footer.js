@@ -31,8 +31,8 @@ class Footer extends Component {
               <div className="sharethis-inline-reaction-buttons"></div>
             </Col>
             <Col md={4}>
-              <h3>Faire un don</h3>
-              <p>Si vous souhaitez faire un geste spontané pour les plus démunis sur le plan énergétique, vous pouvez faire un don sans même tenir compte de votre cagnotte dûment constituée. L'argent récolté sera intégralement reversé à <a className="highlight" href="https://www.electriciens-sans-frontieres.org/" target="_blank" rel="noopener noreferrer">Électriciens sans frontières</a>.</p>
+              <h3>Coup de pouce</h3>
+              <p>Si vous aimez <span className="highlight">Pipotronizer</span> et que vous souhaitez soutenir le projet, vous pouvez faire un don «&nbsp;coup de pouce&nbsp;» en cliquant sur le bouton ci-dessous. Ce don n'a rien à voir avec votre cagnotte et permettra surtout à votre serviteur de payer ses factures d'électricité.</p>
               <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick" />
                 <input type="hidden" name="hosted_button_id" value="H7KQTUZR3ZXBJ" />
