@@ -24,6 +24,12 @@ footer .social {
   align-items: center;
 }
 
+footer #st-1 {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
 footer .sharethis-inline-reaction-buttons {
   margin-top: 20px;
 }

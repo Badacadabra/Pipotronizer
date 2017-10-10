@@ -1,17 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Trade+Winds');
 
 @font-face {
   font-family: 'hammerhead';
   src: url('fonts/hammerhead/hammerheadblack-webfont.woff2') format('woff2'),
        url('fonts/hammerhead/hammerheadblack-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'tradewinds';
-  src: url('fonts/tradewinds/tradewinds-regular-webfont.woff2') format('woff2'),
-       url('fonts/tradewinds/tradewinds-regular-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }

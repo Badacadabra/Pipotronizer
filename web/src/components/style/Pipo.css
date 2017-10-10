@@ -18,7 +18,7 @@
 }
 
 .pipo #sentence:hover {
-  cursor: url('../../images/marker.png'), auto;
+  cursor: url('../../images/marker.png'), pointer;
 }
 
 .pipo #sentence:before {
@@ -57,7 +57,8 @@
 }
 
 .pipo .copyNotifBody {
-  font-family: tradewinds, cursive;
+  font-family: 'Trade Winds', cursive;
+  font-size: 22px;
 }
 
 .pipo button {
@@ -109,7 +110,7 @@
 .pipo .money {
   color: silver;
   margin-top: 30px;
-  font-family: tradewinds, cursive;
+  font-family: 'Trade Winds', cursive;
   text-align: right;
 }
 
@@ -146,7 +147,7 @@
   padding: 10px;
   margin-right: 20px;
   font-size: 22px;
-  background-color: initial;
+  background-color: transparent;
   transition: background-color .5s ease;
 }
 
