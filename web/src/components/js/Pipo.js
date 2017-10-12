@@ -38,6 +38,7 @@ class Pipo extends Component<Props, State> {
   changeFragment: Function;
   changeLevel: Function;
   goToLevels: Function;
+  getText: Function;
 
   constructor(props: Props) {
     super(props);
@@ -50,6 +51,7 @@ class Pipo extends Component<Props, State> {
     this.changeFragment = this.changeFragment.bind(this);
     this.changeLevel = this.changeLevel.bind(this);
     this.goToLevels = this.goToLevels.bind(this);
+    this.getText = this.getText.bind(this);
   }
 
   componentWillMount(): void {
@@ -235,11 +237,7 @@ class Pipo extends Component<Props, State> {
   }
 
   getText() {
-    const sentence = document.getElementById('sentence');
-
-    if (sentence) {
-      return sentence.textContent;
-    }
+    return this.refs.sentence.textContent;
   }
 
   onCopy() {
@@ -256,7 +254,7 @@ class Pipo extends Component<Props, State> {
         <Grid>
           <Row>
             <Col xs={12}>
-              <div className={this.props.level}>
+              <div ref="sentence" className={this.props.level}>
                 {this.sentence}
                 <ClipboardButton option-text={this.getText} onSuccess={this.onCopy}>
                   <Glyphicon id="copyToClipboard" glyph="copy" />
