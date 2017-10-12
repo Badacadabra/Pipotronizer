@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Pipo from '../js/Pipo';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
@@ -10,28 +10,65 @@ it('renders without crashing', () => {
   ReactDOM.render(<Pipo level="senior" money={100} changeLevel={null} />, div);
 });
 
+it('has correct initial state', () => {
+  const pipo = shallow(<Pipo level="confirmé" money={50} changeLevel={null} />);
+  expect(pipo.state().money).toEqual(0);
+});
+
 it('handles level change properly', () => {
-  const app = shallow(<Pipo level="confirmé" money={50} changeLevel={() => null} />);
+  const pipo = shallow(<Pipo level="confirmé" money={50} changeLevel={() => null} />);
 
-  expect(app.instance().getSubstring(['foo', 'bar'], 'bar')).toEqual('foo');
+  expect(pipo.instance().getSubstring(['foo', 'bar'], 'bar')).toEqual('foo');
+  expect(pipo.state().money).toEqual(0);
 
   expect(() => {
-    app.setProps({level: 'boss'});
+    pipo.instance().isCorrect('boss');
   }).toThrow('Incorrect level!');
 
   expect(() => {
-    app.instance().changeLevel({target: { value: 'junior' }});
+    pipo.instance().changeLevel({target: { value: 'junior' }});
   }).not.toThrow();
 
-  expect(() => {
-    app.instance().changeLevel({target: { value: 'confirmé' }});
-  }).not.toThrow();
+  expect(pipo.state().money).toEqual(10); // 0 + 10
 
   expect(() => {
-    app.instance().changeLevel({target: { value: 'senior' }});
+    pipo.instance().changeLevel({target: { value: 'confirmé' }});
   }).not.toThrow();
 
+  expect(pipo.state().money).toEqual(60); // 0 + 10 + 50
+
   expect(() => {
-    app.instance().changeLevel({target: { value: 'boss' }});
+    pipo.instance().changeLevel({target: { value: 'senior' }});
+  }).not.toThrow();
+
+  expect(pipo.state().money).toEqual(160); // 0 + 10 + 50 + 100
+
+  expect(() => {
+    pipo.instance().changeLevel({target: { value: 'boss' }});
   }).toThrow('Incorrect level!');
+});
+
+it('handles fragment change properly', () => {
+  const pipo = shallow(<Pipo level="confirmé" money={50} changeLevel={() => null} />);
+  expect(pipo.state().money).toEqual(0);
+
+  expect(() => {
+    pipo.instance().changeFragment({target: { className: 'fragment test'}})
+  }).toThrow('Invalid string type!');
+
+  pipo.instance().changeFragment({target: { className: 'fragment sujets' }});
+  expect(pipo.state().money).toEqual(10);
+});
+
+it('can copy the current sentence', () => {
+  const pipo = mount(<Pipo level="confirmé" money={50} changeLevel={() => null} />),
+        txt = pipo.instance().getText();
+
+  expect(txt).not.toEqual(undefined);
+  expect(typeof txt).toEqual('string');
+  expect(txt.length).toBeGreaterThan(20);
+
+  expect(() => {
+    pipo.instance().onCopy();
+  }).not.toThrow();
 });
