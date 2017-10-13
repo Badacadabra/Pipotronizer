@@ -5,7 +5,7 @@
     "slug": "pipotronizer",
     "privacy": "public",
     "sdkVersion": "20.0.0",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "primaryColor": "#0C0C0C",
     "icon": "assets/images/icon.png",
@@ -17,7 +17,7 @@
     },
     "android": {
       "package": "net.badacadabra.pipo",
-      "versionCode": 2,
+      "versionCode": 3,
       "permissions": ["VIBRATE"]
     }
   }

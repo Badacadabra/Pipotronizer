@@ -1,15 +1,17 @@
+// @flow
 import React, { Component } from 'react';
 import { Dimensions, StyleSheet, View, Text } from 'react-native';
 
-export default class Pipo extends Component {
+type Props = {
+  color: string,
+  level: string
+};
+
+export default class Pipo extends Component<void, Props, void> {
   render() {
     return (
       <View style={[styles.container, {backgroundColor: this.props.color}]}>
-        {
-          this.props.fontLoaded ? (
-            <Text style={styles.level}>Niveau : {this.props.level}</Text>
-          ) : null
-        }
+        <Text style={styles.level}>Niveau : {this.props.level}</Text>
       </View>
     );
   }

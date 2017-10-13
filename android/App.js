@@ -7,15 +7,13 @@ import Weather from './src/components/Weather';
 import Pipo from './src/components/Pipo';
 import ButtonGroup from './src/components/ButtonGroup';
 import Level from './src/components/Level';
-import tradewinds from './assets/fonts/trade_winds/TradeWinds-Regular.ttf';
 
 type State = {
   isReady: boolean,
   level: string,
   levelColor: string,
   wheelSpeed: number,
-  sky: string,
-  fontLoaded: boolean
+  sky: string
 };
 
 let sentence: string = '',
@@ -31,8 +29,7 @@ export default class App extends Component<void, void, State> {
     level: 'confirmé',
     levelColor: '#44DBBD',
     wheelSpeed: 1000,
-    sky: 'cloudy',
-    fontLoaded: false
+    sky: 'cloudy'
   };
 
   componentWillMount() {
@@ -40,12 +37,6 @@ export default class App extends Component<void, void, State> {
   }
 
    async _cacheResourcesAsync() {
-    await Font.loadAsync({
-      'tradewinds': tradewinds
-    });
-
-    this.setState({ fontLoaded: true });
-
     const images = [
       require('./assets/images/wheel.png'),
       require('./assets/images/background-1.jpg'),
@@ -60,6 +51,11 @@ export default class App extends Component<void, void, State> {
     for (let image of images) {
       await Asset.fromModule(image).downloadAsync();
     }
+
+    await Font.loadAsync({
+      'tradewinds': require('./assets/fonts/trade_winds/TradeWinds-Regular.ttf'),
+      'permanentmarker': require('./assets/fonts/permanent_marker/PermanentMarker.ttf')
+    });
 
     this.setState({ isReady: true });
   }
@@ -158,21 +154,17 @@ Pour une expérience optimale, il est conseillé d'avoir au minimum Facebook et 
 
     return (
       <View style={styles.container}>
-        {
-          this.state.fontLoaded ? (
-            <Header
-              statusBarProps={{ barStyle: 'light-content' }}
-              leftComponent={{ icon: 'help-outline', color: '#FFF', underlayColor: '#121212', onPress: this.help }}
-              centerComponent={{ text: 'Pipotronizer', style: styles.toolbarTitle, onPress: this.browse}}
-              rightComponent={{ icon: 'share', color: '#FFF', underlayColor: '#121212', onPress: this.share }}
-              outerContainerStyles={{ backgroundColor: '#0C0C0C', paddingTop: 4 }}
-            />
-          ) : null
-        }
+        <Header
+          statusBarProps={{ barStyle: 'light-content' }}
+          leftComponent={{ icon: 'help-outline', color: '#FFF', underlayColor: '#121212', onPress: this.help }}
+          centerComponent={{ text: 'Pipotronizer', style: styles.toolbarTitle, onPress: this.browse}}
+          rightComponent={{ icon: 'share', color: '#FFF', underlayColor: '#121212', onPress: this.share }}
+          outerContainerStyles={{ backgroundColor: '#0C0C0C', paddingTop: 4 }}
+        />
         <Weather sky={this.state.sky} wind={this.state.wheelSpeed} />
         <Pipo level={this.state.level} update={this.update.bind(this)} />
         <ButtonGroup changeLevel={this.changeLevel.bind(this)} />
-        <Level level={this.state.level} color={this.state.levelColor} fontLoaded={this.state.fontLoaded} />
+        <Level level={this.state.level} color={this.state.levelColor} />
       </View>
     );
   }

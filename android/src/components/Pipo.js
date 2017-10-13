@@ -1,9 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { Dimensions, StyleSheet, ScrollView, Text, ImageBackground } from 'react-native';
-import { Font } from 'expo';
 import lexique from '../../assets/lexique.json';
-import permanentmarker from '../../assets/fonts/permanent_marker/PermanentMarker.ttf';
 import blackboard from '../../assets/images/dark-blackboard.png';
 
 type Props = {
@@ -11,27 +9,22 @@ type Props = {
   update: Function
 };
 
-type State = {
-  fontLoaded: boolean
-};
-
-export default class Pipo extends Component<void, Props, State> {
+export default class Pipo extends Component<void, Props, void> {
+  genres: string[]
+  nombres: string[]
+  levels: string[]
   getSentence: Function
-
-  state: State = {
-    fontLoaded: false
-  };
 
   constructor(props: Props) {
     super(props);
+    this.genres = ['masculin', 'féminin'];
+    this.nombres = ['singulier', 'pluriel'];
+    this.levels = ['junior', 'confirmé', 'senior'];
     this.getSentence = this.getSentence.bind(this);
   }
 
-  async componentDidMount(): any {
-    await Font.loadAsync({
-      'permanentmarker': permanentmarker
-    });
-    this.setState({ fontLoaded: true });
+  capitalize(str: string): string {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
   randomize(arr: string[]): string {
@@ -53,12 +46,10 @@ export default class Pipo extends Component<void, Props, State> {
   }
 
   getSentence(): string {
-    let genres: string[] = ['masculin', 'féminin'],
-        nombres: string[] = ['singulier', 'pluriel'],
-        genreDuSujet: string = this.randomize(genres),
-        genreDuComplément: string = this.randomize(genres),
-        nombreDuSujet: string = this.randomize(nombres),
-        nombreDuComplément: string = this.randomize(nombres);
+    let genreDuSujet: string = this.randomize(this.genres),
+        genreDuComplément: string = this.randomize(this.genres),
+        nombreDuSujet: string = this.randomize(this.nombres),
+        nombreDuComplément: string = this.randomize(this.nombres);
 
     let accroches: string[],
         sujets: string[],
@@ -68,7 +59,7 @@ export default class Pipo extends Component<void, Props, State> {
         liaisons: string[],
         bouquetsFinaux: string[];
 
-    if (['junior', 'confirmé', 'senior'].includes(this.props.level)) {
+    if (this.levels.includes(this.props.level)) {
       accroches = lexique.phrase.accroche[this.props.level];
       sujets = lexique.phrase.sujet.groupeNominal[this.props.level][genreDuSujet][nombreDuSujet];
       verbes = lexique.phrase.verbe[this.props.level].conjugué[nombreDuSujet];
@@ -113,10 +104,6 @@ export default class Pipo extends Component<void, Props, State> {
     return phrase;
   }
 
-  capitalize(str: string): string {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-
   render() {
     let sentence: string = this.getSentence();
     this.props.update(sentence);
@@ -124,11 +111,7 @@ export default class Pipo extends Component<void, Props, State> {
     return (
       <ImageBackground source={blackboard} style={styles.container}>
         <ScrollView contentContainerStyle={styles.scroll}>
-          {
-            this.state.fontLoaded ? (
-              <Text style={styles.sentence}>«&nbsp;{sentence}&nbsp;»</Text>
-            ) : null
-          }
+          <Text style={styles.sentence}>«&nbsp;{sentence}&nbsp;»</Text>
         </ScrollView>
       </ImageBackground>
     );
