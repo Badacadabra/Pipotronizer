@@ -23,7 +23,7 @@ let sentence: string = '',
     counterExperienced: number = 0,
     counterSenior: number = 0;
 
-FacebookAds.AdSettings.addTestDevice(FacebookAds.AdSettings.currentDeviceHash);
+// FacebookAds.AdSettings.addTestDevice(FacebookAds.AdSettings.currentDeviceHash);
 
 export default class App extends Component<void, void, State> {
   state: State = {
@@ -35,22 +35,26 @@ export default class App extends Component<void, void, State> {
     fontLoaded: false
   };
 
-  async componentDidMount(): any {
-    await Font.loadAsync({
-      'tradewinds': tradewinds
-    });
-    this.setState({ fontLoaded: true });
-  }
-
   componentWillMount() {
     this._cacheResourcesAsync();
   }
 
    async _cacheResourcesAsync() {
+    await Font.loadAsync({
+      'tradewinds': tradewinds
+    });
+
+    this.setState({ fontLoaded: true });
+
     const images = [
+      require('./assets/images/wheel.png'),
       require('./assets/images/background-1.jpg'),
       require('./assets/images/background-2.jpg'),
-      require('./assets/images/background-3.jpg')
+      require('./assets/images/background-3.jpg'),
+      require('./assets/images/dark-blackboard.png'),
+      require('./assets/images/windmill-min-1.png'),
+      require('./assets/images/windmill-min-2.png'),
+      require('./assets/images/windmill-min-3.png')
     ];
 
     for (let image of images) {

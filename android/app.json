@@ -17,6 +17,7 @@
     },
     "android": {
       "package": "net.badacadabra.pipo",
+      "versionCode": 2,
       "permissions": ["VIBRATE"]
     }
   }
