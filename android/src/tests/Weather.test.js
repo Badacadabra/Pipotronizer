@@ -1,9 +1,13 @@
 import React from 'react';
-import Wheel from '../components/Wheel';
-import renderer from 'react-test-renderer';
+import Weather from '../components/Weather';
 import cloudy from '../../assets/images/background-2.jpg';
+import renderer from 'react-test-renderer';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 it('renders without crashing', () => {
-  const rendered = renderer.create(<Wheel weather={cloudy} duration={1000} />).toJSON();
-  expect(rendered).toBeTruthy();
+  const weather = shallow(<Weather sky={cloudy} wind={1000} />);
+  expect(weather).toBeTruthy();
 });

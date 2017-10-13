@@ -1,47 +1,48 @@
 import React from 'react';
 import Pipo from '../components/Pipo';
-import renderer from 'react-test-renderer';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-const pipo = new Pipo();
+configure({ adapter: new Adapter() });
 
 function isSentence() {
-  expect(typeof pipo.getSentence()).toBe('string');
-  expect(pipo.getSentence()).toBeTruthy();
-  expect(pipo.getSentence().length).toBeGreaterThan(20);
+  expect(typeof pipo.instance().getSentence()).toBe('string');
+  expect(pipo.instance().getSentence()).toBeTruthy();
+  expect(pipo.instance().getSentence().length).toBeGreaterThan(20);
 }
 
+const pipo = shallow(<Pipo level="confirmé" update={ () => null }/>);
+
 it('renders without crashing', () => {
-  const rendered = renderer.create(<Pipo level="confirmé" />).toJSON();
-  expect(rendered).toBeTruthy();
+  expect(pipo).toBeTruthy();
 });
 
 it('can capitalize', () => {
-  expect(pipo.capitalize('foo')).toEqual('Foo');
-  expect(pipo.capitalize('lorem ipsum')).toEqual('Lorem ipsum');
+  expect(pipo.instance().capitalize('foo')).toEqual('Foo');
+  expect(pipo.instance().capitalize('lorem ipsum')).toEqual('Lorem ipsum');
 });
 
 it('generates substring properly', () => {
   expect(() => {
-    pipo.getSubstring();
+    pipo.instance().getSubstring();
   }).toThrow();
 
-  expect(pipo.getSubstring(['foo'])).toEqual('foo');
+  expect(pipo.instance().getSubstring(['foo'])).toEqual('foo');
 
-  expect(pipo.getSubstring(['foo', 'bar'], 'foo')).toEqual('bar');
+  expect(pipo.instance().getSubstring(['foo', 'bar'], 'foo')).toEqual('bar');
 });
 
 it('generates a sentence', () => {
-  pipo.props = { level: 'junior' };
+  pipo.setProps({ level: 'junior' });
   isSentence();
 
-  pipo.props = { level: 'confirmé' };
+  pipo.setProps({ level: 'confirmé' });
   isSentence();
 
-  pipo.props = { level: 'senior' };
+  pipo.setProps({ level: 'senior' });
   isSentence();
 
-  pipo.props = { level: 'boss' };
   expect(() => {
-    pipo.getSentence();
+    pipo.setProps({ level: 'boss' });
   }).toThrow('Incorrect level!');
 });

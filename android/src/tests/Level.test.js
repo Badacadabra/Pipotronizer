@@ -1,14 +1,17 @@
 import React from 'react';
 import Level from '../components/Level';
-import renderer from 'react-test-renderer';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 it('renders without crashing', () => {
-  const junior = renderer.create(<Level level="junior" color="#F4BF31" fontLoaded={true} />).toJSON();
+  const junior = shallow(<Level level="junior" color="#F4BF31" fontLoaded={true} />);
   expect(junior).toBeTruthy();
 
-  const confirmé = renderer.create(<Level level="confirmé" color="#44DBBD" fontLoaded={true} />).toJSON();
+  const confirmé = shallow(<Level level="confirmé" color="#44DBBD" fontLoaded={true} />);
   expect(confirmé).toBeTruthy();
 
-  const senior = renderer.create(<Level level="senior" color="#9FD7FC" fontLoaded={true} />).toJSON();
+  const senior = shallow(<Level level="senior" color="#9FD7FC" fontLoaded={true} />);
   expect(senior).toBeTruthy();
 });

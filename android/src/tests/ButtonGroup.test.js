@@ -1,26 +1,26 @@
 import React from 'react';
 import ButtonGroup from '../components/ButtonGroup';
 import renderer from 'react-test-renderer';
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
 
 it('renders without crashing', () => {
-  const rendered = renderer.create(<ButtonGroup changeLevel={null} />).toJSON();
+  const rendered = renderer.create(<ButtonGroup changeLevel={() => null} />).toJSON();
   expect(rendered).toBeTruthy();
 
-  const btnGroup = new ButtonGroup();
-
-  btnGroup.props = {
-    changeLevel: level => {}
-  };
+  const btnGroup = shallow(<ButtonGroup changeLevel={() => null}/>);
 
   expect(() => {
-    btnGroup.setJunior();
+    btnGroup.instance().setJunior();
   }).not.toThrow();
 
   expect(() => {
-    btnGroup.setExperienced();
+    btnGroup.instance().setExperienced();
   }).not.toThrow();
 
   expect(() => {
-    btnGroup.setSenior();
+    btnGroup.instance().setSenior();
   }).not.toThrow();
 });
