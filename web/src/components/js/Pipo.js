@@ -282,8 +282,13 @@ class Pipo extends Component<Props, State> {
                     <input type="hidden" name="charset" value="utf-8" />
                     <input type="hidden" name="business" value="contact@badacadabra.net" />
                     <input type="hidden" name="item_name" value="Collecte de fonds pour «&nbsp;Électriciens sans frontières&nbsp;» via Pipotronizer" />
+                    <input type="hidden" name="item_number" value="1" />
                     <input type="hidden" name="amount" value={(this.state.money / 100).toFixed(2)} />
+                    <input type="hidden" name="lc" value="FR" />
                     <input type="hidden" name="currency_code" value="EUR" />
+                    <input type="hidden" name="no_shipping" value="1" />
+                    <input type="hidden" name="return" value="https://www.pipotronizer.com" />
+                    <input type="hidden" name="cancel_return" value="https://www.pipotronizer.com" />
                     <div className="donate">
                       <input type="submit" name="submit" value="Changer en électricité" />
                       <div className="light-bulb"></div>
