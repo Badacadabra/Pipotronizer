@@ -8,6 +8,7 @@
         "Bien sûr,",
         "De toute évidence,",
         "En conclusion,",
+        "In fine,",
         "Face à la crise,",
         "Face à l'austérité,",
         "Très concrètement,",
@@ -17,6 +18,7 @@
         "Après quelques essais concluants,",
         "En s'appuyant sur les résultats encourageants,",
         "En vertu de notre démarche qualité,",
+        "Compte tenu du bilan,",
         "Conformément à la stratégie adoptée,",
         "Dans une démarche constructive,",
         "Parce que le client est roi,",
@@ -50,11 +52,10 @@
         "Je dois vous informer que"
       ],
       "senior": [
-        "In fine,",
+        "FYI,",
         "En termes business,",
         "Sur ce micro-segment,",
         "Pour contrebalancer la stagflation,",
-        "Compte tenu du bilan,",
         "Comme indiqué dans les statuts,",
         "Si l'on en croit l'analyse PESTEL,",
         "Parallèlement aux objectifs,",
@@ -102,8 +103,11 @@
         "Vous le voyez sur le PowerPoint :",
         "Mes bullet points me précèdent :",
         "Mon rapport Word explique pourquoi",
-        "Le projet est au point mort car",
-        "Nous allons dans le sens du CAC 40 puisque"
+        "Le projet est en standby car",
+        "C'est un peu le rush en ce moment car",
+        "Un must-have n'est pas un nice-to-have car",
+        "Nous allons dans le sens du CAC 40 puisque",
+        "Je suis overbooké, mais"
       ]
     },
     "sujet": {
@@ -354,13 +358,18 @@
               "le CTO",
               "le CIO",
               "le CDO",
+              "le CCO",
+              "le CLO",
               "le DA",
               "le CA",
               "le SAV",
               "le speaker",
+              "le timekeeper",
               "le staff",
               "l'engineering",
               "le Chief Happiness Officer",
+              "le Chief Content Officer",
+              "le Chief Listening Officer",
               "le traffic manager",
               "le yield manager",
               "le talent acquisition manager",
@@ -386,7 +395,15 @@
               "notre compliance officer",
               "notre office manager",
               "notre senior corporate advisor",
-              "notre special projects manager"
+              "notre special projects manager",
+              "notre sales ninja",
+              "notre social media guru",
+              "notre product evangelist",
+              "notre marketing wizard",
+              "notre online marketing rockstar",
+              "notre digital marketing alchemist",
+              "notre content curator",
+              "notre content marketing jedi"
             ],
             "pluriel": [
               "les speakers",
@@ -403,6 +420,8 @@
               "les business enablers",
               "les business partners",
               "les digital planners",
+              "les digital natives",
+              "les millennials",
               "les Key Account Managers",
               "les traffic managers",
               "les yield managers",
@@ -746,6 +765,9 @@
           "booster",
           "coacher",
           "challenger",
+          "packager",
+          "merger",
+          "splitter",
           "brainstormer sur",
           "benchmarker",
           "checker",
@@ -780,6 +802,7 @@
           "back-tester",
           "étalonner",
           "décomplexer",
+          "déscoper",
           "donner son go sur"
         ],
         "conjugué": {
@@ -787,6 +810,9 @@
             "booste",
             "coache",
             "challenge",
+            "package",
+            "merge",
+            "splitte",
             "brainstorme sur",
             "benchmarke",
             "checke",
@@ -821,12 +847,16 @@
             "back-teste",
             "étalonne",
             "décomplexe",
+            "déscope",
             "donne son go sur"
           ],
           "pluriel": [
             "boostent",
             "coachent",
             "challengent",
+            "packagent",
+            "mergent",
+            "splittent",
             "brainstorment sur",
             "benchmarkent",
             "checkent",
@@ -861,6 +891,7 @@
             "back-testent",
             "étalonnent",
             "décomplexent",
+            "déscopent",
             "donnent leur go sur"
           ]
         }
@@ -958,12 +989,13 @@
           },
           "féminin": {
             "singulier": [
+              "la marque",
               "la mission",
+              "la démission",
               "la publicité",
               "l'ambition",
               "la réunion",
               "la mobilité",
-              "la marque",
               "la vente",
               "l'opportunité",
               "la formation",
@@ -996,6 +1028,7 @@
             "pluriel": [
               "les marques",
               "les missions",
+              "les démissions",
               "les réunions",
               "les affaires",
               "les solutions",
@@ -1201,6 +1234,8 @@
               "les stock options",
               "les relations presse",
               "les postures",
+              "les CGU",
+              "les CGV",
               "nos parts de marché"
             ]
           }
@@ -1232,6 +1267,7 @@
               "le speech",
               "le dumping",
               "le mockup",
+              "le backup",
               "le copywriting",
               "le team building",
               "le time-to-market",
@@ -1241,6 +1277,7 @@
               "le crowdsourcing",
               "le storytelling",
               "le social selling",
+              "le job crafting",
               "le coworking",
               "le mind mapping",
               "le marketing mix",
@@ -1248,7 +1285,7 @@
               "le matching",
               "le rétro-planning",
               "le kick-off meeting",
-              "le plus produit",
+              "le plus-produit",
               "l'executive summary",
               "le business model",
               "le business plan",
@@ -1266,6 +1303,7 @@
               "le big data",
               "le mindset",
               "le dashboard",
+              "le sprint",
               "le DIY",
               "le SEO",
               "le SEA",
@@ -1280,6 +1318,7 @@
               "le CPL",
               "le SI",
               "un MVP",
+              "un wireframe",
               "un ancrage",
               "un cluster",
               "un quick-win",
@@ -1311,6 +1350,7 @@
               "les retours d'expérience",
               "les chatbots",
               "les dashboards",
+              "des wireframes",
               "des side projects",
               "des data warehouses",
               "des datamarts",
@@ -1341,6 +1381,7 @@
               "la RSE",
               "la SOA",
               "la SMO",
+              "la QoS",
               "l'UX",
               "l'IA",
               "la FAQ",
@@ -1861,6 +1902,9 @@
           "en boostant",
           "en coachant",
           "en challengeant",
+          "en packageant",
+          "en mergeant",
+          "en splittant",
           "en brainstormant sur",
           "en benchmarkant",
           "en checkant",
@@ -1894,7 +1938,9 @@
           "en leverageant",
           "en back-testant",
           "en étalonnant",
-          "en décomplexant"
+          "en décomplexant",
+          "en déscopant",
+          "en donnant le go sur"
         ]
       },
       "bouquetFinal": {
