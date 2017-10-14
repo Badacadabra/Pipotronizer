@@ -215,7 +215,7 @@ class Pipo extends Component<Props, State> {
     if (this.isCorrect(level)) {
       switch(level) {
         case 'junior':
-          return action === 'newSentence' ? 10 : 2;
+          return action === 'newSentence' ? 25 : 5;
         case 'confirmé':
           return action === 'newSentence' ? 50 : 10;
         case 'senior':

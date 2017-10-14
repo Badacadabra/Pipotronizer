@@ -29,19 +29,19 @@ it('handles level change properly', () => {
     pipo.instance().changeLevel({target: { value: 'junior' }});
   }).not.toThrow();
 
-  expect(pipo.state().money).toEqual(10); // 0 + 10
+  expect(pipo.state().money).toEqual(25); // 0 + 25
 
   expect(() => {
     pipo.instance().changeLevel({target: { value: 'confirmé' }});
   }).not.toThrow();
 
-  expect(pipo.state().money).toEqual(60); // 0 + 10 + 50
+  expect(pipo.state().money).toEqual(75); // 0 + 25 + 50
 
   expect(() => {
     pipo.instance().changeLevel({target: { value: 'senior' }});
   }).not.toThrow();
 
-  expect(pipo.state().money).toEqual(160); // 0 + 10 + 50 + 100
+  expect(pipo.state().money).toEqual(175); // 0 + 25 + 50 + 100
 
   expect(() => {
     pipo.instance().changeLevel({target: { value: 'boss' }});

@@ -41,7 +41,7 @@ class Levels extends Component {
                 <img src={windmill1} alt="Bonne brise" />
                 <figcaption>
                   Bonne brise pour vous réveiller en douceur&#8239;!
-                  <div className="price">(0,10 € par phrase / 0,02 € par fragment)</div>
+                  <div className="price">(0,25 € par phrase / 0,05 € par fragment)</div>
                 </figcaption>
               </figure>
             </Col>
