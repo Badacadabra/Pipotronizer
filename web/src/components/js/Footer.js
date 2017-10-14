@@ -21,7 +21,7 @@ class Footer extends Component {
                 <a href="https://twitter.com/pipotronizer" target="_blank" rel="noopener noreferrer">
                   <img src={twitter} alt="Pipotronizer sur Twitter" />
                 </a>
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://play.google.com/store/apps/details?id=net.badacadabra.pipo" target="_blank" rel="noopener noreferrer">
                   <img src={googlePlay} alt="Pipotronizer sur Android" />
                 </a>
                 <a href="https://github.com/Badacadabra/Pipotronizer" target="_blank" rel="noopener noreferrer">
