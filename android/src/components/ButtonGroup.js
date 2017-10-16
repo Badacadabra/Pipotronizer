@@ -34,8 +34,12 @@ export default class Pipo extends Component<void, Props, void> {
   }
 
   render() {
+    const width: Object = {
+      width: Dimensions.get('window').width
+    };
+
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, width]}>
         <TouchableOpacity onPress={this.setJunior}>
           <Image source={windmill1} />
         </TouchableOpacity>
@@ -54,7 +58,6 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 15,
     paddingBottom: 15,
-    width: Dimensions.get('window').width,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center'

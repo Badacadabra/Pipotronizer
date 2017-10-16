@@ -9,8 +9,12 @@ type Props = {
 
 export default class Pipo extends Component<void, Props, void> {
   render() {
+    const width: Object = {
+      width: Dimensions.get('window').width
+    };
+
     return (
-      <View style={[styles.container, {backgroundColor: this.props.color}]}>
+      <View style={[styles.container, width, {backgroundColor: this.props.color}]}>
         <Text style={styles.level}>Niveau : {this.props.level}</Text>
       </View>
     );
@@ -19,8 +23,7 @@ export default class Pipo extends Component<void, Props, void> {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    width: Dimensions.get('window').width
+    padding: 10
   },
   level: {
     color: '#181818',

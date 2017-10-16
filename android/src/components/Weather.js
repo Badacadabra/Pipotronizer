@@ -41,16 +41,20 @@ export default class Weather extends Component<void, Props, void> {
       outputRange: ['0deg', '360deg']
     });
 
-    const animatedStyle: any = {
+    const animatedStyle: Object = {
       transform: [
         { rotate: interpolateRotation }
       ]
-    }
+    };
 
-    const sky: any = { blue, cloudy, gray }
+    const width: Object = {
+      width: Dimensions.get('window').width
+    };
+
+    const sky: Object = { blue, cloudy, gray }
 
     return (
-      <ImageBackground source={sky[this.props.sky]} style={styles.container}>
+      <ImageBackground source={sky[this.props.sky]} style={[styles.container, width]}>
         <Animated.Image source={wheel} style={[styles.wheel, animatedStyle]} />
       </ImageBackground>
     );
@@ -59,7 +63,6 @@ export default class Weather extends Component<void, Props, void> {
 
 const styles = StyleSheet.create({
   container: {
-    width: Dimensions.get('window').width,
     height: 150,
     marginTop: 66,
     justifyContent: 'center',

@@ -108,8 +108,12 @@ export default class Pipo extends Component<void, Props, void> {
     let sentence: string = this.getSentence();
     this.props.update(sentence);
 
+    const width: Object = {
+      width: Dimensions.get('window').width
+    };
+
     return (
-      <ImageBackground source={blackboard} style={styles.container}>
+      <ImageBackground source={blackboard} style={[styles.container, width]}>
         <ScrollView contentContainerStyle={styles.scroll}>
           <Text style={styles.sentence}>«&nbsp;{sentence}&nbsp;»</Text>
         </ScrollView>
@@ -120,8 +124,7 @@ export default class Pipo extends Component<void, Props, void> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    width: Dimensions.get('window').width
+    flex: 1
   },
   scroll: {
     flexGrow: 1,
