@@ -4,7 +4,7 @@
     "description": "Générateur de phrases corporate",
     "slug": "pipotronizer",
     "privacy": "public",
-    "sdkVersion": "20.0.0",
+    "sdkVersion": "21.0.0",
     "version": "1.0.2",
     "orientation": "portrait",
     "primaryColor": "#0C0C0C",
