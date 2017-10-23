@@ -4,21 +4,22 @@
     "description": "Générateur de phrases corporate",
     "slug": "pipotronizer",
     "privacy": "public",
-    "sdkVersion": "21.0.0",
+    "sdkVersion": "22.0.0",
     "version": "1.0.2",
     "orientation": "portrait",
     "primaryColor": "#0C0C0C",
     "icon": "assets/images/icon.png",
-    "loading": {
-      "icon": "assets/images/splash-fg.png",
-      "backgroundColor": "#559DCC",
-      "backgroundImage": "assets/images/splash-bg.png",
-      "hideExponentText": true
-    },
     "android": {
       "package": "net.badacadabra.pipo",
       "versionCode": 3,
-      "permissions": ["VIBRATE"]
+      "permissions": ["VIBRATE"],
+      "splash": {
+        "backgroundColor": "#559DCC",
+        "ldpi": "assets/images/splash-ldpi.png",
+        "mdpi": "assets/images/splash-mdpi.png",
+        "hdpi": "assets/images/splash-hdpi.png",
+        "xhdpi": "assets/images/splash-xhdpi.png"
+      }
     }
   }
 }
