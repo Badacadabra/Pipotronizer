@@ -1,12 +1,13 @@
 // @flow
 import React, { Component } from 'react';
-import { Dimensions, StyleSheet, ScrollView, Text, ImageBackground } from 'react-native';
+import { Dimensions, StyleSheet, TouchableOpacity, ImageBackground, ScrollView, Text } from 'react-native';
 import lexique from '../../assets/lexique.json';
 import blackboard from '../../assets/images/dark-blackboard.png';
 
 type Props = {
   level: string,
-  update: Function
+  update: Function,
+  onPress: Function
 };
 
 export default class Pipo extends Component<void, Props, void> {
@@ -113,9 +114,11 @@ export default class Pipo extends Component<void, Props, void> {
     };
 
     return (
-      <ImageBackground source={blackboard} style={[styles.container, width]}>
+      <ImageBackground source={blackboard} style={[styles.container, width]}>
         <ScrollView contentContainerStyle={styles.scroll}>
-          <Text style={styles.sentence}>«&nbsp;{sentence}&nbsp;»</Text>
+          <TouchableOpacity onPress={this.props.onPress}>
+            <Text style={styles.sentence}>«&nbsp;{sentence}&nbsp;»</Text>
+          </TouchableOpacity>
         </ScrollView>
       </ImageBackground>
     );

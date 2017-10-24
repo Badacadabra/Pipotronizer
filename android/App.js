@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import { StyleSheet, View, Alert, Share, Vibration, Linking } from 'react-native';
+import { StyleSheet, View, Alert, Share, Vibration, Linking, Clipboard, ToastAndroid } from 'react-native';
 import { Header } from 'react-native-elements';
 import { Asset, AppLoading, Font, FacebookAds } from 'expo';
 import Weather from './src/components/Weather';
@@ -147,6 +147,11 @@ Pour une expérience optimale, il est conseillé d'avoir au minimum Facebook et 
     });
   }
 
+  copyToClipboard(): void {
+    Clipboard.setString(sentence);
+    ToastAndroid.show('Phrase copiée dans le presse-papier', ToastAndroid.SHORT);
+  }
+
   render() {
     if (!this.state.isReady) {
       return <AppLoading />;
@@ -162,7 +167,7 @@ Pour une expérience optimale, il est conseillé d'avoir au minimum Facebook et 
           outerContainerStyles={{ backgroundColor: '#0C0C0C', paddingTop: 4 }}
         />
         <Weather sky={this.state.sky} wind={this.state.wheelSpeed} />
-        <Pipo level={this.state.level} update={this.update.bind(this)} />
+        <Pipo level={this.state.level} update={this.update.bind(this)} onPress={this.copyToClipboard} />
         <ButtonGroup changeLevel={this.changeLevel.bind(this)} />
         <Level level={this.state.level} color={this.state.levelColor} />
       </View>
