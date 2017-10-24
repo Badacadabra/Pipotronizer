@@ -23,7 +23,7 @@ let sentence: string = '',
 
 // FacebookAds.AdSettings.addTestDevice(FacebookAds.AdSettings.currentDeviceHash);
 
-export default class App extends Component<void, void, State> {
+export default class App extends Component<void, State> {
   state: State = {
     isReady: false,
     level: 'confirmé',

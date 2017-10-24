@@ -11,7 +11,7 @@ type Props = {
   sky: string
 };
 
-export default class Weather extends Component<void, Props, void> {
+export default class Weather extends Component<Props, void> {
   animatedValue: Object;
 
   componentDidMount(): void {

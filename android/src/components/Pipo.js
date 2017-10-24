@@ -10,7 +10,7 @@ type Props = {
   onPress: Function
 };
 
-export default class Pipo extends Component<void, Props, void> {
+export default class Pipo extends Component<Props, void> {
   genres: string[]
   nombres: string[]
   levels: string[]

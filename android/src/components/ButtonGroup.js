@@ -9,7 +9,7 @@ type Props = {
   changeLevel: Function
 };
 
-export default class Pipo extends Component<void, Props, void> {
+export default class Pipo extends Component<Props, void> {
   setJunior: Function;
   setExperienced: Function;
   setSenior: Function;

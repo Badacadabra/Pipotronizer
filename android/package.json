@@ -5,7 +5,7 @@
   "devDependencies": {
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.1",
-    "flow-bin": "^0.49.1",
+    "flow-bin": "^0.57.3",
     "jest-expo": "^22.0.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.0.0",

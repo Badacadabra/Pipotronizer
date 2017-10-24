@@ -7,7 +7,7 @@ type Props = {
   level: string
 };
 
-export default class Pipo extends Component<void, Props, void> {
+export default class Pipo extends Component<Props, void> {
   render() {
     const width: Object = {
       width: Dimensions.get('window').width
