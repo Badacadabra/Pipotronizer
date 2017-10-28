@@ -5,13 +5,13 @@
     "slug": "pipotronizer",
     "privacy": "public",
     "sdkVersion": "22.0.0",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "primaryColor": "#0C0C0C",
     "icon": "assets/images/icon.png",
     "android": {
       "package": "net.badacadabra.pipo",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": ["VIBRATE"],
       "splash": {
         "backgroundColor": "#559DCC",
