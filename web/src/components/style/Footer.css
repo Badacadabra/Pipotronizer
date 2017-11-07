@@ -24,20 +24,22 @@ footer .social {
   align-items: center;
 }
 
+footer .playstore {
+  text-align: center;
+  margin-top: 22px;
+}
+
 footer #st-1 {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-}
-
-footer .sharethis-inline-reaction-buttons {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 footer .credits {
   color: silver;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 20px;
   background-color: #121212;
 }
