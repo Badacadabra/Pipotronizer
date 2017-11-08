@@ -48,6 +48,9 @@ class About extends Component<Props, null> {
             </Col>
           </Row>
         </Grid>
+        {/* Preload backgrounds to avoid white flash on change */}
+        <img src={blue} alt="" style={{display: 'none'}} />
+        <img src={gray} alt="" style={{display: 'none'}} />
       </div>
     );
   }

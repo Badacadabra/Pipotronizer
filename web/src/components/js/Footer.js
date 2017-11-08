@@ -38,7 +38,7 @@ class Footer extends Component {
             </Col>
             <Col md={4}>
               <h3>Coup de pouce</h3>
-              <p>Si vous aimez <span className="highlight">Pipotronizer</span> et que vous souhaitez soutenir le projet, vous pouvez faire un don «&nbsp;coup de pouce&nbsp;» en cliquant sur le bouton ci-dessous. Ce don n'a rien à voir avec la cagnotte générée et permettra surtout à votre serviteur de payer ses factures d'électricité. Le montant est libre.</p>
+              <p>Si vous aimez <span className="highlight">Pipotronizer</span> et que vous souhaitez soutenir le projet, vous pouvez faire un don «&nbsp;coup de pouce&nbsp;» en cliquant sur le bouton ci-dessous. Ce don n'a rien à voir avec la cagnotte générée et permettra surtout à votre serviteur de payer ses factures d'électricité... Le montant est libre.</p>
               <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                 <input type="hidden" name="cmd" value="_s-xclick" />
                 <input type="hidden" name="hosted_button_id" value="H7KQTUZR3ZXBJ" />
