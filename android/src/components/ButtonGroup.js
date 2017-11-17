@@ -60,6 +60,7 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF'
   }
 });
