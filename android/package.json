@@ -6,7 +6,7 @@
     "enzyme": "^3.1.0",
     "enzyme-adapter-react-16": "^1.0.1",
     "flow-bin": "^0.57.3",
-    "jest-expo": "^22.0.0",
+    "jest-expo": "^23.0.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.0.0",
     "react-native-mock": "^0.3.1",
@@ -25,9 +25,9 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "expo": "^22.0.0",
-    "react": "16.0.0-beta.5",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-22.0.1.tar.gz",
+    "expo": "^23.0.0",
+    "react": "16.0.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
     "react-native-elements": "^0.16.0"
   }
 }

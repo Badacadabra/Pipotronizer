@@ -4,14 +4,14 @@
     "description": "Générateur de phrases corporate",
     "slug": "pipotronizer",
     "privacy": "public",
-    "sdkVersion": "22.0.0",
-    "version": "1.0.3",
+    "sdkVersion": "23.0.0",
+    "version": "1.0.4",
     "orientation": "portrait",
     "primaryColor": "#0C0C0C",
     "icon": "assets/images/icon.png",
     "android": {
       "package": "net.badacadabra.pipo",
-      "versionCode": 4,
+      "versionCode": 5,
       "permissions": ["VIBRATE"],
       "splash": {
         "backgroundColor": "#559DCC",
